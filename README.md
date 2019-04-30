@@ -6,16 +6,29 @@
 ```
 1. What is the need (i.e. challenge) that you will be addressing in your project?
 ```   
-Our challenge is to create a web application which will act as a two sided market place for users who want to sell and/or purchase miscellaneous items.
-Each item will fall under a particular category to assist users to find desired items.
+Initially our idea was to create a web application which will act as a two sided market place for users who want to sell and/or purchase miscellaneous items.
+
+On day 2 we decided to change our project direction. Our new challenge was to create a catering application where users could find a particular type of cuisine for a private function. Chefs/companies can advertise their cuisine speciality on the application. 
 
 
 ```
 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
 ```
-Offering users an alternative to pre-existing market places such as eBay and Amazon. Owned and managed by Australian based entities. Owing to the fact that online purchasing is exponentially increasing, we are creating an online store for our products.
-People have recognized that these corporate entities have cornered the market leaving little room for small local companies.
+Presently, many catering companies have their own websites, only providing select options to their potential customers. Customers have the problem of limited cuisine selection from these websites. 
 
+The problem is that customers have little 
+
+This marketplace app will advertise many catering companies on the one site, with each catering company specializing in a particular cuisine. 
+
+Benefits for catering companies include 
+- drastically reduced website overhead costs
+- increased exposure to customer base
+
+Benefits for customer base include
+- many cuisines in the one location
+- ability to find catering companies by location
+- reduced costs from increased competition (many companies on the one site)
+- provide/read feedback 
 
 ```
 3. Describe the project will you be conducting and how. your App will address the needs.
