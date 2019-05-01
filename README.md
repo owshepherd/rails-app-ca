@@ -9,8 +9,8 @@ Project plan & timeline
 - [X] Start styling - Tues
 - [ ] Finish adding models - Wed
 - [ ] Add CRUD functionality - Wed/Thu
-- [ ] MVP - Fri
-- [ ]
+- [ ] Add mailgun, stripe, aws
+- [ ] 
 - [ ]
 
 
@@ -79,6 +79,8 @@ We will be using the following software in our project:
 We are using PostgreSQL 11 as our database. 
 
 PostgreSQL is object-relational. It supports user-defined objects and their behaviors including data types, functions, operators, domains and indexes. This makes PostgreSQL extremely flexible and robust. Among other things, complex data structures can be created, stored and retrieved. It supports a number of built-in and user-defined data types, provides extensive data capacity and is trusted for its data integrity. 
+
+PostgreSQL 11 is now the default version for all new provisioned Heroku Postgres databases.  [https://blog.heroku.com/postgresql-11-general-availability]. Since we have deployed on Heroku, we needed to use PostgreSQL 11
 
 ```
 7. Identify and describe the production database setup (i.e. postgres instance).
