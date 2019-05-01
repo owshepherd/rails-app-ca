@@ -1,5 +1,30 @@
 # README
 
+
+Details of planning process including,
+Project plan & timeline
+
+- [X] Design project - Mon/Tue.
+- [X] Start coding - Mon
+- [X] Start styling - Tues
+- [ ] Finish adding models - Wed
+- [ ] Add CRUD functionality - Wed/Thu
+- [ ] Add mailgun, stripe, aws
+- [ ] 
+- [ ]
+
+
+Day | Date | Tasks | Tasks completed | Blocks
+--- | --- | --- | --- | ---
+*Mon* | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github Repo | 
+Tue | 30 April |Install Devise for users | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github
+Wed | 1 May | Install Devise for Providers, design partials, add all models | |
+Thu | 2 May |  | |
+Fri | 3 May |  | |
+
+
+
+
 2.2 Requirements - Short Answer Questions
 
 # 2.2 Requirements - Short Answer Questions
@@ -41,11 +66,21 @@ Benefits for customer base include
 ```
 5. Identify and describe the software to be used in your App.
 ```
-ruby, html, rails, scss
+We will be using the following software in our project:
+
+ - Ruby: 
+ - Ruby on Rails: 
+ - html: 
+ - scss: 
 
 ```
 6. Identify the database to be used in your App and provide a justification for your choice.
 ```
+We are using PostgreSQL 11 as our database. 
+
+PostgreSQL is object-relational. It supports user-defined objects and their behaviors including data types, functions, operators, domains and indexes. This makes PostgreSQL extremely flexible and robust. Among other things, complex data structures can be created, stored and retrieved. It supports a number of built-in and user-defined data types, provides extensive data capacity and is trusted for its data integrity. 
+
+PostgreSQL 11 is now the default version for all new provisioned Heroku Postgres databases.  [https://blog.heroku.com/postgresql-11-general-availability]. Since we have deployed on Heroku, we needed to use PostgreSQL 11
 
 ```
 7. Identify and describe the production database setup (i.e. postgres instance).
