@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(providers)
-      listings_show_path
+      
+      @provider = current_provider
+      @listing = Listing.create(name: params[:provider][:name], provider: @provider)
+      listing_path(@listing)
     end
  end

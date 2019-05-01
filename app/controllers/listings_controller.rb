@@ -28,6 +28,5 @@ class ListingsController < ApplicationController
     private
       def listing_params
         params.permit(:name)
-      end
-      
+      end   
 end
