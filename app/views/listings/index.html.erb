@@ -1,0 +1,9 @@
+<h1>Listings</h1>
+
+<ul>
+    <% @listings.each_with_index do |listing, index| %>
+        <li>
+            <%= listing.name %> - <%= listing.name %> <%= link_to "show", listing_path(listing.id) %>
+        </li>
+    <% end %>
+</ul>
