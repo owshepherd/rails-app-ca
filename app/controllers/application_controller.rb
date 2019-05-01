@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
  
   protected
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :username, :password, :password_confirmation, :firstname, :lastname, :dob, :remember_me) }
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :username, :password, :password_confirmation, :firstname, :lastname, :name, :city, :state, :postcode, :minimum_persons, :cost_per_head, :dob, :remember_me) }
       devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
       devise_parameter_sanitizer.permit(:account_update) { |u| u.permit( :firstname, :lastname, :username, :dob, :email, :password, :password_confirmation, :current_password) }
+    end
+
+    def after_sign_in_path_for(providers)
+      listings_show_path
     end
  end
