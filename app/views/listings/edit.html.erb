@@ -1,0 +1,29 @@
+<h1>Edit Listing</h1>
+
+<form action="<%= listing_path(params[:id]) %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+    <input type="hidden" name="_method" value="patch" />
+
+    <label for="name">Title</label>
+    <input type="text" name="name" id="name" value="<%= @listing.name %>"/>
+
+    <% if @listing.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+        <%= pluralize(@listing.errors.count, "error") %> prohibited
+        this article from being saved:
+        </h2>
+        <ul>
+        <% @listing.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+
+    <input type="submit" value="Update" />
+</form>
+
+<%= link_to "<< Back", :back %>

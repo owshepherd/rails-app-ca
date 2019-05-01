@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :danger, :info, :warning, :success
+  
   protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
  
@@ -9,7 +11,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update) { |u| u.permit( :firstname, :lastname, :username, :dob, :email, :password, :password_confirmation, :current_password) }
     end
 
-    def after_sign_in_path_for(providers)
+    def after_sign_up_path_for(providers)
       
       @provider = current_provider
       @listing = Listing.create(name: params[:provider][:name], provider: @provider)
