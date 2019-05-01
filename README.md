@@ -7,9 +7,9 @@ Project plan & timeline
 - [X] Design project - Mon/Tue.
 - [X] Start coding - Mon
 - [X] Start styling - Tues
-- [ ] Finish adding models - Wed
+- [ ] Finish adding models - Wed/Thu
 - [ ] Add CRUD functionality - Wed/Thu
-- [ ] Add mailgun, stripe, aws
+- [ ] Add mailgun, stripe, aws - Fri
 - [ ] 
 - [ ]
 
@@ -17,8 +17,8 @@ Project plan & timeline
 Day | Date | Tasks | Tasks completed | Blocks
 --- | --- | --- | --- | ---
 *Mon* | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github Repo | 
-Tue | 30 April |Install Devise for users | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github
-Wed | 1 May | Install Devise for Providers, design partials, add all models | |
+Tue | 30 April |Install Devise for users, design partials, | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github
+Wed | 1 May | Install Devise for Providers,  add models (listing, cuisine, booking), modify routes, decide on provider work flow | added devise for providers, added listing model | 
 Thu | 2 May |  | |
 Fri | 3 May |  | |
 
@@ -93,13 +93,23 @@ PostgreSQL 11 is now the default version for all new provisioned Heroku Postgres
 ```
 9. Explain the different high-level components (abstractions) in your App.
 ```
-
+Abstraction is selecting data from a larger pool to show only the relevant details to the object. It helps to reduce programming complexity and effort. In our model active record is the abstraction of SQL. For example when we type in User.find(1), active record performs the following tasks for us: `SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2`  and returns the attribute for 
+User, id:1 eg => #<User id: 1, email: "owen@email.com", created_at: "2019-04-30 06:02:36", updated_at: "2019-04-30 06:30:36", username: "owen", firstname: "Owen", lastname: "Shepherd", dob: "2019-04-30", avatar: nil>
 
 ```
 10. Detail any third party services that your App will use.
 ```
-stripe, mailgun, heroku
-gems - devise
+
+We will be using the following third party services:
+
+ - Stripe: allows individuals and businesses to make and receive payments over the Internet.
+ - Mailgun:  Email Service For Developers
+ - Heroku: A platform as a service that enables developers to build, run, and operate applications entirely in the cloud.
+
+ Gems used
+- devise
+- bootstrap
+
 
 ```
 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb)
