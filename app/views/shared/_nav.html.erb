@@ -20,12 +20,14 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user %>
           <%= current_user.firstname %>
+          <% elsif current_provider %>
+          <%= current_provider.email %>
           <% else %>
-            My Account
+          My Account
           <% end %>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-        <% if current_user %>
+        <% if current_user || current_provider %>
           <%= link_to 'Modify Account', edit_user_registration_path, class: "dropdown-item" %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         <% else %>
