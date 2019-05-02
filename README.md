@@ -12,6 +12,8 @@ Project plan & timeline
 - [ ] Add mailgun, stripe, aws - Fri
 - [ ] Add cancan can
 - [ ]
+- [ ]
+- [ ]
 
 
 Day | Date | Tasks | Tasks completed | Blocks | Completed by
