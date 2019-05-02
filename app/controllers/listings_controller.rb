@@ -16,15 +16,16 @@ class ListingsController < ApplicationController
 
     def new
         @listing = Listing.new
-        provider = Provider.find(current_provider.id)
+        @provider = Provider.find(current_provider.id)
 
-        @listing.name = provider.name
+        @listing.name = @provider.name
         @listing.save
     end
 
     def show
         @listing = Listing.find(params[:id])
-        @listings = Listing.all
+        
+        @provider = Provider.find(current_provider.id)
     end
 
     def edit
