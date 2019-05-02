@@ -5,13 +5,11 @@
 
 <%= link_to "Back", :back %>
 <%= link_to "Listing", listings_path %>
-<% @listings.each_with_index do |listing, index| %>
   <% if provider_signed_in? %>   
-  <%= link_to "Edit", edit_listing_path(listing.id) %>
-  <%= link_to 'Destroy', listing_path(listing.id),
+  <%= link_to "Edit", edit_listing_path(@listing.id) %>
+  <%= link_to 'Destroy', listings_path(@listing.id),
   method: :delete,
   data: { confirm: 'Are you sure?' } %>
   <% end %>
-<% end %>  
 
 <p><%= link_to "Home", root_path %></p>
