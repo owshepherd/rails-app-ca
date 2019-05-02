@@ -5,7 +5,7 @@
     <li>
       <%= listing.name %> 
       <p><%= link_to "show", listing_path(listing.id) %>
-        <% if provider_signed_in? %>  
+        <% if listing.provider == current_provider %> 
         <%= link_to "Edit", edit_listing_path(listing.id) %>
         <%= link_to 'Destroy', listing_path(listing.id),
         method: :delete,

@@ -19,7 +19,7 @@ Day | Date | Tasks | Tasks completed | Blocks
 *Mon* | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github Repo | 
 Tue | 30 April |Install Devise for users, design partials, | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github
 Wed | 1 May | Install Devise for Providers,  add models (listing, cuisine, booking), modify routes, decide on provider work flow | added devise for providers, added listing model | 
-Thu | 2 May |  | |
+Thu | 2 May | Create all models | Devise providers sign_up/in now routing to correct paths. | Devise for providers did not work correctly-fixed
 Fri | 3 May |  | |
 
 
