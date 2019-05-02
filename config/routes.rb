@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :listings
   resources :providers
   resources :users
+  resources :bookings
 end
