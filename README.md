@@ -14,18 +14,16 @@ Project plan & timeline
 - [ ]
 
 
-Day | Date | Tasks | Tasks completed | Blocks
---- | --- | --- | --- | ---
-*Mon* | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github Repo | 
-Tue | 30 April |Install Devise for users, design partials, | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github
-Wed | 1 May | Install Devise for Providers,  add models (listing, cuisine, booking), modify routes, decide on provider work flow | added devise for providers, added listing model | 
-Thu | 2 May | Create all models | Devise providers sign_up/in now routing to correct paths. | Devise for providers did not work correctly-fixed
+Day | Date | Tasks | Tasks completed | Blocks | Completed by
+--- | --- | --- | --- | --- | ---
+*Mon* | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github Repo | Github | Pair programming
+Tue | 30 April |Install Devise for users, design partials, | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github | Pair programming
+Wed | 1 May | Install Devise for Providers,  add models (listing, cuisine, booking), modify routes, decide on provider work flow | added devise for providers, added listing model | | Pair programming
+Thu | 2 May | Create all models | Devise providers sign_up/in now routing to correct paths. | Devise for providers did not allow for correct routing for sign_up sign_in | Pair programming
 Fri | 3 May |  | |
 
 
 
-
-2.2 Requirements - Short Answer Questions
 
 # 2.2 Requirements - Short Answer Questions
 ```
@@ -122,6 +120,12 @@ We will be using the following third party services:
 ```
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 ```
+Models
+Devise: Users/Providers
+Listings (relationship with Providers)
+Cuisine (relationship with Providers)
+Bookings (relationship between providers and users)
+
 
 ```
 14. Provide your database schema design.
@@ -134,10 +138,16 @@ We will be using the following third party services:
 ```
 16. Provide Wireframes for your App.
 ```
+https://www.figma.com/file/aIJ1hn7A456uyNmlZVCCDccz/Rails-Project?node-id=0%3A1
+
 
 ```
 17. Describe the way tasks are allocated and tracked in your project.
 ```
+We used trello and the README.md file.
+Trello was used to list tasks that needed to be done, doing and completed. These tasks were then divided amongst the group and then listed in the table, located at the start of the README.md file. This table was also used for Agile process.
+
+
 
 ```
 18. Discuss how Agile methodology is being implemented in your project.
