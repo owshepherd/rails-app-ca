@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
     def show
         @listing = Listing.find(params[:id])
         
-        @provider = Provider.find(current_provider.id)
+        @provider = Provider.find(params[:id])
     end
 
     def edit

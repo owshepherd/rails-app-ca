@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_061556) do
+ActiveRecord::Schema.define(version: 2019_05_02_043548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string "cuisine_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string "name"
@@ -37,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_05_01_061556) do
     t.integer "minimum_persons"
     t.float "cost_per_head"
     t.bigint "listing_id"
+    t.bigint "cuisine_id"
+    t.index ["cuisine_id"], name: "index_providers_on_cuisine_id"
     t.index ["email"], name: "index_providers_on_email", unique: true
     t.index ["listing_id"], name: "index_providers_on_listing_id"
     t.index ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true
@@ -59,4 +67,5 @@ ActiveRecord::Schema.define(version: 2019_05_01_061556) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "providers", "cuisines"
 end

@@ -3,9 +3,10 @@
 class Providers::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-
+  after_action :add_cuisine_id_to_provider, only: :create   
   #GET /resource/sign_up
   def new
+    @cuisine = Cuisine.all
     super
   end
 
@@ -39,11 +40,15 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   end
 
   protected
-
+  def add_cuisine_id_to_provider
+    last_provider = Provider.last 
+    last_provider.cuisine_id = params["cuisine_id"]
+    last_provider.save
+  end 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     # devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :username, :password, :password_confirmation, :firstname, :lastname, :name, :city, :state, :postcode, :minimum_persons, :cost_per_head, :dob, :remember_me) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :username, :password, :password_confirmation, :firstname, :lastname, :name, :city, :state, :postcode, :minimum_persons, :cost_per_head, :dob, :remember_me, :cuisine_id) }
   end
 
   # If you have extra params to permit, append them to the sanitizer.
