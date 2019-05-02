@@ -1,4 +1,53 @@
 # README
+Welcome to `Company Name`. The aim of this web application is to provide a number of catering cuisine options to the general public, on the same site.
+
+# Deliverables #
+A link (URL) to your published App:  
+A link to your GitHub repository.  
+Ensure the repo is accessible by your Educators.  
+Description of your project, including,
+- Problem definition / purpose
+- Functionality / features
+- Screenshots
+- Tech stack (e.g. html, css, deployment platform, etc)
+- Instructions on how to setup, configure and use your App.
+
+
+# Instructions on how to setup, configure and use your App. #
+## 1. Directions for users/admins. ##
+General users can visit the site and view the different listings available. To book a particular catering cuisine, the general user will need to sign-up for a free account. 
+
+### 1.1 Sign-up - general user ###
+Locate the drop down menu..........and click on the sign-up link.  
+Enter a valid email and a password (minimum 6 characters). You will receive a welcome email.
+
+
+
+## 2. Directions for catering companies. ##
+As a general user you can visit the site and view the different listings available.
+If you would like to create a listing for your company, you are required to sign-up for an account. 
+
+### 2.1 Directions for sign-up ###
+Locate the drop down menu..........and click on the sign-up link.  
+You will be required to enter in these details: 
+- a valid email
+- company name 
+- username
+- 
+- 
+- password (minimum 6 characters)
+- You will receive a welcome email.
+
+When fields 
+ 
+- When you submit a listing for your company will be created. 
+
+
+## 1.2 Default User account ##
+A user account has been created: email: username: 'coderacademy.owenrob@gmail.com' password: ''
+
+## 1.3 Default admin account ##
+An admin account has been created: email; 'admin@admin.com.au', :password => ''
 
 
 Details of planning process including,
@@ -10,19 +59,19 @@ Project plan & timeline
 - [X] Finish adding models - Wed/Thu
 - [X] Add CRUD functionality - Wed/Thu
 - [ ] Add mailgun, stripe, aws - Fri
-- [ ] Add cancan can
-- [ ]
+- [ ] Add cancan can, Add admin to user model
+- [ ] 
 - [ ]
 - [ ]
 
 
 Day | Date | Tasks | Tasks completed | Blocks | Completed by
 --- | --- | --- | --- | --- | ---
-*Mon* | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github Repo | Github | Pair programming
-Tue | 30 April |Install Devise for users, design partials, | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github | Pair programming
-Wed | 1 May | Install Devise for Providers,  add models (listing, cuisine, booking), modify routes, decide on provider work flow | added devise for providers, added listing model | | Pair programming
-Thu | 2 May | Create all models | Devise providers sign_up/in now routing to correct paths. | Devise for providers did not allow for correct routing for sign_up sign_in | Pair programming
-Fri | 3 May |  | |
+Mon | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github Repo | Github | Pair programming
+Tue | `30 April` |Install Devise for users, design partials, | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github | Pair programming
+Wed | `1 May` | Install Devise for Providers,  add models (listing, cuisine, booking), modify routes, decide on provider work flow | added devise for providers, added listing model | | Pair programming
+Thu | `2 May` | Create all models | Devise providers sign_up/in now routing to correct paths. Created cuisine and bookings model| Devise for providers did not allow for correct routing for sign_up sign_in | Pair programming
+Fri | `3 May` |  | | |
 
 
 
@@ -162,16 +211,19 @@ Trello was used to list tasks that needed to be done, doing and completed. These
 ```
 20. Provide an overview and description of your Testing process.
 ```
+Our testing comprised of user stories and manual testing. We also had third party persons provide feedback.
+
 
 ```
 21. Discuss and analyse requirements related to information system security.
 ```
 
+
 ```
 22. Discuss methods you will use to protect information and data.
 ```
 
-22. Research what your legal obligations are in relation to handling user data.
+
 ```
 23. Research what your legal obligations are in relation to handling user data.
 ```

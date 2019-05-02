@@ -1,0 +1,40 @@
+<h1>Admin Use only</h1>
+<h1>Edit Provider</h1>
+
+<form action="<%= provider_path(params[:id]) %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+    <input type="hidden" name="_method" value="patch" />
+
+    <label for="email">email</label>
+    <input type="text" name="email" id="email" value="<%= @provider.email %>" />
+
+    <label for="username">username</label>
+    <input type="text" name="username" id="username" value="<%= @provider.username %>"/>
+
+    <label for="name">name</label>
+    <input type="text" name="name" id="name" value="<%= @provider.name %>"/>
+
+    <label for="state">state</label>
+    <input type="text" name="state" id="state" value="<%= @provider.state %>"/>
+
+    <label for="city">city</label>
+    <input type="text" name="city" id="city" value="<%= @provider.city %>"/>
+
+    <label for="state">state</label>
+    <input type="text" name="state" id="state" value="<%= @provider.state %>"/>
+
+    <label for="postcode">postcode</label>
+    <input type="integer" name="postcode" id="postcode" value="<%= @provider.postcode %>"/>
+
+    <label for="minimum_persons">minimum_persons</label>
+    <input type="integer" name="minimum_persons" id="minimum_persons" value="<%= @provider.minimum_persons %>"/>
+
+    <label for="cost_per_head">cost_per_head</label>
+    <input type="integer" name="cost_per_head" id="cost_per_head" value="<%= @provider.cost_per_head %>"/>
+
+  
+    <input type="submit" value="Create" />
+</form>
+
+<p><%= link_to "Provider List", providers_path %></p>

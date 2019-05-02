@@ -1,0 +1,18 @@
+<h2>Company Name: <%= @provider.name %></h2>
+<p>Username: <%= @provider.username %></p>
+<p>email: <%= @provider.email %></p>
+<p>City: <%= @provider.city %></p>
+<p>State: <%= @provider.state %></p>
+<p>Postcode: <%= @provider.postcode %></p>
+<p>Minimum Persons: <%= @provider.minimum_persons %></p>
+<p>Cost per head $<%= @provider.cost_per_head %></p>
+
+
+<p><%= link_to "<< Back", :back %></p>
+<p><%= link_to "Edit", edit_provider_path(@provider.id) %></p>
+<p><%= link_to "Provider List", providers_path %></p>
+<p><%= link_to 'Destroy', provider_path(@provider.id),method: :delete,
+data: { confirm: 'Are you sure?' } %></p>
+
+
+

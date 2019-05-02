@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :providers
   resources :users
   resources :bookings
+  resources :cuisines
 end
