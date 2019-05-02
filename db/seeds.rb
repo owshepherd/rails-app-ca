@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Start of Seeding..."
+# Cuisine.destroy_all
+10.times do
+
+  Cuisine.new({ :cuisine_type => Faker::Restaurant.type }).save
+
+  puts "Seeding Over"
+
+end
+
