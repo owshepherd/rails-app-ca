@@ -7,10 +7,12 @@ Project plan & timeline
 - [X] Design project - Mon/Tue.
 - [X] Start coding - Mon
 - [X] Start styling - Tues
-- [ ] Finish adding models - Wed/Thu
-- [ ] Add CRUD functionality - Wed/Thu
+- [X] Finish adding models - Wed/Thu
+- [X] Add CRUD functionality - Wed/Thu
 - [ ] Add mailgun, stripe, aws - Fri
-- [ ] 
+- [ ] Add cancan can
+- [ ]
+- [ ]
 - [ ]
 
 
