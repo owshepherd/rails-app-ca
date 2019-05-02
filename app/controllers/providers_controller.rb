@@ -1,11 +1,40 @@
 class ProvidersController < ApplicationController
   def show
-    raise
-    puts "Hi"
+    @provider = Provider.find(params[:id])
   end
 
   def index
-    puts "hi"
-    raise
+    @providers = Provider.all.order("created_at ASC")
+    
   end
+
+  def create
+    @provider = Provider.new(provider_params)
+    if @provider.save
+      redirect_to @provider
+      else
+      render 'new'
+    end
+  end
+  
+  def edit
+    @provider = Provider.find(params[:id])
+  end
+
+  def update
+    @provider = Provider.find(params[:id])
+
+    if @provider.update(provider_params)
+      redirect_to @provider, info: "Provider updated !!"
+    else
+      render 'edit'
+    end
+end
+
+
+  private
+  def provider_params
+    params.permit(:username, :name, :city, :state, :postcode, :minimum_persons, :cost_per_head)
+  end
+
 end

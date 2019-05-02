@@ -1,0 +1,12 @@
+<h1>Create A New Cuisine</h1>
+
+<form action="<%= cuisines_path %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+    <label for="cuisine_type">Cuisine Type</label>
+    <input type="text" name="cuisine_type" id="cuisine_type"/>
+
+
+    <input type="submit" value="Create" />
+</form>
+<p><%= link_to "Cuisine List", cuisines_path %></p>

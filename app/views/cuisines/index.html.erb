@@ -1,0 +1,17 @@
+<h1>Admin Use Only</h1>
+<h2>Cuisine List</h2>
+
+<ul>
+    <% @cuisines.each_with_index do |cuisine, index| %>
+        <li>
+            <%= cuisine.cuisine_type %>
+            <%= link_to "Show", cuisine_path(cuisine.id) %>
+            <%= link_to "Edit", edit_cuisine_path(cuisine.id) %>
+            <%= link_to 'Destroy', cuisine_path(cuisine.id),method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Create New Cuisine", new_cuisine_path %>
+<p><%= link_to "Home", root_path %></p>

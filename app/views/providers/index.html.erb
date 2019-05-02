@@ -1,0 +1,18 @@
+<h1>Admin Use Only</h1>
+<h2>Provider List</h2>
+
+<ul>
+  <% @providers.each_with_index do |provider, index| %>
+    <li>
+      Company Name: <%= provider.name %>
+      Username: <%= provider.username %>
+
+      <%= link_to "Show", provider_path(provider.id) %>
+      <%= link_to "Edit", edit_provider_path(provider.id) %>
+      <%= link_to 'Destroy', provider_path(provider.id),method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Home", root_path %></p>

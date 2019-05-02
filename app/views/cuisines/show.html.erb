@@ -1,0 +1,8 @@
+<h2><%= @cuisine.cuisine_type %></h2>
+
+<%= link_to "Back", :back %>
+<p><%= link_to "Cuisine List", cuisines_path %></p>
+<%= link_to 'Destroy', cuisine_path(@cuisine.id),method: :delete,
+data: { confirm: 'Are you sure?' } %>
+
+
