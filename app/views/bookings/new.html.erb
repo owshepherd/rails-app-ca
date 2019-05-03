@@ -3,4 +3,19 @@
 <p>1<%= @listing %></p>
 
 <%= params %>
-<% params[:listing_info][:provider_id]["id"] %>
+<p>2<%= params[:listing_info][:provider_id]["id"] %></p>
+<p>3<%= @provider.username %></p>
+
+<p>Username: <%= @provider.username %></p>
+<p>Minimum Persons: <%= @provider.minimum_persons %></p>
+<p>Cost Per head: $<%= @provider.cost_per_head %></p>
+<p>Provider id: <%= @provider.id %></p>
+<p>Listing id: <%= @provider.listing_id %></p>
+<%= @listing %>
+
+
+
+
+
+
+
