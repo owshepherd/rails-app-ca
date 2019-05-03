@@ -3,8 +3,7 @@
 <p>First Name: <%= @user.firstname %></p>
 <p>Last name: <%= @user.lastname %></p>
 <p>dob: <%= @user.dob %></p>
-<p>avatar: <%= @user.avatar %></p>
-
+<p>avatar: <%= image_tag @user.uploaded_image %>
 
 <p><%= link_to "<< Back", :back %></p>
 <p><%= link_to "Edit", edit_user_path(@user.id) %></p>

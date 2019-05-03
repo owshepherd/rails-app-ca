@@ -41,7 +41,7 @@ end
 
   private
   def provider_params
-    params.permit(:username, :firstname, :lastname, :bod, :avatar)
+    params.permit(:username, :firstname, :lastname, :dob, :uploaded_image)
   end
 
 end

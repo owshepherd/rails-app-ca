@@ -1,7 +1,7 @@
 <h1>Admin Use only</h1>
 <h1>Create a New User</h1>
 
-<form action="<%= user_path(params[:id]) %>" method="POST" >
+<form action="<%= user_path(params[:id]) %>" method="POST" enctype="multipart/form-data">
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
     <label for="email">email</label>
@@ -20,9 +20,8 @@
     <input type="text" name="dob" id="dob" value="<%= @user.dob %>"/>
 
     <label for="avatar">avatar</label>
-    <input type="text" name="avatar" id="avatar" value="<%= @user.avatar %>"/>
+    <input type="text" name="uploaded_image" id="uploaded_image" value="<%= @user.uploaded_image %>"/>
 
-  
     <input type="submit" value="Update" />
 </form>
 

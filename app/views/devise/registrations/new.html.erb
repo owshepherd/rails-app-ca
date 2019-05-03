@@ -40,6 +40,11 @@
     <%= f.date_field :dob %>
   </div>
 
+  <div>
+    <%= f.label :uploaded_image, "Uploaded Image" %><br />
+    <%= f.file_field :uploaded_image %>
+  </div>
+  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
