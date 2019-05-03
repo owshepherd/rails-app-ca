@@ -8,21 +8,33 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find(params[:id])
-    @provider = Provider.find(params[:id])
-    @user = User.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def create
-    @provider = provider.find(params[:id])
-    @user = User.find(current_user[:id])
-    # provider (id, cost per head, minimum_persons)
-    # user (id, persons, location)
-    # listing id
+    @booking = Booking.new(booking_params)
 
-    @listing_info = Booking.new(params[:listing_info])
+    if @booking.save
+      redirect_to @booking, info: "Booking created"
+    else
+      render 'new'
+    end
+
+
+    # @provider = Provider.find(params[:id])
+    # @user = User.find(current_user[:id])
+    # # provider (id, cost per head, minimum_persons)
+    # # user (id, persons, location)
+    # # listing id
+
+    # @listing_info = Booking.new(params[:listing_info])
   end
 
   def index
+  end
+
+  private
+  def booking_params
+    params.permit(:provider_id, :user_id, :booking_daytime, :persons, :location)
   end
 end
