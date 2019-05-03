@@ -1,11 +1,12 @@
-<h1>Show page for booking</h1>
+<h1>Booking for <%= @booking.booking_daytime %></h1>
 
-<ul>
-  <% if @booking.user_id == current_user %>
-    <% @booking.each_with_index do |booking, index| %>
-      <li>
-        <%= booking.location %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+<p>Provider ID: <%= Provider.find( @booking.provider_id ).name %></p>
+<p>User ID: <%= User.find( @booking.user_id).firstname %> <%= User.find( @booking.user_id).lastname %></p>
+<p>Persons: <%= @booking.persons %></p>
+<p>Location: <%= @booking.location %></p>
+<p>Booking day and time: <%= @booking.booking_daytime %></p>
+<p>Cost per head: <%= Provider.find( @booking.provider_id).cost_per_head %></p>
+<p>Total cost: $<%= @total_cost %></p>
+<%= @listing %>
+
+<button>Pay for booking</button>

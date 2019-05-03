@@ -13,6 +13,10 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+
+    per_person = Provider.find( @booking.provider_id).cost_per_head
+    persons = @booking.persons
+    @total_cost = per_person * persons
   end
 
   def create
