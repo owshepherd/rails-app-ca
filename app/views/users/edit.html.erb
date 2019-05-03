@@ -1,0 +1,32 @@
+<h1>Admin Use only</h1>
+<h1>Edit User</h1>
+
+<form action="<%= user_path(params[:id]) %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+    <input type="hidden" name="_method" value="patch" />
+
+    <label for="email">email</label>
+    <input type="text" name="email" id="email" value="<%= @user.email %>" />
+
+    <label for="username">username</label>
+    <input type="text" name="username" id="username" value="<%= @user.username %>"/>
+
+    <label for="firstname">First name</label>
+    <input type="text" name="firstname" id="firstname" value="<%= @user.firstname %>"/>
+
+    <label for="lastname">Last name</label>
+    <input type="text" name="lastname" id="lastname" value="<%= @user.lastname %>"/>
+
+    <label for="dob">dob</label>
+    <input type="text" name="dob" id="dob" value="<%= @user.dob %>"/>
+
+    <label for="avatar">avatar</label>
+    <input type="text" name="avatar" id="avatar" value="<%= @user.avatar %>"/>
+
+  
+    <input type="submit" value="Update" />
+</form>
+
+<p><%= link_to "<< Back", :back %></p>
+<p><%= link_to "User List", users_path %></p>

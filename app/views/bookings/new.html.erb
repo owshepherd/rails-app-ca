@@ -13,6 +13,7 @@
 <p>User e-mail: <%= @user.email %></p>
 <%= @listing %>
 
+
 <form action="<%= bookings_path %>" method="POST" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
@@ -31,6 +32,7 @@
 
     <input type="submit" value="Create" />
 </form>
+
 
 
 
