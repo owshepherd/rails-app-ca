@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def new
     @provider = Provider.find(params[:listing_info][:provider_id])
+    
     @user = User.find(current_user[:id])
     @booking = Booking.new
   end
