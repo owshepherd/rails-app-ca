@@ -1,0 +1,13 @@
+<h2>User email: <%= @user.email %></h2>
+<p>Username: <%= @user.username %></p>
+<p>First Name: <%= @user.firstname %></p>
+<p>Last name: <%= @user.lastname %></p>
+<p>dob: <%= @user.dob %></p>
+<p>avatar: <%= @user.avatar %></p>
+
+
+<p><%= link_to "<< Back", :back %></p>
+<p><%= link_to "Edit", edit_user_path(@user.id) %></p>
+<p><%= link_to "Provider List", users_path %></p>
+<p><%= link_to 'Destroy', user_path(@user.id),method: :delete,
+data: { confirm: 'Are you sure?' } %></p>
