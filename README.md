@@ -71,7 +71,7 @@ Mon | `29 April` | Create ERD, Wire, Github, Heroku | ERD, Wire diagrams, Github
 Tue | `30 April` |Install Devise for users, design partials, | Installed Devise for Users, deployed on two machines, Changed project - approval of new ERD  | Deploying Heroku on both machines, Pushing/pulling Github | Pair programming
 Wed | `1 May` | Install Devise for Providers,  add models (listing, cuisine, booking), modify routes, decide on provider work flow | added devise for providers, added listing model | | Pair programming
 Thu | `2 May` | Create all models | Devise providers sign_up/in now routing to correct paths. Created cuisine and bookings model| Devise for providers did not allow for correct routing for sign_up sign_in | Pair programming
-Fri | `3 May` |  | | |
+Fri | `3 May` | Complete booking form, aws, mailgun, strip | booking form | | pair programming
 
 
 
