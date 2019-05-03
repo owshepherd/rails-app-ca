@@ -1,3 +1,5 @@
+<%= render "shared/nav" %>
+
 <h1>Booking for <%= @booking.booking_daytime %></h1>
 
 <p>Provider ID: <%= Provider.find( @booking.provider_id ).name %></p>
