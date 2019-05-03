@@ -1,19 +1,35 @@
 <h2>Create a new booking</h2>
 
-<p>1<%= @listing %></p>
+<p><%= @provider.username %></p>
 
-<%= params %>
-<p>2<%= params[:listing_info][:provider_id]["id"] %></p>
-<p>3<%= @provider.username %></p>
-
-<p>Username: <%= @provider.username %></p>
+<p>Provider Username: <%= @provider.username %></p>
 <p>Minimum Persons: <%= @provider.minimum_persons %></p>
 <p>Cost Per head: $<%= @provider.cost_per_head %></p>
 <p>Provider id: <%= @provider.id %></p>
 <p>Listing id: <%= @provider.listing_id %></p>
+<p>User full name: <%= @user.firstname %> <%= @user.lastname %></p>
+<p>User e-mail: <%= @user.email %></p>
 <%= @listing %>
 
-<%= @user.firstname %>
+
+<form action="<%= bookings_path %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+    <input type="hidden" name="provider_id" id="provider_id" value="<%= @provider.id %>" />
+
+    <input type="hidden" name="user_id" id="user_id" value="<%= @user.id %>" />
+
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location" />
+
+    <label for="address">Number of persons</label>
+    <input type="number" name="persons" id="persons" min="<%= @provider.minimum_persons %>" value="<%= @provider.minimum_persons %>" />
+
+    <label for="booking_daytime">Date and time</label>
+    <input type="datetime-local" name="booking_daytime" id="booking_daytime" />
+
+    <input type="submit" value="Create" />
+</form>
 
 
 
