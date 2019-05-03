@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
 
+  def index
+    @bookings = current_user.bookings
+  end
+
   def new
     @provider = Provider.find(params[:listing_info][:provider_id])
     
@@ -28,9 +32,6 @@ class BookingsController < ApplicationController
     # # listing id
 
     # @listing_info = Booking.new(params[:listing_info])
-  end
-
-  def index
   end
 
   private

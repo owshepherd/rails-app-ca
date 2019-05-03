@@ -1,12 +1,11 @@
 <h1>Show page for booking</h1>
 
 <ul>
-<% raise %>
-<% if @booking.user_id == current_user %>
-  <% @booking.each_with_index do |booking, index| %>
-    <li>
-      <%= booking.location %>
-    </li>
+  <% if @booking.user_id == current_user %>
+    <% @booking.each_with_index do |booking, index| %>
+      <li>
+        <%= booking.location %>
+      </li>
+    <% end %>
   <% end %>
-<% end %>
 </ul>
