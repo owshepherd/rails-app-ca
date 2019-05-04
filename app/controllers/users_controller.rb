@@ -32,6 +32,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(provider_params)
+       @users = current_user
+       BookMailer.with(user: @users).new_book_email.deliver_now
       redirect_to @user, info: "User updated !!"
     else
       render 'edit'

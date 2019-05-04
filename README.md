@@ -158,6 +158,8 @@ We will be using the following third party services:
  Gems used
 - devise
 - bootstrap
+- aws-sdk-s3
+- faker
 
 
 ```
