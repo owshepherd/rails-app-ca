@@ -10,6 +10,39 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div>
+    <%= f.label :name, "Name" %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :city, "City" %><br />
+    <%= f.text_field :city, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :state, "State" %><br />
+    <%= f.text_field :state, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :postcode, "Postcode" %><br />
+    <%= f.text_field :postcode %>
+  </div>
+
+  <div>
+    <%= f.label :minimum_persons, "Minimum persons" %><br />
+    <%= f.text_field :minimum_persons %>
+  </div>
+
+  <div>
+    <%= f.label :cost_per_head, "Cost per head" %><br />
+    <%= f.text_field :cost_per_head %>
+  </div>
+
+  <%= select_tag "cuisine_id", options_from_collection_for_select(@cuisine, 'id', 'cuisine_type') %>
+
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
