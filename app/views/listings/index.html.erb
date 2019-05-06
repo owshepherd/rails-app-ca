@@ -7,13 +7,18 @@
     <li>
       <%= listing.name %> 
       <p><%= link_to "show", listing_path(listing.id) %>
+        
         <% if listing.provider == current_provider %> 
         <%= link_to "Edit", edit_listing_path(listing.id) %>
+        <% end %>
+
+        <% if user_signed_in? && current_user.admin? %>  
         <%= link_to 'Destroy', listing_path(listing.id),
         method: :delete,
         data: { confirm: 'Are you sure?' } %>
         <% end %>
-        </p>
+      </p>
+      
     </li>
   <% end %>  
 </ul>

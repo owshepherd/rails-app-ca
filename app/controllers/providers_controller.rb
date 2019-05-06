@@ -1,4 +1,6 @@
 class ProvidersController < ApplicationController
+  authorize_resource
+  
   def show
     @provider = Provider.find(params[:id])
   end

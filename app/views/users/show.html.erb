@@ -5,10 +5,10 @@
 <p>dob: <%= @user.dob %></p>
 
 <% if @user.uploaded_image.attached? %>
-  <p>Avatar: <%= image_tag @user.uploaded_image %>
+<p>avatar: <%= image_tag @user.uploaded_image %>
 <% else %>
-  <%= image_tag 'no_avatar.jpeg' %>
-  <p>No avatar attached</p>
+<%= image_tag 'no_avatar.jpeg' %>
+<p>no avatar attached </p>
 <% end %>
 
 <p><%= link_to "<< Back", :back %></p>

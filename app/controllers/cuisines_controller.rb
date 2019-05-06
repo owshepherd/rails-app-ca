@@ -1,5 +1,6 @@
 class CuisinesController < ApplicationController
-def index
+  authorize_resource
+  def index
   @cuisines = Cuisine.all.order("created_at ASC")
 end
 

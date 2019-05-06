@@ -5,7 +5,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
   after_action :add_cuisine_id_to_provider, only: :create
   after_action :send_update_email, only: :update
-  after_action :send_new_email, only: :create   
+
   #GET /resource/sign_up
   def new
     @cuisine = Cuisine.all
@@ -60,6 +60,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     # devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
@@ -68,7 +69,8 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :username, :password, :password_confirmation, :current_password, :firstname, :lastname, :name, :city, :state, :postcode, :minimum_persons, :cost_per_head, :dob, :remember_me, :cuisine_id) }
+
   end
 
   # The path used after sign up.

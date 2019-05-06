@@ -1,6 +1,6 @@
 <%= render "shared/nav" %>
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit User<%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -25,7 +25,8 @@
 
 <div>
   <%= f.label :dob, "Date of birth" %><br />
-  <%= f.date_select :dob, :start_year => Date.current.year - 18, :end_year => Date.current,year - 99 %>
+  <%= f.date_select  :dob, :start_year => Date.current.year - 15, :end_year => 1920 %>
+
 </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
