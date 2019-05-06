@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
 
     per_person = Provider.find( @booking.provider_id).cost_per_head
     persons = @booking.persons
-    @total_cost = per_person * persons
+    @amount = per_person * persons
   end
 
   def create
