@@ -3,7 +3,6 @@
 <p>First Name: <%= @user.firstname %></p>
 <p>Last name: <%= @user.lastname %></p>
 <p>dob: <%= @user.dob %></p>
-<p>avatar: <%= image_tag @user.uploaded_image %>
 
 <% if @user.uploaded_image.attached? %>
   <p>Avatar: <%= image_tag @user.uploaded_image %>

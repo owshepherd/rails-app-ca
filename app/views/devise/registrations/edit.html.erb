@@ -25,7 +25,7 @@
 
 <div>
   <%= f.label :dob, "Date of birth" %><br />
-  <%= f.date_select :dob %>
+  <%= f.date_select :dob, :start_year => Date.current.year - 18, :end_year => Date.current,year - 99 %>
 </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
