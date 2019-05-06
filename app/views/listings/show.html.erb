@@ -11,20 +11,24 @@
 <p>Provider id: <%= @provider.id %></p>
 <p>Listing id: <%= @provider.listing_id %></p>
 
-
+<% if user_signed_in? %> 
 <p><strong>BOOK</strong></p>
 <%= link_to "Booking", new_booking_path(:listing_info => { :provider_id => @provider }) %>
+<% end %>
 
 
 
-
-<%= link_to "Back", :back %>
-<%= link_to "Listing", listings_path %>
+<%= link_to "-Back", :back %>
+<%= link_to "-Listing Page", listings_path %>
+  
   <% if @listing.provider == current_provider %>   
-  <%= link_to "Edit", edit_listing_path(@listing.id) %>
+  <%= link_to "-Edit", edit_listing_path(@listing.id) %>
+
+  <% if user_signed_in? && current_user.admin? %>  
   <%= link_to 'Destroy', listings_path(@listing.id),
   method: :delete,
   data: { confirm: 'Are you sure?' } %>
+  <% end %>
   <% end %>
 
 <p><%= link_to "Home", root_path %></p>

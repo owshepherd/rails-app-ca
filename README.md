@@ -73,6 +73,19 @@ Wed | `1 May` | Install Devise for Providers,  add models (listing, cuisine, boo
 Thu | `2 May` | Create all models | Devise providers sign_up/in now routing to correct paths. Created cuisine and bookings model| Devise for providers did not allow for correct routing for sign_up sign_in | Pair programming
 Fri | `3 May` | Complete booking form, aws, mailgun, strip | booking form | | pair programming
 
+Day | Date | Tasks | Tasks completed | Blocks | Completed by
+
+Mon | `6 May` | install stripe | added mailer  | Cancan has trouble working with 2 devise models. Mailer - user model | Pair programming
+Tue | `7 May` |  |  |  | Pair programming
+Wed | `8 May` |  |  | | Pair programming
+Thu | `9 May` |  |  |  | Pair programming
+Fri | `10 May` |  |  | | pair programming
+
+
+
+
+
+
 
 
 
@@ -160,6 +173,8 @@ We will be using the following third party services:
 - bootstrap
 - aws-sdk-s3
 - faker
+- dotenv-rails (groups: [:development, :test])
+- cancancan
 
 
 ```

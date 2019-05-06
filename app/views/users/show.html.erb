@@ -3,7 +3,13 @@
 <p>First Name: <%= @user.firstname %></p>
 <p>Last name: <%= @user.lastname %></p>
 <p>dob: <%= @user.dob %></p>
+
+<% if @user.uploaded_image.attached? %>
 <p>avatar: <%= image_tag @user.uploaded_image %>
+<% else %>
+<%= image_tag 'no_avatar.jpeg' %>
+<p>no avatar attached </p>
+<% end %>
 
 <p><%= link_to "<< Back", :back %></p>
 <p><%= link_to "Edit", edit_user_path(@user.id) %></p>

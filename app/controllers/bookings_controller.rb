@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-
+  authorize_resource
   def index
     @bookings = current_user.bookings
   end

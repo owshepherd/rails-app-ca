@@ -11,6 +11,8 @@
 </div>
 
 <div>
+
+<% if user_signed_in? && current_user.admin? %>   
 <h4>ADMIN USE ONLY</h4>
 <ul>
   <li><%= link_to "Cuisine List", cuisines_path %></li>
@@ -18,7 +20,7 @@
   <li><%= link_to "User List", users_path %></li>
 </ul>
 </div>
-
+<% end %>
 
 
 <% if user_signed_in? %>         

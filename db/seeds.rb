@@ -13,13 +13,14 @@ puts "Start of Seeding..."
   puts "Seeding Over"
 end
 
-# puts 'Creating an admin user'
-# admin = User.create({ :email => 'admin@admin.com.au', :password => 'password321', :password_confirmation => 'password321', :admin => true, moderator: false})
-# puts admin.email
+# User.destroy.all
+puts 'Creating an admin user'
+admin = User.create({ :email => 'robertdematteo1971@gmail.com', :password => '123456', :password_confirmation => '123456', :admin => true})
+puts admin.email
 
-# puts 'Creating a regular user'
-# regular = User.create({ :email => 'test@test.com.au', :password => '123456', :password_confirmation => '123456', :admin => false, moderator: false})
-# puts regular.email
+puts 'Creating a regular user'
+regular = User.create({ :email => 'coderacademy.owenrob@gmail.com', :password => '123456', :password_confirmation => '123456', :admin => false})
+puts regular.email
 
 # puts 'Creating a user with moderator privilege'
 # moderator = User.create({ :email => 'moderator@moderator.com.au', :password => '123456', :password_confirmation => '123456', :admin => false, moderator: true})

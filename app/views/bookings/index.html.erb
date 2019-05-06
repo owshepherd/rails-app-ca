@@ -4,10 +4,15 @@
 
 <h1>Show page for booking</h1>
 
-<ul>
+
+<% if !@bookings.empty? %>
+  <ul>
     <% @bookings.each_with_index do |booking, index| %>
       <li>
         <%= booking.location %>
       </li>
     <% end %>
-</ul>
+  </ul>
+  <% else %>
+  <p>You have no Bookings</p>
+<% end %>
