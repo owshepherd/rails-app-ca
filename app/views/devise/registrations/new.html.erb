@@ -37,7 +37,7 @@
 
   <div>
     <%= f.label :dob, "Date of birth" %><br />
-    <%= f.date_field :dob %>
+    <%= f.date_select  :dob, :start_year => Date.current.year - 15, :end_year => 1920 %>
   </div>
 
   <div>
