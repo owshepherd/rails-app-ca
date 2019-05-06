@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
-  authorize_resource
+  load_and_authorize_resource
   def index
-      @listings = Listing.all
+      @listings = Listing.all.order("created_at ASC")
   end
 
   def show
