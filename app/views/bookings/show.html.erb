@@ -8,8 +8,8 @@
 <p>Location: <%= @booking.location %></p>
 <p>Booking day and time: <%= @booking.booking_daytime %></p>
 <p>Cost per head: <%= Provider.find( @booking.provider_id).cost_per_head %></p>
-<p>Total cost: $<%= @total_cost %></p>
+<p>Total cost: $<%= @amount %></p>
 <%= @listing %>
 
 <button>Pay for booking</button>
-<%= render "shared/stripe_form" %>
+<%= render "shared/stripe_form", cost_per_head: Provider.find( @booking.provider_id).cost_per_head  %>
