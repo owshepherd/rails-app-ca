@@ -19,6 +19,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   #GET /resource/edit
   def edit
+    @cuisine = Cuisine.all
     super
   end
 

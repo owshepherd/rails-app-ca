@@ -1,23 +1,16 @@
 # frozen_string_literal: true
 
-class Ability
+class ProviderAbility
   include CanCan::Ability
 
-  def initialize(user)
-    
-    # Define abilities for the passed in user here. For example:
+  def initialize(provider)
+    # Define abilities for the passed in provider here. For example:
     #
-      user ||= User.new # guest user (not logged in)
-      
-      if user.admin?
-        can :manage, :all
-      else
-        can :read, :all
-      end
-       
-    
-    
-     
+    provider ||= Provider.new # guest provider (not logged in)
+    can :read, Listing
+    can :manage, Listing do |listing|
+      listing.id == provider.listing_id
+    end 
   end
 
 
