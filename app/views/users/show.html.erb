@@ -5,6 +5,13 @@
 <p>dob: <%= @user.dob %></p>
 <p>avatar: <%= image_tag @user.uploaded_image %>
 
+<% if @user.uploaded_image.attached? %>
+  <p>Avatar: <%= image_tag @user.uploaded_image %>
+<% else %>
+  <%= image_tag 'no_avatar.jpeg' %>
+  <p>No avatar attached</p>
+<% end %>
+
 <p><%= link_to "<< Back", :back %></p>
 <p><%= link_to "Edit", edit_user_path(@user.id) %></p>
 <p><%= link_to "Provider List", users_path %></p>
