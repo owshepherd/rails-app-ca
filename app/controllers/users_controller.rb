@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     if @user.update(provider_params)
        @users = current_user
        BookMailer.with(user: @users).update_provider_email.deliver_now
-      redirect_to @user, info: "User updated !!"
+      redirect_to user_path(@user.id), info: "User updated !!"
     else
       render 'edit'
     end
