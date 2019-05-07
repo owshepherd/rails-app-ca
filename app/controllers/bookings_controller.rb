@@ -1,7 +1,13 @@
 class BookingsController < ApplicationController
   authorize_resource
   def index
-    @bookings = current_user.bookings
+    
+    if user_signed_in?  
+      @bookings = current_user.bookings
+    else 
+      @bookings = Booking.all
+    
+    end
   end
 
   def new
@@ -37,6 +43,15 @@ class BookingsController < ApplicationController
 
     # @listing_info = Booking.new(params[:listing_info])
   end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    provider_id = @booking.provider_id
+    @booking.destroy
+    
+    redirect_to listing_path(Provider.find(provider_id)), danger: "Booking deleted!! Click on Booking to create a new booking"
+  end
+
 
   private
   def booking_params

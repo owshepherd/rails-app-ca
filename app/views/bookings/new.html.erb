@@ -28,7 +28,7 @@
     <input type="number" name="persons" id="persons" min="<%= @provider.minimum_persons %>" value="<%= @provider.minimum_persons %>" />
 
     <label for="booking_daytime">Date and time</label>
-    <input type="datetime-local" name="booking_daytime" id="booking_daytime" />
+    <input type="date" name="booking_daytime" id="booking_daytime" placeholder="dd/mm/yyyy"/>
 
     <input type="submit" value="Create" />
 </form>
