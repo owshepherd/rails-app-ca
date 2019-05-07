@@ -7,11 +7,8 @@
     <li>
       <%= listing.name %> 
       <p><%= link_to "show", listing_path(listing.id) %>
-        <p> <%= listing.provider %> </p>
-        <p> string <%= current_provider %></p>
-
-
-       <%if !current_provider.nil? && (listing.provider == current_provider) %> 
+        
+       <% if !current_provider.nil? && (listing.provider == current_provider) %> 
         <%= link_to "Edit", edit_listing_path(listing.id) %>
         <% end %>
 
