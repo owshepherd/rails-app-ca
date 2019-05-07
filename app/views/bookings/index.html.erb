@@ -4,15 +4,53 @@
 
 <h1>Show page for booking</h1>
 
+<% if user_signed_in? %>    
+  <% if !@bookings.empty? %>
+    <ul>
+      <% @bookings.each_with_index do |booking, index| %>
+        <li>
+          <%= booking.location %>
+        </li>
+      <% end %>
+    </ul>
+      <% else %>
+      <p>You have no Bookings</p>
+  <% end %>
+<% end %>
 
-<% if !@bookings.empty? %>
-  <ul>
-    <% @bookings.each_with_index do |booking, index| %>
-      <li>
-        <%= booking.location %>
-      </li>
-    <% end %>
-  </ul>
-  <% else %>
-  <p>You have no Bookings</p>
+
+
+<% if provider_signed_in? %>   
+  <p>Hi <%= current_provider.username %>. 
+  
+  <% if @bookings.empty? %>
+    <p>You have no Bookings</p>
+  <% end %>
+  
+  <% @bookings.each_with_index do |booking, index| %>
+        <% if booking.provider_id != current_provider.id %>
+        <p>Hi</p>
+  <% end %> 
+  <% end %> 
+
+
+  
+  <% if !@bookings.empty? %>
+    <p>Your bookings are below;</p>
+    <ul>
+      <% @bookings.each_with_index do |booking, index| %>
+        <% if booking.provider_id == current_provider.id %>
+        <li>
+        Your id: <%= booking.provider_id %>
+        - Location: <%= booking.location %>
+        - Persons: <%= booking.persons %>
+        - User id: <%= booking.user_id %>
+        - User name: <%= User.find(booking.user_id).firstname %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+      <% else %>
+      
+  <% end %>
 <% end %>
