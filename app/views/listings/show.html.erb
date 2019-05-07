@@ -22,7 +22,7 @@
 <%= link_to "-Listing Page", listings_path %>
   
 
-<% if !current_provider.nil? && (listing.provider == current_provider) %>  
+<% if !current_provider.nil? && (@provider.id == current_provider) %>  
 <%= link_to "-Edit", edit_listing_path(@listing.id) %>
 <% end %>
 
