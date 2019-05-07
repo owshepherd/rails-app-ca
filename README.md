@@ -51,18 +51,23 @@ An admin account has been created: email; 'admin@admin.com.au', :password => ''
 
 
 Details of planning process including,
-Project plan & timeline
+Project plan & timeline..
 
+Week 1
 - [X] Design project - Mon/Tue.
 - [X] Start coding - Mon
 - [X] Start styling - Tues
 - [X] Finish adding models - Wed/Thu
 - [X] Add CRUD functionality - Wed/Thu
-- [ ] Add mailgun, stripe, aws - Fri
-- [ ] Add cancan can, Add admin to user model
-- [ ] 
-- [ ]
-- [ ]
+- [X] Add mailgun, stripe, aws - Fri  
+ 
+
+Week 2
+- [X] Add cancan can, Add admin to user model
+- [ ] Extras - Geolocation fro providers
+- [ ] Extras - Calendar for bookings
+- [ ] Searching, sorting and/or filtering capability
+- [ ] Reviews for User
 
 
 Day | Date | Tasks | Tasks completed | Blocks | Completed by
@@ -74,9 +79,9 @@ Thu | `2 May` | Create all models | Devise providers sign_up/in now routing to c
 Fri | `3 May` | Complete booking form, aws, mailgun, strip | booking form | | pair programming
 
 Day | Date | Tasks | Tasks completed | Blocks | Completed by
-
-Mon | `6 May` | install stripe | added mailer  | Cancan has trouble working with 2 devise models. Mailer - user model | Pair programming
-Tue | `7 May` |  |  |  | Pair programming
+--- | --- | --- | --- | --- | ---
+Mon | `6 May` | install stripe | added mailer, fixed devise and cancan, added stripe and setup amount path  | Cancan has trouble working with 2 devise models. Mailer - user model | Pair programming
+Tue | `7 May` | Reached MVP!! Styling |  |  | Pair programming
 Wed | `8 May` |  |  | | Pair programming
 Thu | `9 May` |  |  |  | Pair programming
 Fri | `10 May` |  |  | | pair programming

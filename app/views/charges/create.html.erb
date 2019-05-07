@@ -1,1 +1,19 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<%= render "shared/nav" %>
+
+<h2>Thanks for making a booking with COMPANY NAME.</h2>
+<p>Dear <%= @user.firstname %>, Here is a summary of your booking</p>
+<p>Your booking number is: <%= @booking.id %></p>
+<p>Date booking made: <%= @booking.created_at.strftime("%B %d %Y, %H:%M") %></p>
+
+<p>Provider Name: <%= @provider.name %></p>
+<p>Location of event: <%= @booking.location %></p>
+<p>Date of event: <%= @booking.booking_daytime.strftime("%B %d %Y") %></p>
+<p>Number of persons: <%= @booking.persons %></p>
+<p>Cost per person: $<%= @cost_per_head %></p>
+<p>Total cost: $<%= @amount %></p>
+
+
+<p>Amount paid $<strong><%= @amount %></strong> inc GST.</p>
+
+
+<%= link_to "Home", root_path %>

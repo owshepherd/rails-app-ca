@@ -1,6 +1,8 @@
 <%= render "shared/nav" %>
 
-<h1>Booking for <%= @booking.booking_daytime %></h1>
+<h1>Booking for <%= @booking.booking_daytime.strftime("%B %d, %Y") %></h1>
+<h1>Time: <%= @booking.booking_daytime.strftime("%H:%M") %></h1>
+
 
 <p>Provider ID: <%= Provider.find( @booking.provider_id ).name %></p>
 <p>User ID: <%= User.find( @booking.user_id).firstname %> <%= User.find( @booking.user_id).lastname %></p>
@@ -13,3 +15,8 @@
 
 <button>Pay for booking</button>
 <%= render "shared/stripe_form", cost_per_head: Provider.find( @booking.provider_id).cost_per_head  %>
+
+
+<%= link_to 'Cancel booking', booking_path(@booking.id),
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %>

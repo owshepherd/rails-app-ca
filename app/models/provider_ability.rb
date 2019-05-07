@@ -7,9 +7,11 @@ class ProviderAbility
     # Define abilities for the passed in provider here. For example:
     #
     provider ||= Provider.new # guest provider (not logged in)
+    can :read, Booking
     can :read, Listing
     can :manage, Listing do |listing|
       listing.id == provider.listing_id
+    
     end 
   end
 
