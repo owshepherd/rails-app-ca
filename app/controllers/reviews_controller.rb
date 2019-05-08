@@ -4,6 +4,10 @@ class ReviewsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @review = @listing.reviews.find(params[:id])
     
+    if user_signed_in? && (review.user_id == current_user.id)
+    link_to 'Edit Review', edit_listing_review_path(@listing, review)
+    end
+
   end
 
   def update
@@ -39,7 +43,7 @@ class ReviewsController < ApplicationController
   
   private
     def review_params
-      params.require(:review).permit(:username, :content, :rating)
+      params.require(:review).permit(:username, :content, :rating, :user_id)
     end
 
 
