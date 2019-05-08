@@ -46,6 +46,7 @@ data: { confirm: 'Are you sure?' } %>
       <%= review.id %></p>
     
     <% if user_signed_in? %> 
+
     <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review) %></p>
     <% end %>
     
