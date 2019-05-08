@@ -15,6 +15,7 @@ class UserAbility
       else 
         can [:read], Listing
         can :manage, Booking
+        can [:read, :update], User
       end 
   end
 

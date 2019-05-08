@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'welcome#index'
   devise_for :providers, path: 'providers', controllers: {registrations: "providers/registrations"}
   
@@ -16,4 +17,6 @@ Rails.application.routes.draw do
   resources :bookings
   resources :cuisines
   resources :charges
+
+  resources :places
 end
