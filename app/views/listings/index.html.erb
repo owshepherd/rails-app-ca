@@ -29,6 +29,7 @@
 
 <div class="card-group">
 <% @listings.each_with_index do |listing, index| %>
+  <%= link_to listing_path(listing.id) do %>
   <div class="card">
     <img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Card image cap">
     <div class="card-body">
@@ -38,4 +39,5 @@
       <p class="card-text"><small class="text-muted">* 3.8 (50+)</small></p>
     </div>
   </div>
+  <% end %>
 <% end %>
