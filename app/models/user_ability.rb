@@ -13,7 +13,7 @@ class UserAbility
       if user.admin?
         can :manage, :all
       else 
-        can [:read, :edit, :update], Listing
+        can [:read], Listing
         can :manage, Booking
       end 
   end
