@@ -35,7 +35,6 @@ data: { confirm: 'Are you sure?' } %>
     <p><strong>Username:</strong>
       <%= review.username %></p>
   
-
     <p><strong>Comment:</strong>
       <%= review.content %></p>
 
@@ -45,8 +44,7 @@ data: { confirm: 'Are you sure?' } %>
     <p><strong>Id:</strong>
       <%= review.id %></p>
     
-    <% if user_signed_in? %> 
-
+    <% if user_signed_in? && (review.user_id == current_user.id) %> 
     <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review) %></p>
     <% end %>
     
@@ -70,6 +68,12 @@ data: { confirm: 'Are you sure?' } %>
     <%= form.label :username %><br>
     <%= form.text_field :username, :value => @current_user.username, readonly: true %>
   </p>
+
+  
+    <%= form.text_field :user_id, :value => @current_user.id, hidden: true %>
+  </p>
+
+
   <p>
     <%= form.label :content, "Comment" %><br>
     <%= form.text_area :content %>
@@ -77,7 +81,7 @@ data: { confirm: 'Are you sure?' } %>
 
 <p>
     <%= form.label :rating %><br>
-    <%= form.number_field :rating, max: 5 %>
+    <%= form.number_field :rating, min: 0, max: 5 %>
   </p>
 
   <p>
