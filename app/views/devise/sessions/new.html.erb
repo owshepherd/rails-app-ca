@@ -1,10 +1,13 @@
 <%= render "shared/nav" %>
 
-<h2>Log in User</h2>
+<div class="wrapper">
 
+<h2>Log in User A</h2>
+
+<div class="loginUser">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="field loginStyle">
+    <%= f.label :email, label_html: {class: 'loginStyle' } %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -25,4 +28,9 @@
   </div>
 <% end %>
 
+<div class="renderlogin">
 <%= render "devise/shared/links" %>
+</div>
+
+</div>
+</div>

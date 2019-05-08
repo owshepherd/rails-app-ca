@@ -1,0 +1,29 @@
+<h1>Create New Place</h1>
+
+
+<form action="<%= places_path %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name"  />
+
+    <label for="street">Street</label>
+    <input type="text" name="street" id="street"  />
+
+    <label for="city">City</label>
+    <input type="text" name="city" id="city"/>
+
+
+    <label for="state">State</label>
+    <input type="text" name="state" id="state" />
+
+    <label for="country">Country</label>
+    <input type="text" name="country" id="country" />
+
+    <input type="submit" value="Create" />
+</form>
+
+
+<%= render 'form', place: @place %>
+
+<%= link_to 'Back', places_path %>

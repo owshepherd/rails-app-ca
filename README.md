@@ -67,7 +67,7 @@ Week 2
 - [ ] Extras - Geolocation fro providers
 - [ ] Extras - Calendar for bookings
 - [ ] Searching, sorting and/or filtering capability
-- [ ] Reviews for User
+- [X] Reviews for User
 
 
 Day | Date | Tasks | Tasks completed | Blocks | Completed by
@@ -80,11 +80,13 @@ Fri | `3 May` | Complete booking form, aws, mailgun, strip | booking form | | pa
 
 Day | Date | Tasks | Tasks completed | Blocks | Completed by
 --- | --- | --- | --- | --- | ---
-Mon | `6 May` | install stripe | added mailer, fixed devise and cancan, added stripe and setup amount path  | Cancan has trouble working with 2 devise models. Mailer - user model | Pair programming
-Tue | `7 May` | Reached MVP!! Styling |  |  | Pair programming
-Wed | `8 May` |  |  | | Pair programming
-Thu | `9 May` |  |  |  | Pair programming
+Mon | `6 May` | Manual testing, install stripe | added mailer, fixed devise and cancan, added stripe and setup amount path  | Cancan has trouble working with 2 devise models. Mailer - user model | Pair programming
+Tue | `7 May` | Manual Testing, Reached MVP!! Styling | Stripe added | Navbar and Bootstrap | Pair programming
+Wed | `8 May` | Manual testing, Styling, User reviews | User reviews  | User reviews, nested routes, navbar styling  | Styling, NavBar - Owen, Other - Rob
+Thu | `9 May` | User show page, add mail for user login |  |  | Pair programming
 Fri | `10 May` |  |  | | pair programming
+
+Mailchip. email proforma
 
 
 
@@ -162,6 +164,8 @@ PostgreSQL 11 is now the default version for all new provisioned Heroku Postgres
 ```
 Abstraction is selecting data from a larger pool to show only the relevant details to the object. It helps to reduce programming complexity and effort. In our model active record is the abstraction of SQL. For example when we type in User.find(1), active record performs the following tasks for us: `SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2`  and returns the attribute for 
 User, id:1 eg => #<User id: 1, email: "owen@email.com", created_at: "2019-04-30 06:02:36", updated_at: "2019-04-30 06:30:36", username: "owen", firstname: "Owen", lastname: "Shepherd", dob: "2019-04-30", avatar: nil>
+
+Form-for 
 
 ```
 10. Detail any third party services that your App will use.

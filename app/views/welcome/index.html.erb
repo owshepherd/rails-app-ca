@@ -12,7 +12,28 @@
 
 <h1>Three newest listings sorted by desc date</h1>
 
+
+<% if user_signed_in? && current_user.admin? %>   
+<h4>ADMIN USE ONLY</h4>
+<ul>
+  <li><%= link_to "Cuisine List", cuisines_path %></li>
+  <li><%= link_to "Provider List", providers_path %></li>
+  <li><%= link_to "User List", users_path %></li>
+</ul>
+</div>
+<% end %>
+
+
+<% if user_signed_in? %>         
+<li><%= link_to "User Bookings", bookings_path %></li> 
+<li><%= link_to "User Profile", user_path(current_user.id) %></li> 
+
+<% elsif provider_signed_in? %>
+<li><%= link_to "Provider Bookings", bookings_path %></li>
+<% else %>
+
 <% @listings = Listing.order("created_at desc").limit(3) %>
+
 
 <div class="card-group">
 <% @listings.each_with_index do |listing, index| %>
