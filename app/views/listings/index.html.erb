@@ -28,9 +28,10 @@
 
 
 <div class="card-group">
+
 <% @listings.each_with_index do |listing, index| %>
-  <%= link_to listing_path(listing.id) do %>
   <div class="card">
+  <%= link_to listing_path(listing.id) do %>
     <img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"><%= listing.name %></h5>
