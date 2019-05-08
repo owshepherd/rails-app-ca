@@ -6,4 +6,6 @@ class Provider < ApplicationRecord
   has_one :listing
   has_one :cuisine
   has_many :bookings
+  
+
 end
