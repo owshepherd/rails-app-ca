@@ -26,4 +26,16 @@
   <% end %>  
 </ul>
 
-<%= link_to "Home", root_path %>
+
+<div class="card-group">
+<% @listings.each_with_index do |listing, index| %>
+  <div class="card">
+    <img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= listing.name %></h5>
+      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %></p>
+      <p class="card-text">(<%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %>)</p>
+      <p class="card-text"><small class="text-muted">* 3.8 (50+)</small></p>
+    </div>
+  </div>
+<% end %>
