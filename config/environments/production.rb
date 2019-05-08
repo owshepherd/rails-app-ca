@@ -92,7 +92,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => 'polar-wave-48884.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'floating-wave-89515.herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
     :port           => ENV['MAILGUN_SMTP_PORT'],
