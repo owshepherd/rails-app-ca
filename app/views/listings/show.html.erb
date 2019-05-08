@@ -1,5 +1,25 @@
 <%= render "shared/nav" %>
 
+<div class="jumbotron" style="background-image: url(https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg); background-size: cover;">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+          <h4 class="card-title"><%= @provider.name %></h4>
+          <p class="card-text"><%= @provider.city %> <%= @provider.state %></p>
+          <p class="card-text"><%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
+          <p class="card-text"><strong>Cost per head:</strong> $<%= @provider.cost_per_head %></p>
+          <p class="card-text"><strong>Minimum Persons:</strong> <%= @provider.minimum_persons %></p>
+          <a href="#" class="btn btn-primary">Make a Booking</a> <a href="#" class="btn btn-primary">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Reviews</h3>
+
+<!---
 <h2><%= @listing.name %></h2>
 
 <p>Contact: <%= @provider.name %></p>
@@ -8,6 +28,8 @@
 <p>Cost Per head: $<%= @provider.cost_per_head %></p>
 <p>Provider id: <%= @provider.id %></p>
 <p>Listing id: <%= @provider.listing_id %></p>
+
+--->
 
 
 <%= link_to '<< Back', listings_path %>
