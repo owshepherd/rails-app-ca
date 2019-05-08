@@ -11,6 +11,11 @@
   </div>
 
   <div>
+    <%= f.label :username, "Username" %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <div>
     <%= f.label :name, "Name" %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
@@ -40,8 +45,9 @@
     <%= f.text_field :cost_per_head %>
   </div>
 
+<div>
   <%= select_tag "cuisine_id", options_from_collection_for_select(@cuisine, 'id', 'cuisine_type') %>
-
+</div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

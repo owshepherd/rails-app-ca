@@ -25,6 +25,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   #PUT /resource
   def update
+    @cuisine = Cuisine.all
     super
   end
 

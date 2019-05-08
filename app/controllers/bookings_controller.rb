@@ -1,12 +1,27 @@
 class BookingsController < ApplicationController
   authorize_resource
+ 
+
+
   def index
     
     if user_signed_in?  
       @bookings = current_user.bookings
     else 
       @bookings = Booking.all
-    
+      @provider = Provider.find(current_provider.id)
+      
+      array = []
+      @array = array
+      @bookings.each_with_index do |booking, index|
+      if booking.provider_id == current_provider.id
+      array << booking.provider_id
+      end
+      end
+
+
+
+   
     end
   end
 
