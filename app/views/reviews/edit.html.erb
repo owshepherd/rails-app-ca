@@ -1,0 +1,20 @@
+<%= form_for([@listing, @review]) do |form| %>
+
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+
+<p>
+    <%= form.label :rating %><br>
+    <%= form.number_field :rating, max: 5 %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,5 +1,8 @@
 class BookingsController < ApplicationController
   authorize_resource
+ 
+
+
   def index
     
     if user_signed_in?  

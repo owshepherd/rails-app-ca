@@ -7,6 +7,8 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @provider = Provider.find(params[:id])
+
+    @review = Review.new
   end
 
   def new
