@@ -8,13 +8,14 @@
 <div class="col-lg-4 col-md-6 mb-4">
   <div class="card h-100">
   <%= link_to listing_path(listing.id) do %>
-    <img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
+    <div class="card-img-wrap"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
     <div class="card-body">
       <h4 class="card-title">
         <%= listing.name %>
       </h4>
       <h5>$24.99</h5>
-      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> (<%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %>)</p>
+      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> • <%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %></p>
+    </div>
     </div>
     <div class="card-footer">
       <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
