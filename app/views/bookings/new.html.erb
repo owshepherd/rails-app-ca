@@ -6,7 +6,7 @@
 
 <p>Provider Username: <%= @provider.username %></p>
 <p>Minimum Persons: <%= @provider.minimum_persons %></p>
-<p>Cost Per head: $<%= @provider.cost_per_head %></p>
+<p>Cost Per head: <%= sprintf("$%2.2f",@provider.cost_per_head) %></p>
 <p>Provider id: <%= @provider.id %></p>
 <p>Listing id: <%= @provider.listing_id %></p>
 <p>User full name: <%= @user.firstname %> <%= @user.lastname %></p>
@@ -34,7 +34,7 @@
 </form>
 
 
-
+<%= link_to '<< Back', listings_path %>
 
 
 

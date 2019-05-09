@@ -8,7 +8,7 @@
           <h4 class="card-title"><%= @provider.name %></h4>
           <p class="card-text"><%= @provider.city %> <%= @provider.state %></p>
           <p class="card-text"><%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
-          <p class="card-text"><strong>Cost per head:</strong> $<%= @provider.cost_per_head %></p>
+          <p class="card-text"><strong>Cost per head:</strong> <%= sprintf("$%2.2f", @provider.cost_per_head) %></p>
           <p class="card-text"><strong>Minimum Persons:</strong> <%= @provider.minimum_persons %></p>
           <% if user_signed_in? %> 
             <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }), class: "btn btn-primary" %>
@@ -102,36 +102,12 @@ data: { confirm: 'Are you sure?' } %>
 
 <% if user_signed_in? %> 
 <h4>Add a REVIEW:</h4>
-<%= form_for([@listing, @review]) do |form| %>
 
-  <p>
-    <%= form.label :username %><br>
-    <%= form.text_field :username, :value => @current_user.username, readonly: true %>
-  </p>
+<%= render "shared/add_review" %>
 
-  
-    <%= form.text_field :user_id, :value => @current_user.id, hidden: true %>
-  </p>
-
-
-  <p>
-    <%= form.label :content, "Comment" %><br>
-    <%= form.text_area :content %>
-  </p>
-
-<p>
-    <%= form.label :rating %><br>
-    <%= form.number_field :rating, min: 0, max: 5 %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-<% end %>
  
 
-
+<% end %>
 <div>
 <%= link_to "-Back", :back %>
 <%= link_to "- Listing Page", listings_path %>

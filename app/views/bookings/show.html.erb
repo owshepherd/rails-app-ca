@@ -8,8 +8,8 @@
 <p>User ID: <%= User.find( @booking.user_id).firstname %> <%= User.find( @booking.user_id).lastname %></p>
 <p>Persons: <%= @booking.persons %></p>
 <p>Location: <%= @booking.location %></p>
-<p>Booking day and time: <%= @booking.booking_daytime %></p>
-<p>Cost per head: <%= Provider.find( @booking.provider_id).cost_per_head %></p>
+<p>Booking day and time: <%= @booking.booking_daytime.strftime("%B %d, %Y, %H:%M")  %></p>
+<p>Cost per head: <%= sprintf("$%2.2f", Provider.find( @booking.provider_id).cost_per_head ) %></p>
 <p>Total cost: $<%= @amount %></p>
 <%= @listing %>
 
