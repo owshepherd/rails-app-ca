@@ -13,7 +13,7 @@
       <h4 class="card-title">
         <%= listing.name %>
       </h4>
-      <h5>$24.99</h5>
+      <h5><%= sprintf("$%2.2f", Listing.find(listing.id).provider.cost_per_head) %></h5>
       <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> (<%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %>)</p>
     </div>
     <div class="card-footer">
