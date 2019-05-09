@@ -13,6 +13,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cancancan'
 gem 'stripe'
 gem 'geocoder'
+gem 'font-awesome-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
