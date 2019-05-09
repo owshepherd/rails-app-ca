@@ -7,8 +7,13 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @provider = Provider.find(params[:id])
-
     @review = Review.new
+
+    if @listing.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @listing.reviews.average(:rating).round(2)
+    end
   end
 
   def new

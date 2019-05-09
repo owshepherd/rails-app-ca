@@ -22,8 +22,8 @@
           <p class="card-text"><i>"A description of the caterer, the company and/or the food which they provide. The food is succulent and delicious, and is available for a reasonable price! etc."</i></p>
           </div>
 
-          <div class="card-review-pane">
-            <p>&#9733; 4.0 (50+)</p>
+          <div class="card-review-pane" data-score=<%= @average_review %></div>
+          <p>&#9733; <%= @average_review %> (<%= @listing.reviews.count %>)</p>
           </div>
           <% if user_signed_in? %> 
             <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }), class: "btn btn-primary" %>
@@ -139,3 +139,12 @@ data: { confirm: 'Are you sure?' } %>
 </div>
 
 
+<script>
+      $('.review-rating').raty({
+        readOnly: true,
+        score: function() {
+          return $(this).attr('data-score');
+        },
+        path: '/assets/'
+      });
+      </script>

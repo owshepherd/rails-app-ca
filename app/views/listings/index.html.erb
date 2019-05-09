@@ -17,9 +17,15 @@
 
       <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> • <%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %></p>
       <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= Listing.find(listing.id).provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= Listing.find(listing.id).provider.minimum_persons %>+</p>
-      <div class="card-review-pane">
-      <p>&#9733; 4.0 (50+)</p>
-    </div>
+      <div class="card-review-pane" data-score=<%= @average_review %></div>
+      <p>&#9733; <% @average_review = Listing.find(listing.id).reviews.average(:rating) %>
+      <% if @average_review.blank? %>
+      0.0
+      <% else %>
+      <%= @average_review %>
+      <% end %>
+       (<%= listing.reviews.count %>)</p>
+      </div>
       </div>
     </div>
     <!--
