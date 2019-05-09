@@ -10,7 +10,28 @@
           <p class="card-text"><%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
           <p class="card-text"><strong>Cost per head:</strong> <%= sprintf("$%2.2f", @provider.cost_per_head) %></p>
           <p class="card-text"><strong>Minimum Persons:</strong> <%= @provider.minimum_persons %></p>
-          <a href="# %>" class="btn btn-primary">Make a Booking</a> <a href="#" class="btn btn-primary">Delete</a>
+
+
+          <% if user_signed_in? %> 
+            <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }), class: "btn btn-primary" %>
+          <% end %>
+
+          <%if !current_provider.nil? && (@listing.provider == current_provider) %> 
+            <%= link_to edit_listing_path(@listing.id), class:"btn btn-primary" do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+          <% end %>
+          
+          <% if user_signed_in? && current_user.admin? %>             
+            <%= link_to edit_listing_path(@listing.id), class:"btn btn-primary" do %>
+              <i class="fa fa-pencil"></i>
+            <% end %> 
+
+            <%= link_to listings_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          <% end %> 
+
         </div>
       </div>
     </div>
