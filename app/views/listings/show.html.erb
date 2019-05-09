@@ -10,8 +10,7 @@
           <p class="card-text"><%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
           <p class="card-text"><strong>Cost per head:</strong> <%= sprintf("$%2.2f", @provider.cost_per_head) %></p>
           <p class="card-text"><strong>Minimum Persons:</strong> <%= @provider.minimum_persons %></p>
-
-
+          
           <% if user_signed_in? %> 
             <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }), class: "btn btn-primary" %>
           <% end %>
