@@ -3,14 +3,16 @@
 <div class="jumbotron" style="background-image: url(https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg); background-size: cover;">
 <div class="row">
   <div class="col-sm-6">
+  <div class="show-card">
     <div class="card">
       <div class="card-body">
           <h4 class="card-title"><%= @provider.name %></h4>
-          <p class="card-text"><%= @provider.city %> <%= @provider.state %></p>
-          <p class="card-text"><%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
+          <p class="card-text"><%= @provider.city %> <%= @provider.state %>  •  <%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
           <p class="card-text"><strong>Cost per head:</strong> <%= sprintf("$%2.2f", @provider.cost_per_head) %></p>
           <p class="card-text"><strong>Minimum Persons:</strong> <%= @provider.minimum_persons %></p>
-          
+          <div class="card-review-pane">
+            <p>&#9733; 4.0 (50+)</p>
+          </div>
           <% if user_signed_in? %> 
             <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }), class: "btn btn-primary" %>
           <% end %>
@@ -34,6 +36,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 

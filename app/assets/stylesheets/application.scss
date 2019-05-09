@@ -22,12 +22,33 @@
   padding: 5px;
   width: 40%;
 }
-
-.card-img-wrap {
+.listing-card .h-100 {
+  border: none;
+}
+.listing-card .card-body {
+  padding: 10px 0px;
+}
+.listing-card .card-title {
+  color: black;
+  margin: 0px;
+  line-height:24px;
+  font-size:16px;
+  font-weight:500;
+}
+.listing-card .card-text {
+  color: #757575;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  margin-bottom: 0px;
+}
+.listing-card .card-img-wrap {
   overflow: hidden;
   position: relative;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
-.card-img-wrap:after {
+.listing-card .card-img-wrap:after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -35,15 +56,70 @@
   opacity: 0;
   transition: opacity .25s;
 }
-.card-img-wrap img {
+.listing-card .card-img-wrap img {
   transition: transform .25s;
   width: 100%;
+  border-radius: 4px;
 }
-.card-img-wrap:hover img {
-  transform: scale(1.1);
+.listing-card .card-img-wrap:hover img {
+  transform: translateY(4px);
 }
-.card-img-wrap:hover:after {
+.listing-card .card-img-wrap:hover:after {
   opacity: 1;
+}
+.listing-card .card-review-pane {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 4px;
+  margin:0px;
+}
+.listing-card .card-review-pane p {
+  color: black;
+  background: red;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  vertical-align: center;
+  margin: 0px 8px 8px 0px;
+  padding: 4px 8px;
+}
+.listing-card .card-footer {
+  background-color: #eff0f1;
+  height: 100%;
+}
+.show-card .card {
+  text-align: center;
+}
+.show-card .card-title {
+  color:#262626;
+  margin-bottom: 8px;
+  line-height: 36px;
+  font-size: 30px;
+}
+.show-card .card-text {
+  color: #757575;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  margin-bottom: 0px;
+}
+.show-card .card-review-pane {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 4px;
+  margin:0px;
+}
+.show-card .card-review-pane p {
+  color: black;
+  background: red;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  vertical-align: center;
+  margin: 0px 8px 8px 0px;
+  padding: 4px 8px;
 }
 
 /*
