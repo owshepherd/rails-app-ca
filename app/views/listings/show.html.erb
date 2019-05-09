@@ -8,8 +8,20 @@
       <div class="card-body">
           <h4 class="card-title"><%= @provider.name %></h4>
           <p class="card-text"><%= @provider.city %> <%= @provider.state %>  •  <%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
-          <p class="card-text"><strong>Cost per head:</strong> <%= sprintf("$%2.2f", @provider.cost_per_head) %></p>
-          <p class="card-text"><strong>Minimum Persons:</strong> <%= @provider.minimum_persons %></p>
+          <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= @information = Listing.find(@listing.id).provider.cost_per_head %> per person for <i class="fas fa-user-friends"></i> <%= Listing.find(@listing.id).provider.minimum_persons %>
+          <% if @information == 1 %>
+            person
+          <% elsif @information <= 0%>
+          --
+          <% else %>
+          people
+          <% end %>
+          minimum</p>
+
+          <div class="show-description">
+          <p class="card-text"><i>"A description of the caterer, the company and/or the food which they provide. The food is succulent and delicious, and is available for a reasonable price! etc."</i></p>
+          </div>
+
           <div class="card-review-pane">
             <p>&#9733; 4.0 (50+)</p>
           </div>

@@ -1,9 +1,13 @@
 @import 'bootstrap';
-@import 'font-awesome';
 
 /*
 *= require font-awesome
 */
+
+
+
+@import "font-awesome";
+@import "font-awesome-sprockets";
 
 @import '../stylesheets/login/users.scss';
 @import '../stylesheets/userprofile/userprofile.scss';
@@ -11,7 +15,9 @@
 @import '../stylesheets/reviews/new.scss';
 @import '../stylesheets/reviews/userreview.scss';
 
-
+*{
+  font-family: 'Open Sans', sans-serif !important;
+}
 .jumbotron {
   margin-bottom: 0px;
 }
@@ -90,6 +96,10 @@
 }
 .show-card .card {
   text-align: center;
+  border-radius: 0px;
+}
+.show-card .card .show-description {
+  padding: 10px 0px;
 }
 .show-card .card-title {
   color:#262626;
@@ -107,7 +117,7 @@
 .show-card .card-review-pane {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   padding-top: 4px;
   margin:0px;
 }
