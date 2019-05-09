@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_103647) do
+ActiveRecord::Schema.define(version: 2019_05_09_001547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_103647) do
     t.string "state"
     t.integer "postcode"
     t.integer "minimum_persons"
-    t.float "cost_per_head"
+    t.integer "cost_per_head"
     t.bigint "listing_id"
     t.bigint "cuisine_id"
     t.index ["cuisine_id"], name: "index_providers_on_cuisine_id"
