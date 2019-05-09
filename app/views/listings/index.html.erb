@@ -2,11 +2,23 @@
 
 <h1>Listings</h1>
 
-<ul>
-  <% @listings.each_with_index do |listing, index| %>
-    <li>
-      <%= listing.name %> 
-
+<div class="container">
+<div class="row">
+<% @listings.each_with_index do |listing, index| %>
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="card h-100">
+  <%= link_to listing_path(listing.id) do %>
+    <img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= listing.name %>
+      </h4>
+      <h5>$24.99</h5>
+      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> (<%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %>)</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+      <small class="text-muted">
       <p><%= link_to "Show Listing", listing_path(listing.id) %>
         
 
@@ -21,45 +33,10 @@
         data: { confirm: 'Are you sure?' } %>
         <% end %>
       </p>
-      
-    </li>
-  <% end %>  
-</ul>
-
-<div class="card-deck">
-<% @listings.each_with_index do |listing, index| %>
-  <div class="card">
-  <%= link_to listing_path(listing.id) do %>
-    <img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %></p>
-      <p class="card-text">(<%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %>)</p>
-      <p class="card-text"><small class="text-muted">* 3.8 (50+)</small></p>
+      </small>
     </div>
   </div>
   <% end %>
-<% end %>
-</div>
-
-
-<div class="container">
-<div class="row">
-<% @listings.each_with_index do |listing, index| %>
-<div class="col-lg-4 col-md-6 mb-4">
-  <div class="card h-100">
-    <a href="#"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image"></a>
-    <div class="card-body">
-      <h4 class="card-title">
-        <a href="#"><%= listing.name %></a>
-      </h4>
-      <h5>$24.99</h5>
-      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> (<%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %>)</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-    </div>
-  </div>
 </div>
 <% end %>
 
