@@ -10,6 +10,8 @@
           <p class="card-text"><%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
           <p class="card-text"><strong>Cost per head:</strong> <%= sprintf("$%2.2f", @provider.cost_per_head) %></p>
           <p class="card-text"><strong>Minimum Persons:</strong> <%= @provider.minimum_persons %></p>
+
+
           <% if user_signed_in? %> 
             <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }), class: "btn btn-primary" %>
           <% end %>
@@ -29,13 +31,13 @@
               <i class="fa fa-trash"></i>
             <% end %>
           <% end %> 
+
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<h3>Reviews</h3>
 
 <!---
 <h2><%= @listing.name %></h2>
@@ -52,9 +54,9 @@
 
 <%= link_to '<< Back', listings_path %>
 
-<% if user_signed_in? %> 
+<!-- <% if user_signed_in? %> 
 <p><strong><%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }) %></strong></p>
-<% end %>
+<% end %> -->
 
 
 <%if !current_provider.nil? && (@listing.provider == current_provider) %> 
@@ -68,10 +70,13 @@ method: :delete,
 data: { confirm: 'Are you sure?' } %>
 <% end %>
 
-
+<div class="UserReviewWrapper">
 <% if @listing.reviews.any? %>
   <h2>User Reviews</h2>
+
     <% @listing.reviews.each do |review| %>
+    <div class="UserReview">
+    
     <p><strong>Username:</strong>
       <%= review.username %></p>
   
@@ -83,6 +88,8 @@ data: { confirm: 'Are you sure?' } %>
     
     <p><strong>Id:</strong>
       <%= review.id %></p>
+
+  </div>
     
     <% if user_signed_in? && (review.user_id == current_user.id) %> 
     <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review) %></p>
@@ -97,7 +104,7 @@ data: { confirm: 'Are you sure?' } %>
 
   <% end %>
 <% end %>
-
+</div>
 
 
 <% if user_signed_in? %> 
