@@ -1,40 +1,65 @@
 <%= render "shared/nav" %>
 
-<h2>Create a new booking</h2>
+<div class="signup__container">
+  <div class="container__child signup__thumbnail">
+    <div class="thumbnail__content text-center">
+      <h1 class="heading--primary">Almost there.</h1>
+      <h2 class="heading--secondary"> Caterer Details</h2>
+    
+    <div class="button-container">
+    <button class="button button1">Provider Username:</button>
+    <button class="button button4"><%= @provider.username %></button>
+    </div>
+    <div class="button-container">
+    <button class="button button1">Minimum Persons:</button>
+    <button class="button button4"><%= @provider.minimum_persons %></button>
+    </div>
+    <div class="button-container">
+    <button class="button button1">Cost Per head::</button>
+    <button class="button button4"><%= sprintf("$%2.2f",@provider.cost_per_head) %></button>
+    </div>
+  </div>
 
-<p><%= @provider.username %></p>
+    <div class="signup__overlay"></div>
+    </div>
+      <div class="container__child signup__form">
+      <div>
+        <h1 class="heading--primary form">Enter your details below</h1>
+      </div>
+      <form action="<%= bookings_path %>" method="POST" >
+      <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
-<p>Provider Username: <%= @provider.username %></p>
-<p>Minimum Persons: <%= @provider.minimum_persons %></p>
-<p>Cost Per head: <%= sprintf("$%2.2f",@provider.cost_per_head) %></p>
-<p>Provider id: <%= @provider.id %></p>
-<p>Listing id: <%= @provider.listing_id %></p>
-<p>User full name: <%= @user.firstname %> <%= @user.lastname %></p>
-<p>User e-mail: <%= @user.email %></p>
-<%= @listing %>
+      <input type="hidden" name="provider_id" id="provider_id" value="<%= @provider.id %>" />
 
+      <input type="hidden" name="user_id" id="user_id" value="<%= @user.id %>" />
+      
+      <div class="form-group">
+        <label for="location">Location of event</label>
+        <input class="form-control" type="text" name="location" id="location" placeholder="location" required />
+      </div>
 
-<form action="<%= bookings_path %>" method="POST" >
-    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+      <div class="form-group">
+        <label for="persons">Number of persons</label>
+        <input class="form-control" type="number" name="persons" id="persons" min="<%= @provider.minimum_persons %>" value="<%= @provider.minimum_persons %>" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="booking_daytime">Date and time</label>
+        <input class="form-control" type="date" name="booking_daytime" id="booking_daytime" placeholder="dd/mm/yyyy" required />
+      </div>
 
-    <input type="hidden" name="provider_id" id="provider_id" value="<%= @provider.id %>" />
-
-    <input type="hidden" name="user_id" id="user_id" value="<%= @user.id %>" />
-
-    <label for="location">Location</label>
-    <input type="text" name="location" id="location" />
-
-    <label for="address">Number of persons</label>
-    <input type="number" name="persons" id="persons" min="<%= @provider.minimum_persons %>" value="<%= @provider.minimum_persons %>" />
-
-    <label for="booking_daytime">Date and time</label>
-    <input type="date" name="booking_daytime" id="booking_daytime" placeholder="dd/mm/yyyy"/>
-
-    <input type="submit" value="Create" />
-</form>
-
-
-<%= link_to '<< Back', :back %>
+      <div class="m-t-lg">
+        <ul class="list-inline">
+          <li>
+            
+            <input class="btn btn--form" type="submit" value="Create" />
+          </li>
+        </ul>
+        <p><%= link_to '<< Back to Listings', :back %></p>
+      </div>
+    </form>  
+  </div>
+</div>
 
 
 
