@@ -9,20 +9,53 @@
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </p>
 </div>
-
+</div>
+</div>
 <h1>Three newest listings sorted by desc date</h1>
 
 
-<% if user_signed_in? && current_user.admin? %>   
-<h4>ADMIN USE ONLY</h4>
-<ul>
-  <li><%= link_to "Cuisine List", cuisines_path %></li>
-  <li><%= link_to "Provider List", providers_path %></li>
-  <li><%= link_to "User List", users_path %></li>
-</ul>
-</div>
-<% end %>
+<% @listings = Listing.order("created_at desc").limit(3) %>
 
+<div class="container">
+  <div class="row">
+    <% @listings.each_with_index do |listing, index| %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <%= link_to listing_path(listing.id) do %>
+            <div class="card-img-wrap"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= listing.name %>
+                </h4>
+                <h5>$24.99</h5>
+                  <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> • <%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %></p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              <small class="text-muted">
+              <p><%= link_to "Show Listing", listing_path(listing.id) %>        
+                <%if !current_provider.nil? && (listing.provider == current_provider) %> 
+                  <%= link_to "-Edit Listing Name", edit_listing_path(listing.id) %>
+
+                  <% end %>
+
+                  <% if user_signed_in? && current_user.admin? %>  
+                  <%= link_to 'Destroy', listing_path(listing.id),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </p>
+              </small>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% if user_signed_in? %>         
 <li><%= link_to "User Bookings", bookings_path %></li> 
@@ -31,22 +64,4 @@
 <% elsif provider_signed_in? %>
 <li><%= link_to "Provider Bookings", bookings_path %></li>
 <% else %>
-<% end %>
-
-<% @listings = Listing.order("created_at desc").limit(3) %>
-
-
-<div class="card-group">
-<% @listings.each_with_index do |listing, index| %>
-  <div class="card">
-  <%= link_to listing_path(listing.id) do %>
-    <img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %></p>
-      <p class="card-text">(<%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %>)</p>
-      <p class="card-text"><small class="text-muted">* 3.8 (50+)</small></p>
-    </div>
-  </div>
-  <% end %>
 <% end %>
