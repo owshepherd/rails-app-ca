@@ -16,7 +16,7 @@
       </h4>
 
       <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> • <%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %></p>
-      <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= Listing.find(listing.id).provider.cost_per_head %> - <i class="fas fa-user-friends"></i> <%= Listing.find(listing.id).provider.minimum_persons %>+</p>
+      <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= Listing.find(listing.id).provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= Listing.find(listing.id).provider.minimum_persons %>+</p>
       <div class="card-review-pane">
       <p>&#9733; 4.0 (50+)</p>
     </div>
