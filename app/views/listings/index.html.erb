@@ -28,7 +28,6 @@
 
 
 <div class="card-group">
-
 <% @listings.each_with_index do |listing, index| %>
   <div class="card">
   <%= link_to listing_path(listing.id) do %>
@@ -42,3 +41,6 @@
   </div>
   <% end %>
 <% end %>
+
+
+
