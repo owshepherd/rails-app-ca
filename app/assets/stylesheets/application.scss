@@ -1,0 +1,62 @@
+@import 'bootstrap';
+@import 'font-awesome';
+
+/*
+*= require font-awesome
+*/
+
+@import '../stylesheets/login/users.scss';
+@import '../stylesheets/userprofile/userprofile.scss';
+@import '../stylesheets/userprofile/edituser.scss';
+@import '../stylesheets/reviews/new.scss';
+@import '../stylesheets/reviews/userreview.scss';
+@import "../stylesheets/bookings/new_booking.scss";
+
+
+.jumbotron {
+  margin-bottom: 0px;
+}
+
+.jumbotron-card {
+  background: white;
+  border-radius: 6px;
+  padding: 5px;
+  width: 40%;
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.card-img-wrap:after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.3);
+  opacity: 0;
+  transition: opacity .25s;
+}
+.card-img-wrap img {
+  transition: transform .25s;
+  width: 100%;
+}
+.card-img-wrap:hover img {
+  transform: scale(1.1);
+}
+.card-img-wrap:hover:after {
+  opacity: 1;
+}
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+
+ */
