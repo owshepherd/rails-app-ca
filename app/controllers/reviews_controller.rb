@@ -4,8 +4,8 @@ class ReviewsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @review = @listing.reviews.find(params[:id])
     
-    if user_signed_in? && (review.user_id == current_user.id)
-    link_to 'Edit Review', edit_listing_review_path(@listing, review)
+    if !user_signed_in? || (@review.user_id != current_user.id)
+      redirect_to listing_path(@listing), danger: "Not authorized to edit !!"
     end
 
   end
@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @review = @listing.reviews.find(params[:id])
 
-    if @listing.reviews.update(review_params)
+    if @review.update(review_params)
       redirect_to listing_path(@listing), info: "Review updated !!"
     else
       render 'edit'
