@@ -1,20 +1,38 @@
 <%= render "shared/nav" %>
 
-<h1>Bookings</h1>
+<h1>Your Current Bookings</h1>
 
 <h1>Show page for booking</h1>
 
 <% if user_signed_in? %>    
   <% if !@bookings.empty? %>
-    <ul>
-      <% @bookings.each_with_index do |booking, index| %>
-        <li>
-          <%= booking.location %>
-        </li>
-      <% end %>
-    </ul>
-      <% else %>
-      <p>You have no Bookings</p>
+   
+    <% @bookings.each_with_index do |booking, index| %>
+      <div class=""> 
+      <ol>
+        <div>
+          <li>Date and time of Event:</li>
+        </div>
+        <div>
+          <li><%= booking.booking_daytime.strftime("%B %d, %Y - %H %M") %></li>
+        </div>
+        
+        <div>
+          <li>Number of persons:</li>
+        </div>
+        <div>
+          <li><%= booking.persons %></li>
+        </div>
+        <div>
+          <li>Event location::</li>
+        </div>
+        <div>
+          <li><%= booking.location %></li>
+        </div>
+    <% end %>
+
+    <% else %>
+    <p>You have no Bookings</p>
   <% end %>
 <% end %>
 
