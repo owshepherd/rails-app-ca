@@ -1,22 +1,51 @@
 <%= render "shared/nav" %>
 
-<h1>Booking for <%= @booking.booking_daytime.strftime("%B %d, %Y") %></h1>
-<h1>Time: <%= @booking.booking_daytime.strftime("%H:%M") %></h1>
+<div class="show_wrapper">
+  <div class="container__child1 show_wrapper1">
+    <div class="booking_summary text-center">
+      <h1 class="heading--primary2">Booking Summary</h1>
+      
+    <div class="button-container1">
+    <label class="button-show">Caterer Name</label>
+    <label class="buttonshow4"><%= Provider.find( @booking.provider_id ).name %> </label>
+    </div>
+    <div class="button-container1">
+    <label class="button-show">Location of event</label>
+    <label class="buttonshow4"><%= @booking.location %></label>
+    </div>
+    <div class="button-container1">
+    <label class="button-show">Date of Event</label>
+    <label class="buttonshow4"><%= @booking.booking_daytime.strftime("%B %d, %Y") %> </label>
+    </div>
+    <div class="button-container1">
+    <label class="button-show">Start Time</label>
+    <label class="buttonshow4"><%= @booking.booking_daytime.strftime("%H:%M") %> </label>
+    </div>
 
 
-<p>Provider ID: <%= Provider.find( @booking.provider_id ).name %></p>
-<p>User ID: <%= User.find( @booking.user_id).firstname %> <%= User.find( @booking.user_id).lastname %></p>
-<p>Persons: <%= @booking.persons %></p>
-<p>Location: <%= @booking.location %></p>
-<p>Booking day and time: <%= @booking.booking_daytime.strftime("%B %d, %Y, %H:%M")  %></p>
-<p>Cost per head: <%= sprintf("$%2.2f", Provider.find( @booking.provider_id).cost_per_head ) %></p>
-<p>Total cost: $<%= @amount %></p>
-<%= @listing %>
 
-<button>Pay for booking</button>
-<%= render "shared/stripe_form", cost_per_head: Provider.find( @booking.provider_id).cost_per_head  %>
-
-
-<%= link_to 'Cancel booking', booking_path(@booking.id),
+    <div class="button-container1">
+    <label class="button-show">Number of Guests</label>
+    <label class="buttonshow4"><%= @booking.persons %> </label>
+    </div>
+    
+    <div class="button-container1">
+    <label class="button-show">Cost Per head</label>
+    <label class="buttonshow4"><%= sprintf("$%2.2f", Provider.find( @booking.provider_id).cost_per_head ) %></label>
+    </div>
+    <div class="button-container1">
+    <label class="button-show">Total Cost</label>
+    <label class="buttonshow4">$<%= @amount %></label>
+    </div>
+   
+    <div class="button-container1">
+    <span><%= render "shared/stripe_form", cost_per_head: Provider.find( @booking.provider_id).cost_per_head  %></span>
+    </div>
+    <div>
+    <span><%= link_to 'Cancel booking', booking_path(@booking.id),
   method: :delete,
-  data: { confirm: 'Are you sure?' } %>
+  data: { confirm: 'Are you sure?' } %></span>
+    </div>
+
+</div>
+

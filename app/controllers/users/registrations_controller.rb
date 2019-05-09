@@ -66,13 +66,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def send_update_email
     if resource.errors.empty?
-      BookMailer.with(user: @current_user).update_provider_email.deliver_now
+      BookMailer.with(user: @current_user).update_user_email.deliver_now
     end
   end
 
   def send_new_email
     if resource.errors.empty?
-      BookMailer.with(user: @current_user).new_provider_email.deliver_now
+      BookMailer.with(user: @current_user).new_user_email.deliver_now
     end
   end
 end

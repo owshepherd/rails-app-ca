@@ -4,8 +4,6 @@
 *= require font-awesome
 */
 
-
-
 @import "font-awesome";
 @import "font-awesome-sprockets";
 
@@ -15,6 +13,7 @@
 @import '../stylesheets/reviews/new.scss';
 @import '../stylesheets/reviews/userreview.scss';
 @import '../stylesheets/bookings/new_booking.scss';
+@import '../stylesheets/bookings/show.html.scss';
 
 *{
   font-family: 'Open Sans', sans-serif !important;
