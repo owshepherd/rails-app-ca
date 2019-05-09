@@ -6,7 +6,16 @@ Rails.application.routes.draw do
   devise_scope :provider do
     get 'sign_up', to: 'providers/registrations#new'
   end
-  devise_for :users, path: 'users'
+  
+
+  devise_for :users, path: 'users', controllers: {registrations: "users/registrations"}
+
+  devise_scope :user do
+    get 'sign_up', to: 'users/registrations#new'
+  end
+  
+  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   resources :listings do 
