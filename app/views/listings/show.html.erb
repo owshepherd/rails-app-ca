@@ -86,13 +86,14 @@ data: { confirm: 'Are you sure?' } %>
     
     <p><strong>Id:</strong>
       <%= review.id %></p>
-
-  </div>
-    
-    <% if user_signed_in? && (review.user_id == current_user.id) %> 
+<% if user_signed_in? && (review.user_id == current_user.id) %> 
     <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review) %></p>
     <% end %>
+  </div>
     
+    
+  
+
     <% if user_signed_in? && current_user.admin? %> 
     <p><%= link_to 'Destroy Review', listing_review_path(@listing, review),
                method: :delete,
