@@ -31,6 +31,7 @@
 <% elsif provider_signed_in? %>
 <li><%= link_to "Provider Bookings", bookings_path %></li>
 <% else %>
+<% end %>
 
 <% @listings = Listing.order("created_at desc").limit(3) %>
 
