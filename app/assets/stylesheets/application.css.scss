@@ -1,0 +1,147 @@
+@import 'bootstrap';
+
+/*
+*= require font-awesome
+*/
+
+
+
+@import "font-awesome";
+@import "font-awesome-sprockets";
+
+@import '../stylesheets/login/users.scss';
+@import '../stylesheets/userprofile/userprofile.scss';
+@import '../stylesheets/userprofile/edituser.scss';
+@import '../stylesheets/reviews/new.scss';
+@import '../stylesheets/reviews/userreview.scss';
+
+*{
+  font-family: 'Open Sans', sans-serif !important;
+}
+.jumbotron {
+  margin-bottom: 0px;
+}
+
+.jumbotron-card {
+  background: white;
+  border-radius: 6px;
+  padding: 5px;
+  width: 40%;
+}
+.listing-card .h-100 {
+  border: none;
+}
+.listing-card .card-body {
+  padding: 10px 0px;
+}
+.listing-card .card-title {
+  color: black;
+  margin: 0px;
+  line-height:24px;
+  font-size:16px;
+  font-weight:500;
+}
+.listing-card .card-text {
+  color: #757575;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  margin-bottom: 0px;
+}
+.listing-card .card-img-wrap {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.listing-card .card-img-wrap:after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.3);
+  opacity: 0;
+  transition: opacity .25s;
+}
+.listing-card .card-img-wrap img {
+  transition: transform .25s;
+  width: 100%;
+  border-radius: 4px;
+}
+.listing-card .card-img-wrap:hover img {
+  transform: translateY(4px);
+}
+.listing-card .card-img-wrap:hover:after {
+  opacity: 1;
+}
+.listing-card .card-review-pane {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 4px;
+  margin:0px;
+}
+.listing-card .card-review-pane p {
+  color: black;
+  background: red;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  vertical-align: center;
+  margin: 0px 8px 8px 0px;
+  padding: 4px 8px;
+}
+.listing-card .card-footer {
+  background-color: #eff0f1;
+  height: 100%;
+}
+.show-card .card {
+  text-align: center;
+  border-radius: 0px;
+}
+.show-card .card .show-description {
+  padding: 10px 0px;
+}
+.show-card .card-title {
+  color:#262626;
+  margin-bottom: 8px;
+  line-height: 36px;
+  font-size: 30px;
+}
+.show-card .card-text {
+  color: #757575;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  margin-bottom: 0px;
+}
+.show-card .card-review-pane {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 4px;
+  margin:0px;
+}
+.show-card .card-review-pane p {
+  color: black;
+  background: red;
+  line-height:20px;
+  font-size:14px;
+  font-weight:500;
+  vertical-align: center;
+  margin: 0px 8px 8px 0px;
+  padding: 4px 8px;
+}
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+
+ */
