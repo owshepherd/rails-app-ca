@@ -1,5 +1,6 @@
 class BookMailer < ApplicationMailer
   def update_provider_email
+ 
     @user = params[:user]
     mail(to: @user.email, subject: 'Provider Information at COMAPNY NAME was edited')
 
@@ -9,4 +10,10 @@ class BookMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: 'Welcome to COMAPNY NAME')
   end
+
+  def new_user_email
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Welcome User to COMAPNY NAME')
+  end
+ 
 end
