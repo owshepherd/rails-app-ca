@@ -11,12 +11,62 @@
 </div>
 </div>
 </div>
-<h1>Three newest listings sorted by desc date</h1>
-
+<hr>
+<h1>Newest Listings</h1>
+<hr>
 
 <% @listings = Listing.order("created_at desc").limit(3) %>
 
+
 <div class="container">
+<div class="row">
+<% @listings.each_with_index do |listing, index| %>
+<div class="col-lg-4 col-md-6 mb-4">
+<div class="listing-card">
+  <div class="card h-100">
+  <%= link_to listing_path(listing.id) do %>
+    <div class="card-img-wrap"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= listing.name %>
+      </h4>
+
+      <p class="card-text"><%= Listing.find(listing.id).provider.city %> <%= Listing.find(listing.id).provider.state %> • <%= Cuisine.find(Listing.find(listing.id).provider.cuisine_id).cuisine_type %></p>
+      <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= Listing.find(listing.id).provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= Listing.find(listing.id).provider.minimum_persons %>+</p>
+      <div class="card-review-pane" data-score=<%= @average_review %></div>
+      <p>&#9733; <% @average_review = Listing.find(listing.id).reviews.average(:rating) %>
+      <% if @average_review.blank? %>
+      0.0
+      <% else %>
+      <%= @average_review.round(1) %>
+      <% end %>
+       (<%= listing.reviews.count %>)</p>
+      </div>
+      </div>
+    </div>
+    </div>
+    <% end %>
+  </div>
+  </div>
+  <% end %>
+  
+  </div>
+  <!-- /.row -->
+  
+  </div>
+  <!-- /.col-lg-9 -->
+  
+  </div>
+  <!-- /.row -->
+  
+  </div>
+  <!-- /.container -->
+
+
+
+
+<!--
+  <div class="container">
   <div class="row">
     <% @listings.each_with_index do |listing, index| %>
       <div class="col-lg-4 col-md-6 mb-4">
@@ -56,6 +106,7 @@
     </div>
   </div>
 </div>
+-->
 
 <% if user_signed_in? %>         
 <li><%= link_to "User Bookings", bookings_path %></li> 

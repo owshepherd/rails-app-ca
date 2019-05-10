@@ -12,7 +12,7 @@ class ListingsController < ApplicationController
     if @listing.reviews.blank?
       @average_review = 0
     else
-      @average_review = @listing.reviews.average(:rating).round(2)
+      @average_review = @listing.reviews.average(:rating).round(1)
     end
   end
 

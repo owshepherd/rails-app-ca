@@ -1,5 +1,63 @@
 <%= render "shared/nav" %>
 
+<div class="login-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-8 m-auto col-sm-8 col-12">
+				<div class="log-box">
+					<div class="row">
+						<div class="col-xl-5 col-sm-5 col-12 pad-right-0">
+							<div class="logo-back">
+							</div>
+						</div>
+						<div class="col-xl-7 col-sm-7 col-12 pad-left-0">
+							<div class="log-content">
+                <h1>Create Booking</h1>
+                <h3><%= @provider.name %></h3>
+                <h5>Cuisine type</h5>
+                <p>Minimum <%= @provider.minimum_persons %> people, <%= sprintf("$%2.2f",@provider.cost_per_head) %> per head</p>
+								<div class="log-body">
+                <div class="form-group myr-top">
+                <label>Location</label>
+                <input class="form-control custom" type="text" name="location" id="location" placeholder="Location of event" required />
+                </div>
+
+                <!-- PLACEHOLDER NOT SHOWING UP FOR THESE -->
+                <div class="form-group myr-top">
+                <label>Number of persons</label>
+                <input class="form-control custom" type="number" name="persons" id="persons" placeholder="<% @provider.minimum_persons %>" min="<%= @provider.minimum_persons %>" value="<%= @provider.minimum_persons %>" required />
+                </div>
+
+                <div class="form-group myr-top">
+                <label>Date and time</label>
+                <input class="form-control custom" type="date" name="booking_daytime" id="booking_daytime" placeholder="dd/mm/yyyy" required />
+                </div>
+
+                <form action="<%= bookings_path %>" method="POST" >
+                <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+                <input type="hidden" name="provider_id" id="provider_id" value="<%= @provider.id %>" />
+                <input type="hidden" name="user_id" id="user_id" value="<%= @user.id %>" />
+
+
+
+                <!-- BUTTON NEEDS CODE -->
+								<div class="log-btn text-center">
+                  <input class="btn btn-theme1" type="submit" value="Create your booking" />
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--
+
+<div class="new_container">
 <div class="signup__container1">
   <div class="container__child1 signup__thumbnail1">
     <div class="thumbnail__content1 text-center">
@@ -62,7 +120,5 @@
     </form>  
   </div>
 </div>
-
-
-
-
+</div>
+-->

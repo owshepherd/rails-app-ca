@@ -22,7 +22,7 @@
       <% if @average_review.blank? %>
       0.0
       <% else %>
-      <%= @average_review %>
+      <%= @average_review.round(1) %>
       <% end %>
        (<%= listing.reviews.count %>)</p>
       </div>
