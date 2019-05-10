@@ -2,16 +2,30 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Event Location:</strong>
+
+<div class="card-wrapper">
+<div class="card" style="width: 25rem;">
+
+<div class="card-body">
+    <p class="card-text"><strong>Event Date:</strong>
+  <%= @booking.booking_daytime.strftime("%B %d, %Y")  %>
+</p>
+<p class="card-text"><strong>Client Name: </strong><%=  @user.firstname %> <%= @user.lastname %>
+</p>
+<p class="card-text"><strong>Number of Guests: </strong><%=  @booking.persons %> 
+</p>
+<p class="card-text"><strong>Client email:</strong><%= @user.email %>
+</p>
+<p class="card-text"><strong>Event Location:</strong>
   <%= @booking.location %>
 </p>
+  </div class="card-img-bottom">
+  <%= image_tag   "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@place.latitude},#{@place.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
+  
+</div>
+
+<div><%= link_to '<< Back', :back %></div>
+
+</div>
 
 
-
-<p>
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@place.latitude},#{@place.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
-</p>
-
-
-<%= link_to 'Back', :back %>
