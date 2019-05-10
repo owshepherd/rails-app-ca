@@ -193,6 +193,7 @@ We will be using the following third party services:
 ```
 12. Discuss the database relations to be implemented.
 ```
+Include ERD
 
 ```
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.

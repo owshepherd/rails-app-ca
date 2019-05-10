@@ -11,7 +11,9 @@ class ProviderAbility
     can :read, Listing
     can :manage, Listing do |listing|
       listing.id == provider.listing_id
-    
+    end 
+    if provider.id != nil 
+      can :read, Place
     end 
   end
 
