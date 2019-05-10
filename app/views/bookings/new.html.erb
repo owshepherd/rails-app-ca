@@ -15,7 +15,7 @@
                 <h1>Create Booking</h1>
                 <h3><%= @provider.name %></h3>
                 <h5>Cuisine type</h5>
-                <p>Minimum <%= @provider.minimum_persons %> people, <%= sprintf("$%2.2f",@provider.cost_per_head) %> per head</p>
+                <p>Minimum <%= @provider.minimum_persons %> people<br /><%= sprintf("$%2.2f",@provider.cost_per_head) %> per head</p>
 								<div class="log-body">
                 <div class="form-group myr-top">
                 <label>Location</label>
