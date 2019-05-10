@@ -3,9 +3,9 @@
 <div class="jumbotron" style="background-image: url(https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg); background-size: cover;">
 <div class="row">
   <div class="col-sm-6">
-  <div class="show-card">
-    <div class="card">
-      <div class="card-body">
+    <div class="show-card">
+      <div class="card">
+        <div class="card-body">
           <h4 class="card-title"><%= @provider.name %></h4>
           <p class="card-text"><%= @provider.city %> <%= @provider.state %>  •  <%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
           <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= @information = Listing.find(@listing.id).provider.cost_per_head %> per person for <i class="fas fa-user-friends"></i> <%= Listing.find(@listing.id).provider.minimum_persons %>
@@ -77,14 +77,14 @@
 <!--
 
 <%if !current_provider.nil? && (@listing.provider == current_provider) %> 
-<%= link_to "-Edit Listing", edit_listing_path(@listing.id) %>
+  <%= link_to "-Edit Listing", edit_listing_path(@listing.id) %>
 <% end %>
 
 <% if user_signed_in? && current_user.admin? %>  
-<%= link_to 'Edit Listing', edit_listing_path(@listing) %> 
-<%= link_to 'Destroy', listings_path(@listing.id),
-method: :delete,
-data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit Listing', edit_listing_path(@listing) %> 
+  <%= link_to 'Destroy', listings_path(@listing.id),
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 -->
@@ -143,8 +143,8 @@ data: { confirm: 'Are you sure?' } %>
 <!--
 
 <div class="UserReviewWrapper">
-<% if @listing.reviews.any? %>
-  <h2>User Reviews</h2>
+  <% if @listing.reviews.any? %>
+    <h2>User Reviews</h2>
 
     <% @listing.reviews.each do |review| %>
     <div class="UserReview">
@@ -160,41 +160,32 @@ data: { confirm: 'Are you sure?' } %>
     
     <p><strong>Id:</strong>
       <%= review.id %></p>
-<% if user_signed_in? && (review.user_id == current_user.id) %> 
-    <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review) %></p>
-    <% end %>
-  
-  <% if user_signed_in? && current_user.admin? %> 
-    <p><%= link_to 'Destroy Review', listing_review_path(@listing, review),
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-    </p>
-    <% end %>
-  
-  </div>
-    
-    
-  
 
+      <% if user_signed_in? && (review.user_id == current_user.id) %> 
+        <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review) %></p>
+      <% end %>
     
-
+      <% if user_signed_in? && current_user.admin? %> 
+        <p><%= link_to 'Destroy Review', listing_review_path(@listing, review),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
+    </div>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 
 
 <% if user_signed_in? %> 
-<h4>Add a REVIEW:</h4>
+  <h4>Add a REVIEW:</h4>
 
-<%= render "shared/add_review" %>
-
- 
-
+  <%= render "shared/add_review" %>
 <% end %>
 <div>
-<%= link_to "-Back", :back %>
-<%= link_to "- Listing Page", listings_path %>
-<%= link_to "- Home Page", root_path %>
+  <%= link_to "-Back", :back %>
+  <%= link_to "- Listing Page", listings_path %>
+  <%= link_to "- Home Page", root_path %>
 </div>
 
 -->
@@ -207,4 +198,4 @@ data: { confirm: 'Are you sure?' } %>
         },
         path: '/assets/'
       });
-      </script>
+</script>
