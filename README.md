@@ -64,7 +64,7 @@ Week 1
 
 Week 2
 - [X] Add cancan can, Add admin to user model
-- [ ] Extras - Geolocation fro providers
+- [X] Extras - Geolocation fro providers
 - [ ] Extras - Calendar for bookings
 - [ ] Searching, sorting and/or filtering capability
 - [X] Reviews for User
@@ -83,10 +83,10 @@ Day | Date | Tasks | Tasks completed | Blocks | Completed by
 Mon | `6 May` | Manual testing, install stripe | added mailer, fixed devise and cancan, added stripe and setup amount path  | Cancan has trouble working with 2 devise models. Mailer - user model | Pair programming
 Tue | `7 May` | Manual Testing, Reached MVP!! Styling | Stripe added | Navbar and Bootstrap | Pair programming
 Wed | `8 May` | Manual testing, Styling, User reviews | User reviews  | User reviews, nested routes, navbar styling  | Styling, NavBar - Owen, Other - Rob
-Thu | `9 May` | User show page, add mail for user login |  |  | Pair programming
+Thu | `9 May` | User show page, add mail for user login | Geolocation |  | Pair programming
 Fri | `10 May` |  |  | | pair programming
 
-Mailchip. email proforma
+ email proforma
 
 
 
@@ -131,6 +131,9 @@ Benefits for customer base include
 ```
 4. Describe the network infrastructure the App may be based on.
 ```
+Heroku
+What is a heroku dyno is an instance of a server.........
+
 
 ```
 5. Identify and describe the software to be used in your App.
@@ -154,10 +157,17 @@ PostgreSQL 11 is now the default version for all new provisioned Heroku Postgres
 ```
 7. Identify and describe the production database setup (i.e. postgres instance).
 ```
+local structure for database
+heroku run rails ..to send instructions to heroku run db:migrate etc instance
+
 
 ```
 8. Describe the architecture of your App.
 ```
+
+Describing MVC. If i type in Heroku get request what happens
+
+
 
 ```
 9. Explain the different high-level components (abstractions) in your App.
@@ -212,12 +222,15 @@ Bookings (relationship between providers and users)
 ```
 15. Provide User stories for your App.
 ```
+User can login and do this.... templates click on button to achieve this
 
 ```
 16. Provide Wireframes for your App.
 ```
 https://www.figma.com/file/aIJ1hn7A456uyNmlZVCCDccz/Rails-Project?node-id=0%3A1
 
+
+![wireframe](../rails-app-ca/a-images-for-git/wireframe.png)
 
 ```
 17. Describe the way tasks are allocated and tracked in your project.
@@ -234,6 +247,8 @@ Trello was used to list tasks that needed to be done, doing and completed. These
 ```
 19. Provide an overview and description of your Source control process.
 ```
+git github
+
 
 ```
 20. Provide an overview and description of your Testing process.
@@ -244,12 +259,14 @@ Our testing comprised of user stories and manual testing. We also had third part
 ```
 21. Discuss and analyse requirements related to information system security.
 ```
+authorize and authtication
+general - has in passwords, protecting user data.
 
 
 ```
 22. Discuss methods you will use to protect information and data.
 ```
-
+devise to hash pas. what technologies to implement secirity
 
 ```
 23. Research what your legal obligations are in relation to handling user data.
@@ -276,3 +293,19 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+
+ERD provided represents a normalised database model
+Model implementation represents a normalised database model
+Database design appropriately addresses the requirements of a complex scenario
+Implemented controllers demonstrate correct use of commands to query the database infrastructure
+Queries implemented provide correct data for the given scenario
+Code comments demonstrate how the queries implemented correctly represent the database structure
+Documentation describes relational database model and database infrastructure
+This criterion is linked to a Learning Outcome Implementation of data operations demonstrate an understanding of the relational database model used
+Relationships are correctly defined as ActiveRecord associations to reflect understanding of the desired database structure
+Identify entities which must be tracked by the application
+This criterion is linked to a Learning Outcome Identify relationships / associations between entities
+Design a schema appropriate for relational databases
+This criterion is linked to a Learning Outcome Identify and use appropriate model methods
+Minimising database calls needed to perform an action
+Sanitise and validates input to maintain data integrity
