@@ -14,43 +14,123 @@ Description of your project, including,
 
 
 # Instructions on how to setup, configure and use your App. #
-## 1. Directions for users/admins. ##
-General users can visit the site and view the different listings available. To book a particular catering cuisine, the general user will need to sign-up for a free account. 
+## 1. Directions for guest. ##
+Guest users can visit the site and view the different listings available.  
+Guests can click on one of the newest listings or click on the Listing link in the nav bar.  
+When a listing is clicked on, you will be re-directed to the Listing show page. In the show page you will find extra important information about the listing, including cuisine type, cost per person and minimum people required for booking. You can also read user reviews.  
+To book a particular catering cuisine, the general user will need to sign-up for a free account. 
 
 ### 1.1 Sign-up - general user ###
-Locate the drop down menu..........and click on the sign-up link.  
-Enter a valid email and a password (minimum 6 characters). You will receive a welcome email.
+Click on the drop down menu called "My Account" located top right hand corner, and click sign-up User.  
+You will be required to fill in:
+- username
+- email address (minimum 6 characters)
+- first name
+- last name
+- date of birth
+- password  
+  
+You will be re-directed to the home page. You will also receive a welcome email. 
 
+### 1.2 Create a booking - general user ###
+On the home page, follow the directions as guest user (section 1).  
+As a user you can now have access to the "Create a Booking" button located on the listing show page.  
+You can also add a review.  
+After clicking on "Create a Booking", you will be required to fill in
+- location of event (full address - number,street,city)
+- number of guests (minimum number of guests required will be shown)
+- Date and time of booking  
+
+When these details are complete, click on "Create your booking". You will be directed to booking summary page where you can confirm you your details for your event. You can either pay for the booking or cancel the booking.  
+- If you cancel you will re-directed to the listing show page.  
+- If you pay for the booking, you will be directed to the booking confirmation page to view your details.  The booking will appear in your booking list page. You can access this page by clicking "Bookings" located in the nav bar.  
+
+### 1.3 Modify account - general user ###
+Click on the drop down menu, top right of nav bar, located next to your first name. and click on "Modify account'.  
+Here you can:
+- add an avatar
+- change all your details  
+
+You will also receive a confirmation email that you have modified your account. 
+
+### 1.4 User profile - general user ###
+On the home page, locate the "User Profile" link to view your user profile settings.
 
 
 ## 2. Directions for catering companies. ##
 As a general user you can visit the site and view the different listings available.
-If you would like to create a listing for your company, you are required to sign-up for an account. 
+If you would like to create a listing for your catering company, you are required to sign-up for an account. 
 
-### 2.1 Directions for sign-up ###
-Locate the drop down menu..........and click on the sign-up link.  
-You will be required to enter in these details: 
+### 2.1 Sign-up - provider ###
+Click on the drop down menu called "My Account" located top right hand corner, and click "Sign-up Provider".  
+You will be required to fill in:
 - a valid email
-- company name 
 - username
-- 
-- 
-- password (minimum 6 characters)
-- You will receive a welcome email.
+- company name 
+- city
+- state
+- postcode
+- minimum persons for a booking
+- Cost per head
+- Cuisine type that you specialise in
+- password (minimum 6 characters)  
 
-When fields 
- 
-- When you submit a listing for your company will be created. 
+After creating an account 
+- You will be re-directed to the home page. 
+- You will also receive a welcome email. 
+- A listing will be automatically generated and be displayed on the Listing Index page.
+
+On you listing show page, you can view your listing and read reviews left by customers.
+
+### 2.2 Modify account/listing ###
+Click on the drop down menu, top right of nav bar, located next to your first name. and click on "Modify account'.  
+Here you can:
+- change all your details  
+
+### 2.3 View your bookings ###
+Located in the nav bar, click on "Bookings" lick. You will be re-directed to your current bookings. On the this page you can view bookings summary. You can also view the location of the booking by clicking on the "Map location" button.  
+
+## 3. Directions for Admin. ##
+Administrators are created as a "user" and given admin privileges.
+
+### 3.1 Sign-up - User-Admin ###
+Complete details as for user to create an account. Enter Rails console to change admin attribute in users table to 'true'
+
+### 3.2 User-Admin Tools ###
+Just below the nav bar, on the home page, you will see a set of Administrator tools. You can edit:
+- cuisine types
+- provider details
+- user details
+- create test bookings for providers
+- delete user reviews
 
 
-## 1.2 Default User account ##
-A user account has been created: email: username: 'coderacademy.owenrob@gmail.com' password: ''
+#### 3.2.1 Cuisine types ####
+Add, edit or delete cuisine types
 
-## 1.3 Default admin account ##
-An admin account has been created: email; 'admin@admin.com.au', :password => ''
+#### 3.2.2 provider details ####
+You will see a full list of providers with accounts. You can 
+- edit provider details
+- delete provider account
+
+#### 3.2.3 user details ####
+You will see a full list of users with accounts. You can 
+- edit user details
+- delete user account
 
 
-Details of planning process including,
+## 4.1 Default User account ##
+A user account has been created:  
+'coderacademy.owenrob@gmail.com'  
+password: 
+
+## 4.2 Default admin account ##
+An admin account has been created:..
+robertdematteo1971@gmail.com..
+password: 123456
+
+
+# Details of planning process including, #
 Project plan & timeline..
 
 Week 1
@@ -83,10 +163,10 @@ Day | Date | Tasks | Tasks completed | Blocks | Completed by
 Mon | `6 May` | Manual testing, install stripe | added mailer, fixed devise and cancan, added stripe and setup amount path  | Cancan has trouble working with 2 devise models. Mailer - user model | Pair programming
 Tue | `7 May` | Manual Testing, Reached MVP!! Styling | Stripe added | Navbar and Bootstrap | Pair programming
 Wed | `8 May` | Manual testing, Styling, User reviews | User reviews  | User reviews, nested routes, navbar styling  | Styling, NavBar - Owen, Other - Rob
-Thu | `9 May` | User show page, add mail for user login | Geolocation |  | Pair programming
-Fri | `10 May` |  |  | | pair programming
+Thu | `9 May` | User show page, add mail for user login | Styling,  |  | Styling - Owen, Other - Rob
+Fri | `10 May` | Add geolocater, styling, testing |  | | Styling - Owen, Other - Rob
 
- email proforma
+
 
 
 
@@ -140,10 +220,10 @@ What is a heroku dyno is an instance of a server.........
 ```
 We will be using the following software in our project:
 
- - Ruby: 
- - Ruby on Rails: 
- - html: 
- - scss: 
+ - Ruby: Ruby is dynamic, open source, object-oriented programming (OOP) language. Ruby is written in C programming language and has the ability of Python and Pearl. It was conceived and developed by Yukihiro Matsumoto of Japan in 1993-1995. It was first released on Japanese domestic newsgroup in December 1995.
+ - Ruby on Rails: Ruby on Rails is open source software.  It is an open source framework for Web development in Ruby. Rails is made up of several components, beyond Ruby itself, including: Active Record, Action pack, Action mailer, Action web services. Rails is also an MVC (model, view, controller) framework where all layers are provided by Rails.
+ - html: Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. HTML describes the structure of a web page semantically
+ - SCSS: Sassy cascading style sheets is a style sheet language. Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SCSS is a special type of file for SASS, a program written in Ruby that assembles CSS style sheets for a browser.
 
 ```
 6. Identify the database to be used in your App and provide a justification for your choice.
@@ -175,25 +255,31 @@ Describing MVC. If i type in Heroku get request what happens
 Abstraction is selecting data from a larger pool to show only the relevant details to the object. It helps to reduce programming complexity and effort. In our model active record is the abstraction of SQL. For example when we type in User.find(1), active record performs the following tasks for us: `SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2`  and returns the attribute for 
 User, id:1 eg => #<User id: 1, email: "owen@email.com", created_at: "2019-04-30 06:02:36", updated_at: "2019-04-30 06:30:36", username: "owen", firstname: "Owen", lastname: "Shepherd", dob: "2019-04-30", avatar: nil>
 
-Form-for 
+Middle-level components include scaffold and helpers.  A `scaffold` is a code generator tool that can build a complete stack of components, given a database record definition. With Ruby-on-rails, a scaffold will build a set of html components, add the new ActiveRecord model to the routing tables, and build stubs for CSS and Javascript customization, plus a complete test framework. `Helpers` in Rails are used to extract complex logic out of the view so that code can be better organized. 
 
 ```
 10. Detail any third party services that your App will use.
 ```
-
 We will be using the following third party services:
 
- - Stripe: allows individuals and businesses to make and receive payments over the Internet.
- - Mailgun:  Email Service For Developers
- - Heroku: A platform as a service that enables developers to build, run, and operate applications entirely in the cloud.
+ - `Stripe`: allows individuals and businesses to make and receive payments over the Internet.
+ - `Mailgun`:  Email Service For Developers
+ - `Heroku`: A platform as a service that enables developers to build, run, and operate applications entirely in the cloud.
+ - `Amazon S3`: Amazon Simple Storage Service (Amazon S3) is storage for the internet. Amazon S3 can be used to store and retrieve any amount of data at any time, from anywhere on the web. These tasks can be accomplished using simple and intuitive web interface of the AWS Management Console.
+ - `Google Maps`: Provides static and interactive maps
 
- Gems used
+ The following additional Gems were also used
 - devise
 - bootstrap
 - aws-sdk-s3
 - faker
-- dotenv-rails (groups: [:development, :test])
+- dotenv-rails
 - cancancan
+- aws-sdk-s3
+- jquery-rails
+- stripe
+- geocoder
+- font-awesome-sass
 
 
 ```
@@ -208,16 +294,59 @@ Include ERD
 ```
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 ```
-Models
-Devise: Users/Providers
-Listings (relationship with Providers)
-Cuisine (relationship with Providers)
-Bookings (relationship between providers and users)
+Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. An association is a connection between two Active Record models. The types of associations used in our model where:
+- belongs_to
+- has_one
+- has_many
+
+
+The belongs_to Association  
+A belongs_to association sets up a one-to-one connection with another model, such that each instance of the declaring model "belongs to" one instance of the other model. 
+
+The has_one Association  
+A has_one association also sets up a one-to-one connection with another model. This association indicates that each instance of a model contains or possesses one instance of another model.  
+
+The has_many Association  
+A has_many association indicates a one-to-many connection with another model. This association is often found on the "other side" of a belongs_to association. This association indicates that each instance of the model has zero or more instances of another model. 
+
+The associations between the models in our app includes:
+
+Provider: 
+- has_one :listing
+- has_one :cuisine
+- has_many :bookings  
+
+User:  
+- has_many :bookings, dependent: :destroy
+- has_one_attached :uploaded_image, dependent: :destroy
+- has_many :reviews, dependent: :destroy  
+
+Listing:  
+- has_one :provider
+- has_many :reviews, dependent: :destroy  
+
+Cuisine:  
+- has_many :providers  
+
+Booking  
+- has_one :user
+- has_one :provider
+- has_one :place, dependent: :destroy  
+
+Review  
+- belongs_to :listing
+- belongs_to :user  
+
+Place  
+- belongs_to :booking
 
 
 ```
 14. Provide your database schema design.
 ```
+
+
+
 
 ```
 15. Provide User stories for your App.
@@ -227,7 +356,7 @@ User can login and do this.... templates click on button to achieve this
 ```
 16. Provide Wireframes for your App.
 ```
-https://www.figma.com/file/aIJ1hn7A456uyNmlZVCCDccz/Rails-Project?node-id=0%3A1
+The Wire frames are located at https://www.figma.com/file/aIJ1hn7A456uyNmlZVCCDccz/Rails-Project?node-id=0%3A1 and images are below.  
 
 ![image](https://user-images.githubusercontent.com/47741682/57508786-de3d2e80-7345-11e9-9ea2-aa6a17066a41.png)
 
@@ -244,6 +373,11 @@ Trello was used to list tasks that needed to be done, doing and completed. These
 ```
 18. Discuss how Agile methodology is being implemented in your project.
 ```
+The Agile Method is a particular approach to project management that is utilized in software development. This method assists teams in responding to the unpredictability of constructing software. It uses incremental, iterative work sequences that are commonly known as sprints.
+
+
+
+
 
 ```
 19. Provide an overview and description of your Source control process.
