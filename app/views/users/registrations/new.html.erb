@@ -1,31 +1,74 @@
-
+<%= render "shared/nav" %>
 
 <h2>Sign up User</h2>
-
+<hr>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="form-group">
+            <div class="col-xs-6">
+              <%= f.label :username, "<h4>Username</h4>".html_safe %><br />
+              <%= f.text_field :username, autofocus: true, class:"form-control", :disabled => false %>
+            </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %>
+          <div class="form-group">
+            <div class="col-xs-6">
+              <%= f.label :firstname, "<h4>First name</h4>".html_safe %><br>
+              <%= f.text_field :firstname, autofocus: true, class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-xs-6">
+              <%= f.label :lastname, "<h4>Last name</h4>".html_safe %><br>
+              <%= f.text_field :lastname, autofocus: true, class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-xs-6">
+              <%= f.label :dob, "<h4>Date of birth</h4>".html_safe %><br>
+              <%= f.date_select  :dob, :start_year => Date.current.year - 15, :end_year => 1920, class:"form-control" %>
+            </div>
+          </div>
+
+
+
+    <div class="form-group">
+        <div class="col-xs-6">
+
+    <%= f.label :email, "<h4>Email</h4>".html_safe %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    </div>
+        </div>
+
+  <div class="form-group">
+            <div class="col-xs-6">
+    <%= f.label :password, "<h4>Password</h4>".html_safe %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+  </div>
+          </div>
+
+
+  <div class="form-group">
+            <div class="col-xs-6">
+    <%= f.label :password_confirmation, "<h4>Confirm New Password</h4>".html_safe %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+  </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
+<div class="form-group">
+            <div class="col-xs-12"><br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+    </div>
+          </div>
+
 
 <%= render "users/shared/links" %>
