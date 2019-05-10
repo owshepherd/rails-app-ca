@@ -1,8 +1,70 @@
 <%= render "shared/nav" %>
 
+<div class="user-create-container">
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Create New Provider Account</h3>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="form-group">
+          <%= f.text_field :username, autofocus: true, class:"form-control", placeholder: "Username", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "Email Address", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+              <%= f.text_field :name, autofocus: true, class:"form-control", placeholder: "Name", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :city, autofocus: true, class:"form-control", placeholder: "City/Suburb", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :state, autofocus: true, class:"form-control", placeholder: "State", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :postcode, autofocus: true, class:"form-control", placeholder: "Postcode", :disabled => false, :required => true %>
+        </div>
 
-<h2>Sign Up Provider</h2>
 
+        <div class="form-group">
+          <%= f.text_field :minimum_persons, autofocus: true, class:"form-control", placeholder: "Minimum Persons", :disabled => false, :required => true %>
+        </div>
+
+
+                <div class="form-group">
+          <%= f.text_field :cost_per_head, autofocus: true, class:"form-control", placeholder: "Cost per Head", :disabled => false, :required => true %>
+        </div>
+
+
+<div class="form-group">
+  <%= select_tag "cuisine_id", options_from_collection_for_select(@cuisine, 'id', 'cuisine_type'), class: "form-control" %>
+</div>
+
+<div class="form-group">
+    <% @minimum_password_length %>
+
+    <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password",  class: "form-control", :disabled => false, :required => true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, placeholder: "Confirm password", autocomplete: "new-password",  class: "form-control", :disabled => false, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: "btnSubmit" %>
+  </div>
+<% end %> 
+    </div>
+      <div class="col-md-6 login-form-1" style="background: url(https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80); background-size: cover;">
+      <img src="">
+
+      </div>
+  </div>
+
+    <!-- <%= render "providers/shared/links" %> -->
+
+<!--
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -67,4 +129,4 @@
   </div>
 <% end %>
 
-<%= render "providers/shared/links" %>
+<%= render "providers/shared/links" %> -->

@@ -64,13 +64,17 @@
 
 --->
 
+<!--
 
 <%= link_to '<< Back', listings_path %>
+
+-->
 
 <!-- <% if user_signed_in? %> 
 <p><strong><%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }) %></strong></p>
 <% end %> -->
 
+<!--
 
 <%if !current_provider.nil? && (@listing.provider == current_provider) %> 
 <%= link_to "-Edit Listing", edit_listing_path(@listing.id) %>
@@ -82,6 +86,61 @@
 method: :delete,
 data: { confirm: 'Are you sure?' } %>
 <% end %>
+
+-->
+
+<div class="review-card-container">
+<h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">
+  <%= @provider.name %>
+  <small class="text-muted">User Reviews</small>
+</h3>
+
+<% if @listing.reviews.any? %>
+  <% @listing.reviews.each do |review| %>
+<div class="individual-review-card"><div class="card">
+<div class="card-header">
+  <div class="row">
+  <div class="col">
+  <img src="https://lh5.ggpht.com/-gzN6P8kOQhU/AAAAAAAAAAI/AAAAAAAAAAA/QARfZCeK3lg/s40-c0x00000000-cc-rp-mo/photo.jpg"> &nbsp;
+  <%= review.username %>
+  </div>
+  <div class="col" style="display: flex; justify-content: flex-end; align-items: center;">
+  <% @count = review.rating %>
+  <% @count.times do %>
+    &#9733;
+  <% end %>
+
+  </div>
+  </div>
+  </div>
+  <div class="card-body">
+  <!--
+    <h5 class="card-title">Special title treatment</h5>
+  -->
+    <p class="card-text"><%= review.content %></p>
+
+
+
+
+<% if user_signed_in? && (review.user_id == current_user.id) %> 
+    <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review), class: "btn btn-primary" %>
+    <% end %>
+  
+  <% if user_signed_in? && current_user.admin? %> 
+    <%= link_to 'Destroy Review', listing_review_path(@listing, review),
+               method: :delete,
+               data: { confirm: 'Are you sure?' },
+               class: "btn btn-primary" %>
+    </p>
+    <% end %>
+</div>
+</div>
+</div>
+<% end %>
+</div>
+<% end %>
+
+<!--
 
 <div class="UserReviewWrapper">
 <% if @listing.reviews.any? %>
@@ -138,6 +197,7 @@ data: { confirm: 'Are you sure?' } %>
 <%= link_to "- Home Page", root_path %>
 </div>
 
+-->
 
 <script>
       $('.review-rating').raty({

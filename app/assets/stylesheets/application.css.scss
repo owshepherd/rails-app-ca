@@ -155,6 +155,7 @@
 .login-form-1 h3{
   text-align: center;
   color: #333;
+  font-weight: bold;
 }
 .login-form-2{
   padding: 5%;
@@ -197,6 +198,12 @@
   text-decoration: none;
 }
 
+.individual-review-card {
+  margin: 0px 20px 10px 20px;
+}
+.individual-review-card .card .card-header {
+  padding: 8px 20px;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

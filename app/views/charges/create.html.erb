@@ -1,5 +1,58 @@
 <%= render "shared/nav" %>
-<div>
+
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Booking Created</h3>
+      <p>Thank you, <%= @user.firstname %>! Your booking with <%= @provider.name %> has been confirmed successfully. Please confirm the details below.
+        <div class="form-group">
+          <h5>Booking Confirmation Date</h5>
+          <p><%= @booking.created_at.strftime("%B %d %Y, %H:%M") %></p>
+        </div>
+        <div class="form-group">
+          <h5>Booking Confirmation Number</h5>
+          <p><%= @booking.id %></p>
+        </div>
+
+        <div class="form-group">
+          <h5>Caterer</h5>
+          <p><%= @provider.name %></p>
+        </div>
+
+        <div class="form-group">
+          <h5>Event Date</h5>
+          <p><%= @booking.booking_daytime.strftime("%B %d %Y") %></p>
+        </div>
+
+        <div class="form-group">
+          <h5>Event Location</h5>
+          <p><%= @booking.location %></p>
+        </div>
+
+        <div class="form-group">
+          <h5>Number of Guests</h5>
+          <p><%= @booking.persons %></p>
+        </div>
+    
+        <div class="form-group">
+          <h5>Cost Per head</h5>
+          <p><%= @cost_per_head %></p>
+        </div>
+
+        <div class="form-group">
+          <h5>Total Cost</h5>
+          <p>$<%= @amount %></p>
+        </div>
+
+                <div class="form-group">
+          <h5>Amount Paidt</h5>
+          <p>$<%= @amount %> inc. GST </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <div>
 <h2>Thanks for making a booking with COMPANY NAME.</h2>
 <p>Dear <%= @user.firstname %>, Here is a summary of your booking</p>
 </div>
@@ -49,7 +102,7 @@
 
 
   
-</div>
+</div> -->
 
 
 <%= link_to "Home", root_path %>
