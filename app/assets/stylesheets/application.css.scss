@@ -14,7 +14,6 @@
 @import '../stylesheets/reviews/userreview.scss';
 @import '../stylesheets/bookings/new_booking.scss';
 @import '../stylesheets/bookings/show.html.scss';
-@import '../stylesheets/places/show.scss';
 
 *{
   font-family: 'Open Sans', sans-serif !important;
@@ -136,6 +135,12 @@
 
 
 
+
+.user-create-container {
+  display: flex;
+  justify-content: center;
+
+}
 
 
 
