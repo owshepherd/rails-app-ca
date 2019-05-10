@@ -6,7 +6,7 @@
     <div class="show-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><%= @provider.name %></h4>
+          <h4 class="card-title"><%= @listing.name %></h4>
           <p class="card-text"><%= @provider.city %> <%= @provider.state %>  •  <%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
           <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= @information = Listing.find(@listing.id).provider.cost_per_head %> per person for <i class="fas fa-user-friends"></i> <%= Listing.find(@listing.id).provider.minimum_persons %>
           <% if @information == 1 %>

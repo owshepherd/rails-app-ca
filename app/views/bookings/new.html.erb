@@ -20,11 +20,12 @@
                 <p>Minimum <%= @provider.minimum_persons %> people<br /><%= sprintf("$%2.2f",@provider.cost_per_head) %> per head</p>
 								<div class="log-body">
                 <div class="form-group myr-top">
-                <label>Location</label>
+                <label>Location (Full address e.g. 120 Spencer St Melbourne)</label>
                 <input class="form-control custom" type="text" name="location" id="location" placeholder="Location of event" required />
                 </div>
+                
 
-                <!-- PLACEHOLDER NOT SHOWING UP FOR THESE -->
+                
                 <div class="form-group myr-top">
                 <label>Number of persons</label>
                 <input class="form-control custom" type="number" name="persons" id="persons" placeholder="<% @provider.minimum_persons %>" min="<%= @provider.minimum_persons %>" value="<%= @provider.minimum_persons %>" required />
@@ -32,8 +33,10 @@
 
                 <div class="form-group myr-top">
                 <label>Date and time</label>
-                <input class="form-control custom" type="date" name="booking_daytime" id="booking_daytime" placeholder="dd/mm/yyyy" required />
+                <input class="form-control custom" type="datetime-local" name="booking_daytime" id="booking_daytime" placeholder="dd/mm/yyyy" required />
                 </div>
+                
+
 
 
                 <input type="hidden" name="provider_id" id="provider_id" value="<%= @provider.id %>" />
