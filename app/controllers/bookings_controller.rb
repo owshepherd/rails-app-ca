@@ -34,6 +34,15 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    # lat, long = geocoder_logic(@booking.location)
+    # place = Place.new
+    # place.latitude = lat
+    # place.longitude = long
+    # place.save
+    
+
+
+
 
     per_person = Provider.find( @booking.provider_id).cost_per_head
     persons = @booking.persons
@@ -42,8 +51,13 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
     if @booking.save
+      lat, long = geocoder_logic(params[:location])
+      place = Place.new
+      place.latitude = lat
+      place.longitude = long
+      place.booking_id = @booking.id
+      place.save
       redirect_to @booking, info: "Booking created"
     else
       render 'new'
@@ -72,4 +86,12 @@ class BookingsController < ApplicationController
   def booking_params
     params.permit(:provider_id, :user_id, :booking_daytime, :persons, :location)
   end
+
+  def geocoder_logic(address) 
+    geocode_objects = Geocoder.search(address)
+    geocode_object = geocode_objects.first.coordinates
+    lat = geocode_object[0]
+    long = geocode_object[1]
+    return lat, long
+  end 
 end
