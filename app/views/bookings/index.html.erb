@@ -55,6 +55,9 @@
         - Persons: <%= booking.persons %>
         - User id: <%= booking.user_id %>
         - User name: <%= User.find(booking.user_id).firstname %>
+        <%if booking.place %> 
+        - <%= link_to "Map Location", place_path(booking.place.id)  %>
+        <% end%>
         </li>
         <% end %>
       <% end %>
