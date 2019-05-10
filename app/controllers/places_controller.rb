@@ -13,6 +13,7 @@ class PlacesController < ApplicationController
   def show
     place = Place.find(params[:id])
     @booking = Booking.find(place.booking_id)
+    @user = User.find(@booking.user_id)
   end
 
   # GET /places/new
