@@ -229,8 +229,9 @@ User can login and do this.... templates click on button to achieve this
 ```
 https://www.figma.com/file/aIJ1hn7A456uyNmlZVCCDccz/Rails-Project?node-id=0%3A1
 
+![image](https://user-images.githubusercontent.com/47741682/57508786-de3d2e80-7345-11e9-9ea2-aa6a17066a41.png)
 
-![wireframe](../rails-app-ca/a-images-for-git/wireframe.png)
+![wireframe](https://github.com/owshepherd/rails-app-ca/blob/master/a-images-for-git/wireframe.png)
 
 ```
 17. Describe the way tasks are allocated and tracked in your project.
