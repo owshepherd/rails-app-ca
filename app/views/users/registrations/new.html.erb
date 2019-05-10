@@ -1,6 +1,55 @@
 <%= render "shared/nav" %>
 
 <h2>Sign up User</h2>
+
+
+<div class="user-create-container">
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Create New User Account</h3>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="form-group">
+          <%= f.text_field :username, autofocus: true, class:"form-control", placeholder: "Username", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "Email Address", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+              <%= f.text_field :firstname, autofocus: true, class:"form-control", placeholder: "First name", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :lastname, autofocus: true, class:"form-control", placeholder: "Last name", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.date_select  :dob, :start_year => Date.current.year - 15, :end_year => 1920, autofocus: true, class:"form-control", :disabled => false, :required => true %>
+        </div>
+        <div class="form-group">
+          <% if @minimum_password_length %>
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control", :disabled => false, :required => true, placeholder: "Password" %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", :diabled => false, :required => true, placeholder: "Confirm password" %>        
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Sign up", class: "btnSubmit" %>
+        </div>
+        <div class="form-group">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name), class: "ForgetPwd" %><br />
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    </div>
+
+
+
+<!--
+
 <hr>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -72,3 +121,4 @@
 
 
 <%= render "users/shared/links" %>
+-->
