@@ -11,7 +11,9 @@
 <p>Date of Birth: <%= @user.dob.strftime("%B %d, %Y") %></p>
 <p>Avatar</p>
 <div class="avatar">
+
 <% if @user.uploaded_image.attached? %>
+
 <%= image_tag @user.uploaded_image %>
 <% else %>
 <%= image_tag 'no_avatar.jpeg' %>
