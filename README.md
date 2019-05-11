@@ -123,11 +123,11 @@ You will see a full list of users with accounts. You can
 ## 4.1 Default User account ##
 A user account has been created:  
 'coderacademy.owenrob@gmail.com'  
-password: 
+password: 123456
 
 ## 4.2 Default admin account ##
-An admin account has been created:..
-robertdematteo1971@gmail.com..
+An admin account has been created:  
+robertdematteo1971@gmail.com.  
 password: 123456
 
 
@@ -254,7 +254,7 @@ Creation of the PSQL database is relatively simple. First the user specifies whi
 
 *** Describing MVC. If i type in Heroku get request what happens
 
-This application was been created using the Ruby on Rails framework. This framework uses an MVC (model view controller) architecture which, as suggested, seperates the application into different components: the model (logic), controllers (intermediary between the model and the view) and the views (user interface).
+This application was been created using the Ruby on Rails framework. This framework uses an MVC (model view controller) architecture which, as suggested, separates the application into different components: the model (logic), controllers (intermediary between the model and the view) and the views (user interface).
 
 Within this application, there are several models. These are:
 - Application Record
@@ -283,6 +283,11 @@ Controllers for the application are as follows:
 Views, as mentioned previously, deal with the application's graphical user interface. Many of the controllers. Views largely consist of an index page, a show page, a new page or an edit page. These views are tied to both the controllers and the models mentioned above.
 
 Partials (such as the navbar shown on all pages) are also considered views. These have been manually added to all pages where this should be shown.
+
+The process can be explained in the image below: 
+
+
+![RAILS](https://user-images.githubusercontent.com/47741682/57570080-900d5580-7441-11e9-9356-e41886db2cf6.jpg)
 
 ```
 9. Explain the different high-level components (abstractions) in your App.
@@ -441,27 +446,19 @@ Our Sprint cycle was daily. We set tasks to be completed at the beginning of the
 - `User Stories - Small elements that work is divided up into. Each story contributes to the value of the end product. User stories are frequently referred to as “tickets.”`  
 We used user stories as out testing tool.  
 - `Scrum/Kanban Board - A task board divided into sections (usually columns). The most basic task board has columns labelled To Do, In Progress, and Done.`  
-- We used Trello as our scrum board. We has three columns: to do, doing and done. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- We used Trello as our scrum board. We had three columns: to do, doing and done.  
+- `Scrum Meeting/Standup - A quick (usually 10-15 minutes) meeting that takes place regularly where team members coordinate their daily work.`  
+We participated in a daily standup meeting at 10.30 with 6 other groups. The meeting went for 15-20 minutes.  
+- `Sprint Planning - A meeting to decide which stories from the backlog to bring into the next sprint.`  
+Not implemented.
+- `Retrospective - the team reviews their work and discusses ways to improve the next Sprint.`  
+Not implemented.
 
 
 ```
 19. Provide an overview and description of your Source control process.
 ```
-Source control proved to relatively difficult for us due to persistant merge conflicts and similar issues with GitHub. Owen largely worked within the master after becoming frustrated working in his own individual branch and repeatedly encountering these kinds of issues. Rob, conversely, worked within his own assigned branch and pushed his work up to master. The approach used by Rob is the more ideal method of source/version control (ie. submit a pull request, review the work and merge with master branch).
+Source control proved to relatively difficult for us due to persistant merge conflicts and similar issues with GitHub. Owen largely worked within the master after becoming frustrated working in his own individual branch and repeatedly encountering these kinds of issues. Rob, conversely, worked within his own assigned branch and pushed his work up to master. The approach used by Rob is the more ideal method of source/version control (ie. submit a pull request, review the work and merge with master branch). An additional approach would be to delete each working branch after it has been pushed to Github.
 
 
 ```
@@ -476,8 +473,24 @@ Our testing comprised of user stories and manual testing. We also had third part
 authorize and authtication
 general - has in passwords, protecting user data.
 
+Information security is defined as `protecting information (data) and information systems from unauthorized access, use, disclosure, disruption, modification, or destruction.` The threats against web applications include user account hijacking, bypass of access control, reading or modifying sensitive data, or presenting fraudulent content.
 
-It is crucial to make sure that all user data (emails, passwords, etc.) are stored securely and are not accessible by third-party software. 
+#### user account hijacking  
+It is crucial to make sure that all user data (emails, passwords, etc.) are stored securely and are not accessible by third-party software. We used DEVISE to authorize user information. Passwords were encrypted to the database, thus could not be viewed when accessing records. To improve this security measure we could  
+- implement the use of strong passwords
+- use CAPTCHAs  
+
+#### bypass of access control, reading or modifying sensitive data 
+We used cancan can gem to prevent unauthorized access, reading or modifying sensitive data . This was performed at 2 layers.  
+1. The first layer was to restrict access of certain pages to guest users and/or users and/or providers and/or administrators. This was actioned in the user_ability and provider_ability models. Ruby code was used in other models to determine access to data. In our model users could not access provider information and vice-versa. However, admin users were able to access and modify user and provider information. This function was needed incase the admin user was not familiar with the use of rails console to edit the user and provider information. However going forward, this functionality will need to be re-addressed as it posses a vulnerability of protecting private data.  
+2. The second layer was to protect url by adding an `load_and_authorize_resources` to each model.  
+
+#### presenting fraudulent content  
+Protection of the device which contains the source of the code is another consideration. A good firewall would help with this security measure. 
+
+
+Rails has developed an extensive file on Securing Rails Applications https://guides.rubyonrails.org/security.html#intranet-and-admin-security.  Adhering to these suggestions would increase the security of our app. 
+
 *** I NEED TO ELABORATE ON THIS BUT AM NOT SURE HOW, WILL COME BACK TO IT
 
 We were also advised by our instructors not to push security keys and/or other passcodes to GitHub and that these should be included in the git-ignore for our application. This is due to the prevalence of bots and/or malicious use whereby these keys are discovered by a third-party and used without the owner's consent. These passcodes can be stored securely within Heroku (config vars, .env).
@@ -491,10 +504,21 @@ Stuff about Stripe??
 ```
 23. Research what your legal obligations are in relation to handling user data.
 ```
+The Australian Government has legislated the Privacy Act 1988 to details legal obligations to handle user data. The latest additions were registered on 11 January 2019 and a full copy of the act is available from https://www.legislation.gov.au/Details/C2019C00025. Being a long and tedious read, I prefer to reference the `Guide to securing personal information`, published by the Australian Government, June 2018 https://www.oaic.gov.au/agencies-and-organisations/guides/guide-to-securing-personal-information. This guide provides guidance on the reasonable steps entities are required to take to protect the personal information they hold from misuse, interference, loss, and from unauthorised access, modification or disclosure. The guide specifically explains the Australian Privacy Principle (AAP) 11 - security of personal information which describes the information lifecycle. Personal information security throughout the lifecycle involves:  
+1. considering whether it is actually necessary to collect and hold personal information in order to carry out your functions or activities
+2. planning how personal information will be handled by embedding privacy protections into the design of information handling practices
+3. assessing the risks associated with the collection of the personal information due to a new act, practice, change to an existing project or as part of business as usual
+4. taking appropriate steps and putting into place strategies to protect personal information that you hold
+5. destruction or de-identification of the personal information when it is no longer needed.    
 
+APP 12 describes access to personal information while APP 13 outlines correction of personal information.
 
+  
+On May 25th 2018 the Europe’s General Data Protection Regulation (GDPR) came into affect. The GDPR is are rules for how companies manage and share personal data. In theory, the GDPR only applies to EU citizens’ data, but the global nature of the internet means that nearly every online service is affected.  The GDPR sets a higher bar for obtaining personal data. At any time a company collects personal data on an EU citizen, it will need explicit and informed consent from that person. Users also need a way to revoke that consent, and they can request all the data a company has from them as a way to verify that consent. In addition the GDPR sets severe penalties for violations - 4% of a company’s global turnover (or $20 million, whichever is larger). Companies will now need to require permission to collect data. There will also be more opportunities for individuals to download all the data a company has on an the individual.  
+The GDPR also sets rules for how companies share data after it’s been collected.  
 
-
+  
+====================================================  
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
