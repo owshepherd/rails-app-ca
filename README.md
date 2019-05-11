@@ -155,7 +155,13 @@ password: 123456
 ## 4.2 Default admin account ##
 An admin account has been created:  
 robertdematteo1971@gmail.com.  
-password: 123456
+password: 123456  
+
+Approved gmail accounts with mailgun
+
+coderacademy.owenrob@gmail.com password:    
+harrison.malone2@gmail.com !!
+
 
 ===================================================================================
 # Design documentation including,
@@ -496,15 +502,23 @@ As a provider (caterer), visitors can:
 ```
 The Wire frames are located at https://www.figma.com/file/aIJ1hn7A456uyNmlZVCCDccz/Rails-Project?node-id=0%3A1 and images are below.  
 
-![image](https://user-images.githubusercontent.com/47741682/57508786-de3d2e80-7345-11e9-9ea2-aa6a17066a41.png)
 
-![wireframe](https://github.com/owshepherd/rails-app-ca/blob/master/a-images-for-git/wireframe.png)
+
+<img width="910" alt="wireframe" src="https://user-images.githubusercontent.com/47741682/57575652-f28e4200-7491-11e9-8a2f-c06894d3fe36.png">
 
 ```
 17. Describe the way tasks are allocated and tracked in your project.
 ```
 We used trello and the README.md file.
-Trello was used to list tasks that needed to be done, doing and completed. These tasks were then divided amongst the group and then listed in the table, located at the start of the README.md file. This table was also used for Agile process.
+Trello was used to list tasks that needed to be done, doing and completed. These tasks were then divided amongst the group and then listed in the table, located at the start of the README.md file. This table was also used for Agile process.  
+ 
+ <img width="1440" alt="trello" src="https://user-images.githubusercontent.com/47741682/57575666-1487c480-7492-11e9-8bfd-ad3165698225.png">
+
+
+ We used slack to communicate issues  
+
+ <img width="1018" alt="interaction_with_owen" src="https://user-images.githubusercontent.com/47741682/57575671-35501a00-7492-11e9-939a-7911dcbe1eca.png">
+
 
 
 
@@ -556,9 +570,10 @@ It is crucial to make sure that all user data (emails, passwords, etc.) are stor
 - use CAPTCHAs  
 
 #### bypass of access control, reading or modifying sensitive data 
-We used cancan can gem to prevent unauthorized access, reading or modifying sensitive data . This was performed at 2 layers.  
+We used cancan can gem to prevent unauthorized access, reading or modifying sensitive data . This was performed at 3 layers.  
 1. The first layer was to restrict access of certain pages to guest users and/or users and/or providers and/or administrators. This was actioned in the user_ability and provider_ability models. Ruby code was used in other models to determine access to data. In our model users could not access provider information and vice-versa. However, admin users were able to access and modify user and provider information. This function was needed incase the admin user was not familiar with the use of rails console to edit the user and provider information. However going forward, this functionality will need to be re-addressed as it posses a vulnerability of protecting private data.  
 2. The second layer was to protect url by adding an `load_and_authorize_resources` to each model.  
+3. Third layer was to use ruby methods (if) to control access
 
 #### presenting fraudulent content  
 Protection of the device which contains the source of the code is another consideration. A good firewall would help with this security measure. 
