@@ -24,9 +24,10 @@ class BookingsController < ApplicationController
   end
 
   def new
-    puts "!!!!!!"
+
+    puts "!!!!!!!!"
     puts params.inspect
-    puts "!!!!!!"
+    puts "!!!!!!!!"
     @provider = Provider.find(params[:listing_info][:provider_id])
 
     puts "!!!!!!!!"

@@ -26,7 +26,7 @@
           <p>&#9733; <%= @average_review %> (<%= @listing.reviews.count %>)</p>
           </div>
           <% if user_signed_in? %> 
-            <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }), class: "btn btn-primary" %>
+            <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @listing.provider }), class: "btn btn-primary" %>
           <% end %>
 
           <%if !current_provider.nil? && (@listing.provider == current_provider) %> 
@@ -205,7 +205,7 @@
 -->
 
 <% if user_signed_in? %> 
-  <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Add a Review</h3>
+  <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Add a Review</h5>
 
 
   <%= render "shared/add_review" %>
