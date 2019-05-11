@@ -38,31 +38,28 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    if @booking.save 
+    lat, long = geocoder_logic(params[:location])
+    # if address does not exist 
+    if lat.nil?
+      redirect_to listings_path, danger: "Location incorrect. Please enter valid address"
+    elsif
+      @booking = Booking.new(booking_params)
+      provider = @booking.provider_id
+      @provider = Provider.find(provider)
+      user = @booking.user_id
+      @user = User.find(user)
+      @booking.save 
       lat, long = geocoder_logic(params[:location])
-      if lat == nil
-        redirect_to listings_path(@booking), danger: "Location incorrect. Please enter valid address"
-      elsif
-        place = Place.new
-        place.latitude = lat
-        place.longitude = long
-        place.booking_id = @booking.id
-        place.save
-        redirect_to @booking, info: "Booking created"
-      else
+      place = Place.new
+      place.latitude = lat
+      place.longitude = long
+      place.booking_id = @booking.id
+      place.save
+      redirect_to @booking, info: "Booking created"
+    else
       render 'new'
     end
-    end
 
-
-    # @provider = Provider.find(params[:id])
-    # @user = User.find(current_user[:id])
-    # # provider (id, cost per head, minimum_persons)
-    # # user (id, persons, location)
-    # # listing id
-
-    # @listing_info = Booking.new(params[:listing_info])
   end
 
   def destroy
@@ -80,8 +77,7 @@ class BookingsController < ApplicationController
   end
 
     # logic for geocode. converts address to lat and long
-  def geocoder_logic(address) 
-
+  def geocoder_logic(address)
     geocode_objects = Geocoder.search(address)
     if geocode_objects.empty?
       return
