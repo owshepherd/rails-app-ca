@@ -207,12 +207,15 @@ Benefits for customer base include
 ```
 3. Describe the project will you be conducting and how. your App will address the needs.
 ```
+Our application is a catering service platform which enables consumers to source caterers for events and functions. Users are offered the ability to find and compare caterers who specialise in a variety of different cuisines while caterers are able to enhance their marketplace reach and make themselves more accessible with a reduced overhead cost (advertising, web presence, etc.)
 
 ```
 4. Describe the network infrastructure the App may be based on.
 ```
 Heroku
-What is a heroku dyno is an instance of a server.........
+**** What is a heroku dyno is an instance of a server.........
+
+Catering Combined uses the cloud platform Heroku for its infrastructure. Heroku has enabled us to handle tasks such as application deployment and hosting. As Heroku handles much of this for us, we are able to direct a majority of our focus toward application development - this is particularly true as application are able to be instantly deployed from the terminal ("git push" commands). Heroku performs the building tasks for the application and makes numerous add-on resources available.
 
 
 ```
@@ -240,14 +243,45 @@ PostgreSQL 11 is now the default version for all new provisioned Heroku Postgres
 local structure for database
 heroku run rails ..to send instructions to heroku run db:migrate etc instance
 
+The database for our application was PostgreSQL. PSQL was used in favour of the stock SQLite due it being a more efficient alternative. PSQL is also able to be used in conjunction with Heroku without issue.
+
+Creation of the PSQL database is relatively simple. First the user specifies which database they would like to use in conjunction with their Rails application on creation. This information is passed into the application and is carried over to Heroku on deployment. Models can then be migrated using either "rake db:migrate" (local) or "heroku run rake db:migrate" (Heroku deployment); both of these will populate the database structure specified.
 
 ```
 8. Describe the architecture of your App.
 ```
 
-Describing MVC. If i type in Heroku get request what happens
+*** Describing MVC. If i type in Heroku get request what happens
 
+This application was been created using the Ruby on Rails framework. This framework uses an MVC (model view controller) architecture which, as suggested, seperates the application into different components: the model (logic), controllers (intermediary between the model and the view) and the views (user interface).
 
+Within this application, there are several models. These are:
+- Application Record
+- Booking
+- Cuisine
+- Listing
+- Place
+- Provider Ability
+- Provider
+- Review
+- User Ability, and
+- User
+
+Controllers for the application are as follows:
+- Application Controller
+- Bookings Controller
+- Charges Controller
+- Cuisines Controller
+- Listings Controller
+- Places Controller
+- Providers Controller
+- Reviews Controller
+- Users Controller
+- Welcome Controller
+
+Views, as mentioned previously, deal with teh application's graphical user interface. Many of the controllers. Views largely consist of an index page, a show page, a new page or an edit page. These views are tied to both the controllers and the models mentioned above.
+
+Partials (such as the navbar shown on all pages) are also considered views. These have been manually added to all pages where this should be shown.
 
 ```
 9. Explain the different high-level components (abstractions) in your App.
@@ -285,10 +319,13 @@ We will be using the following third party services:
 ```
 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb)
 ```
+Were we to select a comparable two-sided marketplace, I would choose AirBnB. The reason for this is that two users of different "levels" (in this case, a standard user and a caterer) are able to come together and exchange a good or service. These similarities could be further enhanced with future development (menu specific search functions, booking availability and so on).
 
 ```
 12. Discuss the database relations to be implemented.
 ```
+[PASTE ERDS HERE]
+
 Include ERD
 
 ```
@@ -344,14 +381,34 @@ Place
 ```
 14. Provide your database schema design.
 ```
-
+The schema for our application is as above.
+[Don't know what else to put here; it always says what it is in the question above?]
 
 
 
 ```
 15. Provide User stories for your App.
 ```
-User can login and do this.... templates click on button to achieve this
+*** User can login and do this.... templates click on button to achieve this
+
+As a guest, visitors can:
+- Visit the site
+- Browse listings (either all or by cuisine type)
+- View listings
+- Sign up for an account
+
+In addition to that which has been mentioned above, a user can also:
+- Create a new booking
+- View previously made bookings
+- Modify their own account information
+- Create reviews on listings
+- Delete and/or edit reviews on listings
+
+As a provider (caterer), visitors can:
+- View listings
+- Browse listings
+- View bookings made for their services
+- Edit their own listings and/or account information
 
 ```
 16. Provide Wireframes for your App.
@@ -382,7 +439,7 @@ The Agile Method is a particular approach to project management that is utilized
 ```
 19. Provide an overview and description of your Source control process.
 ```
-git github
+Source control proved to relatively difficult for us due to persistant merge conflicts and similar issues with GitHub. Owen largely worked within the master after becoming frustrated working in his own individual branch and repeatedly encountering these kinds of issues. Rob, conversely, worked within his own assigned branch and pushed his work up to master. The approach used by Rob is the more ideal method of source/version control (ie. submit a pull request, review the work and merge with master branch).
 
 
 ```
@@ -396,6 +453,13 @@ Our testing comprised of user stories and manual testing. We also had third part
 ```
 authorize and authtication
 general - has in passwords, protecting user data.
+
+
+It is crucial to make sure that all user data (emails, passwords, etc.) are stored securely and are not accessible by third-party software. 
+*** I NEED TO ELABORATE ON THIS BUT AM NOT SURE HOW, WILL COME BACK TO IT
+
+We were also advised by our instructors not to push security keys and/or other passcodes to GitHub and that these should be included in the git-ignore for our application. This is due to the prevalence of bots and/or malicious use whereby these keys are discovered by a third-party and used without the owner's consent. These passcodes can be stored securely within Heroku (config vars, .env).
+
 
 
 ```
