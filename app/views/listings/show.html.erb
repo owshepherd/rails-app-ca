@@ -49,6 +49,30 @@
       </div>
     </div>
   </div>
+  <div class="col-sm-6">
+
+
+
+
+<div class="show-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Menu</h4>
+          Picture of a menu
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  </div>
   </div>
 </div>
 
@@ -108,7 +132,7 @@
   <div class="col" style="display: flex; justify-content: flex-end; align-items: center;">
   <% @count = review.rating %>
   <% @count.times do %>
-    &#9733;
+    &#9733;</p>
   <% end %>
 
   </div>
@@ -134,10 +158,15 @@
                class: "btn btn-primary" %>
     </p>
     <% end %>
+
+
 </div>
 </div>
 </div>
 <% end %>
+
+  <% else %>
+  <div class="individual-review-card"><p>No reviews for <%= @listing.name %></div>
 </div>
 <% end %>
 
