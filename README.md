@@ -333,7 +333,7 @@ Include ERD
 ```
 Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. An association is a connection between two Active Record models. The types of associations used in our model where:
 - belongs_to
-- has_one
+- has_oneadded
 - has_many
 
 
@@ -460,16 +460,37 @@ It is crucial to make sure that all user data (emails, passwords, etc.) are stor
 
 We were also advised by our instructors not to push security keys and/or other passcodes to GitHub and that these should be included in the git-ignore for our application. This is due to the prevalence of bots and/or malicious use whereby these keys are discovered by a third-party and used without the owner's consent. These passcodes can be stored securely within Heroku (config vars, .env).
 
-
-
 ```
 22. Discuss methods you will use to protect information and data.
 ```
-devise to hash pas. what technologies to implement secirity
+
+
+
+STRIPE The Stripe payment system has been implemented in this application which will assist in safely conducting online payment transactions. On behalf of our marketplace, Stripe collects and stores names, emails, phone numbers as well as credit card numbers and CVC's if the 'remember me' option is selected. In addition to the collection of personal data, Stripe does offer fraud monitoring, detection and protection to users. Stripe also agree that collected personal data is compliant with applicable law.
+
+GEO LOCATION DATA With the geolocation data, the application will not display the address of a lender and the corrosponding item to the general public. This is to ensure the privacy of the item owner and to protect them from theft. Instead, the suburb of the item will be displayed so that borrowers can see the general location of the item they would like to borrow.
+
+Heroku automatically comes with an SSL certificate when uploading - this is evident through the https at the start of the domain
+
+
+
 
 ```
 23. Research what your legal obligations are in relation to handling user data.
 ```
+
+
+
+GEO LOCATION INFORMATION When using certain features of this app, we may collect information about the precise or approximate location as determined through data such as IP address or mobile device’s GPS to offer an improved user experience. Most mobile devices allow you to control or disable the use of location services for applications in the device’s settings menu.
+
+COOKIES We use cookies on this web application. A cookie is a small data file that is transferred to your device (e.g. your phone or your computer). For example, a cookie could allow us to recognize your browser, while another could store your preferences. There are two types of cookies used on this application: (1) “session cookies” and (2) “persistent cookies.” Session cookies normally expire when you close your browser, while persistent cookies remain on your device after you close your browser, and can be used again the next time you access the site.
+
+We use, store, and process information, including personal information, about you to provide, understand, improve, and develop the web aplication, create and maintain a trusted and safer environment and comply with our legal obligations. To help facilitate bookings or other interactions between Members, we may need to share certain information, including personal information, with other Members, as it is necessary for the adequate performance of the contract between two parties.
+
+This web application may disclose your information, including personal information, to courts, law enforcement or governmental authorities, or authorized third parties, if and to the extent we are required or permitted to do so by law or if such disclosure is reasonably necessary.
+
+
+
 
 
 This README would normally document whatever steps are necessary to get the
