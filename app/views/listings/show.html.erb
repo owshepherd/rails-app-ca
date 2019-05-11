@@ -139,9 +139,6 @@
   </div>
   </div>
   <div class="card-body">
-  <!--
-    <h5 class="card-title">Special title treatment</h5>
-  -->
     <p class="card-text"><%= review.content %></p>
 
 
@@ -205,10 +202,11 @@
     <% end %>
   <% end %>
 </div>
-
+-->
 
 <% if user_signed_in? %> 
-  <h4>Add a REVIEW:</h4>
+  <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Add a Review</h3>
+
 
   <%= render "shared/add_review" %>
 <% end %>
@@ -217,8 +215,6 @@
   <%= link_to "- Listing Page", listings_path %>
   <%= link_to "- Home Page", root_path %>
 </div>
-
--->
 
 <script>
       $('.review-rating').raty({

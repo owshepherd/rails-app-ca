@@ -24,8 +24,15 @@ class BookingsController < ApplicationController
   end
 
   def new
+    puts "!!!!!!"
+    puts params.inspect
+    puts "!!!!!!"
     @provider = Provider.find(params[:listing_info][:provider_id])
-    
+
+    puts "!!!!!!!!"
+    puts params.inspect
+    puts "!!!!!!!!"
+
     @user = User.find(current_user[:id])
     @booking = Booking.new
   end
