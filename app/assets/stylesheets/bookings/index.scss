@@ -1,0 +1,27 @@
+
+.bookings-wrapper {
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+
+  .booking-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: black 2px;
+    width: 90vw;
+    padding: 0;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 5px 0px 0px;
+  }
+
+
+
+}
