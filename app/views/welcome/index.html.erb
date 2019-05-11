@@ -12,7 +12,7 @@
 </div>
 </div>
 <hr>
-<h1>Newest Listings</h1>
+<h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Newest Listings</h3>
 <hr>
 
 <% @listings = Listing.order("created_at desc").limit(3) %>
