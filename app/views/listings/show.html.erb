@@ -7,7 +7,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><%= @listing.name %></h4>
-          <p class="card-text"><%= @provider.city %> <%= @provider.state %>  •  <%= Cuisine.find(Listing.find(@listing.id).provider.cuisine_id).cuisine_type %></p>
+          <p class="card-text"><%= @listing.provider.city %> <%= @listing.provider.state %>  •  <%= @listing.cuisine.cuisine_type %></p>
           <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= @information = Listing.find(@listing.id).provider.cost_per_head %> per person for <i class="fas fa-user-friends"></i> <%= Listing.find(@listing.id).provider.minimum_persons %>
           <% if @information == 1 %>
             person
@@ -53,14 +53,15 @@
 </div>
 
 <!---
+
 <h2><%= @listing.name %></h2>
 
-<p>Contact: <%= @provider.name %></p>
-<p>email: <%= @provider.email %></p>
-<p>Minimum Persons: <%= @provider.minimum_persons %></p>
-<p>Cost Per head: $<%= @provider.cost_per_head %></p>
-<p>Provider id: <%= @provider.id %></p>
-<p>Listing id: <%= @provider.listing_id %></p>
+<p>Contact: <%= @listing.provider.name %></p>
+<p>email: <%= @listing.provider.email %></p>
+<p>Minimum Persons: <%= @listing.provider.minimum_persons %></p>
+<p>Cost Per head: $<%= @listing.provider.cost_per_head %></p>
+<p>Provider id: <%= @listing.provider.id %></p>
+<p>Listing id: <%= @listing.provider.listing_id %></p>
 
 --->
 
@@ -91,7 +92,7 @@
 
 <div class="review-card-container">
 <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">
-  <%= @provider.name %>
+  <%= @listing.provider.name %>
   <small class="text-muted">User Reviews</small>
 </h3>
 

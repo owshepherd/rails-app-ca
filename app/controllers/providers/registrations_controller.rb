@@ -14,6 +14,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   #POST /resource
   def create
+    @cuisine = Cuisine.all
     super
   end
 
@@ -79,8 +80,8 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     super(resource)
     @provider = current_provider
-    @listing = Listing.create(name: params[:provider][:name], provider: @provider)
-    listing_path(@listing)
+    @listing = Listing.create!(name: params[:provider][:name], provider: @provider, cuisine_id: params[:provider][:cuisine_id])
+    listing_path(@listing.id)
   end
 
   # The path used after sign up for inactive accounts.

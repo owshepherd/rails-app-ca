@@ -1,19 +1,21 @@
 class ListingsController < ApplicationController
   load_and_authorize_resource
-  belongs_to :cuisine
   
   def index
     if params[:cuisine].blank?
       @listings = Listing.all.order("created_at ASC")
     else
-      @cuisine_id = Cuisine.find_by(cuisine: params[:cuisine]).id
-      @listings = Listing.where(:cuisine_id => @cuisine_id).order("created_at DESC")
+      # @cuisine_id = Cuisine.find_by(cuisine: params[:cuisine]).id
+      # @listings = Listing.where(:cuisine_id => @cuisine_id).order("created_at DESC")
+      
+      @listings = Cuisine.find_by(cuisine_type: params[:cuisine]).listings
+      
     end
   end
 
   def show
     @listing = Listing.find(params[:id])
-    @provider = Provider.find(params[:id])
+    # @provider = Provider.find(params[:id])
     @review = Review.new
 
     if @listing.reviews.blank?
