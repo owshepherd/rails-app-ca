@@ -1,12 +1,12 @@
 <%= render "shared/nav" %>
 
 <div class="jumbotron">
-  <h1 class="display-4">Company Name</h1>
-  <p class="lead">This is an explanation of our company or some other text to entice the user to sign up, etc.</p>
+  <h1 class="display-4">Welcome to Feest</h1>
+  <p class="lead">Have an upcoming event that needs catering? Why not give Feest&copy; a try? With a great selection of caterers to choose from specialising in a wide variety of cuisines, Feest&copy; is sure to have a caterer to suit your tastes and your budget.</p>
   <hr class="my-4">
-  <p>This is additional text.</p>
+  <p>Interesting in becoming a Feest&copy; caterer?</p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <%= link_to 'Click here', new_provider_registration_path, class: "btn btn-primary btn-lg" %>
   </p>
 </div>
 </div>
