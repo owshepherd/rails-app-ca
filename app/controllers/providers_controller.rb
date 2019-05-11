@@ -23,13 +23,6 @@ class ProvidersController < ApplicationController
     @provider = Provider.find(params[:id])
   end
 
-  def destroy
-    @provider = Provider.find(params[:id])
-    @provider.destroy
-
-    redirect_to root_path, danger: "Provider deleted!"
-  end
-
   def update
     @provider = Provider.find(params[:id])
 
@@ -40,6 +33,12 @@ class ProvidersController < ApplicationController
     end
 end
 
+def destroy
+    @provider = Provider.find(params[:id])
+    @provider.destroy
+
+    redirect_to root_path, danger: "Provider deleted!"
+  end
 
   private
   def provider_params

@@ -7,29 +7,50 @@
   <% if !@bookings.empty? %>
    
     <% @bookings.each_with_index do |booking, index| %>
-      <div class=""> 
-      <ol>
+      <div class="bookings-wrapper"> 
+        <div class="booking-container">
         <div>
-          <li>Date and time of Event:</li>
+          <p>Date and time of Event:  </p>
         </div>
         <div>
-          <li><%= booking.booking_daytime %></li>
+          <p><%= booking.booking_daytime.strftime("%B %d, %Y, %I:%M %p") %></p>
         </div>
-        
-        <div>
-          <li>Number of persons:</li>
         </div>
-        <div>
-          <li><%= booking.persons %></li>
-        </div>
-        <div>
-          <li>Event location::</li>
-        </div>
-        <div>
-          <li><%= booking.location %></li>
-        </div>
-    <% end %>
 
+        <div class="booking-container">
+        <div>
+          <p>Number of persons:  </p>
+        </div>
+        <div>
+          <p><%= booking.persons %></p>
+        </div>
+        </div>
+
+          <div class="booking-container">
+            <div>
+              <p>Event location:  </p>
+            </div>
+            <div>
+              <p><%= booking.location %></p>
+            </div>
+        </div>
+
+      <div class="booking-container">
+        <div>
+          <p>Caterer Details: </p>
+        </div>
+        <div>
+        <% provider = booking.provider_id %>
+        <% @provider = Provider.find(provider).listing_id %>
+        <p><%= @listing = Listing.find(@provider).name %></p>
+        </div>
+</div>
+
+<hr>
+
+
+    <% end %>
+      </ul>
     <% else %>
     <p>You have no Bookings</p>
   <% end %>
