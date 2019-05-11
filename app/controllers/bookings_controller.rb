@@ -19,9 +19,6 @@ class BookingsController < ApplicationController
       end
       end
 
-
-
-   
     end
   end
 
@@ -34,16 +31,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    # lat, long = geocoder_logic(@booking.location)
-    # place = Place.new
-    # place.latitude = lat
-    # place.longitude = long
-    # place.save
     
-
-
-
-
     per_person = Provider.find( @booking.provider_id).cost_per_head
     persons = @booking.persons
     @amount = per_person * persons
@@ -51,16 +39,20 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save
+    if @booking.save 
       lat, long = geocoder_logic(params[:location])
-      place = Place.new
-      place.latitude = lat
-      place.longitude = long
-      place.booking_id = @booking.id
-      place.save
-      redirect_to @booking, info: "Booking created"
-    else
+      if lat == nil
+        redirect_to listings_path(@booking), danger: "Location incorrect. Please enter valid address"
+      elsif
+        place = Place.new
+        place.latitude = lat
+        place.longitude = long
+        place.booking_id = @booking.id
+        place.save
+        redirect_to @booking, info: "Booking created"
+      else
       render 'new'
+    end
     end
 
 
@@ -87,8 +79,13 @@ class BookingsController < ApplicationController
     params.permit(:provider_id, :user_id, :booking_daytime, :persons, :location)
   end
 
+    # logic for geocode. converts address to lat and long
   def geocoder_logic(address) 
+
     geocode_objects = Geocoder.search(address)
+    if geocode_objects.empty?
+      return
+    end
     geocode_object = geocode_objects.first.coordinates
     lat = geocode_object[0]
     long = geocode_object[1]
