@@ -1,16 +1,43 @@
 # README  
+
+![cc_logo](https://user-images.githubusercontent.com/47741682/57575100-d1c0ef00-7487-11e9-805a-670f2042a370.png "Catering Combined")
+
 # Catering Combined. Many Cuisines, One Place
 Welcome to `Catering Combined`. The aim of this web application is to provide a number of catering cuisine options to the general public, on the same site.
 
 # Deliverables 
 A link (URL) to your published App:  
-A link to your GitHub repository.  
-Ensure the repo is accessible by your Educators.  
+A link to your GitHub repository.  https://github.com/owshepherd/rails-app-ca  
+Ensure the repo is accessible by your Educators: Repo is set to public view.   
 Description of your project, including,
-- Problem definition / purpose
+- Problem definition / purpose (see questions 1-3)
 - Functionality / features
-- Screenshots
+  - Navbar with drop down menus
+  - Cards that hover to indicate re-direction
+  - on landing page, 3 recent listings displayed. One click to access specific details
+  - 2 clicks to reach specific information from a seller 
+  - Users can search by cuisine type
+  - Users can book one or many caterers. pick a date and time of event
+  - Users can modify their account. Add an avatar 
+  - Users can leave reviews
+  - Admin can remove reviews
+  - Providers can see other listings and all reviews
+  - Providers can see all bookings (with information) and view a map for location of event
+
+
+- Screenshots (within the README.md)
 - Tech stack (e.g. html, css, deployment platform, etc)
+  - Programming language (Client side): html
+    - Stylesheet : SCSS
+    - Client side framework: Bootstrap
+  - Programming language (server side): Ruby v 2.5.3
+    - Framework: Ruby on Rails v 5.2.3
+  - Operating system: macOS Mojave Version 10.14.4
+  - Web server: Heroku
+  - Cloud storage: GitHub, Amazon SW3, Stripe
+  - Database: PostgreSQL 11.3 with PostGIS 2.5.2
+
+
 - Instructions on how to setup, configure and use your App.
 
 
@@ -130,7 +157,50 @@ An admin account has been created:
 robertdematteo1971@gmail.com.  
 password: 123456
 
+===================================================================================
+# Design documentation including,
+## Design process  
 
+## User stories (see question 20 )
+## A workflow diagram of the user journey/s (also see question 16)
+Guest:  
+- landing page - sign-up
+- landing page - listing index - listing show  
+
+User:  
+- landing page - sign-up
+- landing page - login
+- landing page - modify account
+- landing page - listing index - listing show - booking - booking summary - booking confirmation
+- landing page - listing index - listing show - review
+- landing page - bookings index page
+- landing page - user profile  
+
+Provider (caterer):
+- landing page - sign-up
+- landing page - login
+- landing page - modify account
+- landing page - listing index - listing show (listing and add review)
+- landing page - bookings index page - map show page
+- landing page - provider profile  
+
+User - Admin:
+- landing page - sign-up
+- landing page - login
+- landing page - modify account
+- landing page - listing index - listing show 
+- landing page - user index - user show - user edit
+- landing page - provider index - provider show - provider edit 
+
+
+## Wireframes (see question 16)
+## Database Entity Relationship Diagrams (see question 12)
+
+
+
+
+
+=================================================================================
 # Details of planning process including, #
 Project plan & timeline..
 
@@ -149,6 +219,7 @@ Week 2
 - [ ] Extras - Calendar for bookings
 - [ ] Searching, sorting and/or filtering capability
 - [X] Reviews for User
+- [X] Search funsction
 
 
 Day | Date | Tasks | Tasks completed | Blocks | Completed by
@@ -172,7 +243,7 @@ Fri | `10 May` | Add geolocater, styling, testing |  | | Styling - Owen, Other -
 
 
 
-
+=================================================================================================
 
 
 
@@ -330,9 +401,13 @@ Were we to select a comparable two-sided marketplace, I would choose AirBnB. The
 ```
 12. Discuss the database relations to be implemented.
 ```
-[PASTE ERDS HERE]
 
-Include ERD
+Design One - Department Store idea ERD
+<img width="1199" alt="erdV1store" src="https://user-images.githubusercontent.com/47741682/57575465-d2f51a80-748d-11e9-93b3-d48fbe976800.png">
+
+Design two - Catering idea ERD
+![erdV2](https://user-images.githubusercontent.com/47741682/57575450-a7723000-748d-11e9-876a-e8117f632b32.png)
+
 
 ```
 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
