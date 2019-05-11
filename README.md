@@ -1,7 +1,8 @@
-# README
-Welcome to `Company Name`. The aim of this web application is to provide a number of catering cuisine options to the general public, on the same site.
+# README  
+# Catering Combined. Many Cuisines, One Place
+Welcome to `Catering Combined`. The aim of this web application is to provide a number of catering cuisine options to the general public, on the same site.
 
-# Deliverables #
+# Deliverables 
 A link (URL) to your published App:  
 A link to your GitHub repository.  
 Ensure the repo is accessible by your Educators.  
@@ -13,8 +14,8 @@ Description of your project, including,
 - Instructions on how to setup, configure and use your App.
 
 
-# Instructions on how to setup, configure and use your App. #
-## 1. Directions for guest. ##
+# Instructions on how to setup, configure and use your App.
+## 1. Directions for guest. 
 Guest users can visit the site and view the different listings available.  
 Guests can click on one of the newest listings or click on the Listing link in the nav bar.  
 When a listing is clicked on, you will be re-directed to the Listing show page. In the show page you will find extra important information about the listing, including cuisine type, cost per person and minimum people required for booking. You can also read user reviews.  
@@ -279,7 +280,7 @@ Controllers for the application are as follows:
 - Users Controller
 - Welcome Controller
 
-Views, as mentioned previously, deal with teh application's graphical user interface. Many of the controllers. Views largely consist of an index page, a show page, a new page or an edit page. These views are tied to both the controllers and the models mentioned above.
+Views, as mentioned previously, deal with the application's graphical user interface. Many of the controllers. Views largely consist of an index page, a show page, a new page or an edit page. These views are tied to both the controllers and the models mentioned above.
 
 Partials (such as the navbar shown on all pages) are also considered views. These have been manually added to all pages where this should be shown.
 
@@ -430,7 +431,28 @@ Trello was used to list tasks that needed to be done, doing and completed. These
 ```
 18. Discuss how Agile methodology is being implemented in your project.
 ```
-The Agile Method is a particular approach to project management that is utilized in software development. This method assists teams in responding to the unpredictability of constructing software. It uses incremental, iterative work sequences that are commonly known as sprints.
+Agile is a project management methodology that uses short development cycles called sprints to focus on continuous improvement in the development of a product or service.  
+The more traditional cumbersome methodologies like waterfall typically require entire project groups to meet and discuss full project goals throughout each phase. Agile, however, uses smaller more focused groups that meet more frequently to discuss very specific goals, making it easier to make rapid changes as required. This allows teams to be more agile, more effective and increases the chances of meeting customer goals.  
+Here are some common agile terms and how we used them in our project:  
+- `Scrum - A framework by which a small team, consisting of a product owner, scrum master, developers, and testers, works to deliver a product or product increment in time periods of no more than 4 weeks, called “sprints.”`  
+The team consisted of Owen Shepherd and Robert De Matteo.  
+- `Sprint - A finite time period allotted to work on an approved number of tasks relating to a product increment. Sprints are prioritized in order of execution.`  
+Our Sprint cycle was daily. We set tasks to be completed at the beginning of the day.  
+- `User Stories - Small elements that work is divided up into. Each story contributes to the value of the end product. User stories are frequently referred to as “tickets.”`  
+We used user stories as out testing tool.  
+- `Scrum/Kanban Board - A task board divided into sections (usually columns). The most basic task board has columns labelled To Do, In Progress, and Done.`  
+- We used Trello as our scrum board. We has three columns: to do, doing and done. 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
