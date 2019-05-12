@@ -13,7 +13,7 @@
           <p>Date and time of Event:  </p>
         </div>
         <div>
-          <p><%= booking.booking_daytime.strftime("%B %d, %Y, %I:%M %p") %></p>
+          <%= booking.booking_daytime.strftime("%B %d, %Y, %I:%M %p") %>
         </div>
         </div>
 
@@ -22,7 +22,7 @@
           <p>Number of persons:  </p>
         </div>
         <div>
-          <p><%= booking.persons %></p>
+          <%= booking.persons %>
         </div>
         </div>
 
@@ -31,7 +31,7 @@
               <p>Event location:  </p>
             </div>
             <div>
-              <p><%= booking.location %></p>
+              <%= booking.location %>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
         <div>
         <% provider = booking.provider_id %>
         <% @provider = Provider.find(provider).listing_id %>
-        <p><%= @listing = Listing.find(@provider).name %></p>
+        <%= @listing = Listing.find(@provider).name %>
         </div>
 </div>
 

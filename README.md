@@ -6,7 +6,7 @@
 Welcome to `Catering Combined`. The aim of this web application is to provide a number of catering cuisine options to the general public, on the same site.
 
 # Deliverables 
-A link (URL) to your published App:  
+A link (URL) to your published App:  https://floating-wave-89515.herokuapp.com
 A link to your GitHub repository.  https://github.com/owshepherd/rails-app-ca  
 Ensure the repo is accessible by your Educators: Repo is set to public view.   
 Description of your project, including,
@@ -167,6 +167,30 @@ harrison.malone2@gmail.com !!
 # Design documentation including,
 ## Design process  
 
+We used figma to produce wireframes and user workflows.  
+We used DB Designer to create our ERD diagram and to configure associations. 
+
+*Overall design*  
+Bootstrap was used for the majority of the app. Although bootstrap provides a wealth of designs it was frustrating to over-ride default options.  
+
+*Colors*    
+The color palette was very simple. We used a combination of blue (color: #007bff), grey (color: #757575), white (color: #FFFFFF) and black (color: rgb(38, 38, 38)
+
+![colors](https://user-images.githubusercontent.com/47741682/57579135-0f029c80-74db-11e9-9a6c-45c6d737c90e.png)
+
+![colors2](https://user-images.githubusercontent.com/47741682/57579147-44a78580-74db-11e9-950b-53f3a1c874ff.png)
+
+*Fonts*
+Our global font-family was: 'Open Sans', sans-serif. We placed this in our application controller with the !important tag. 
+
+*Page Layout*  
+We used an open layout for all our web pages. This approach lead to clean well spaced out design.  
+As we have two separate sign-up/in 
+The navbar was located at the top of each page, with drop down menus. 
+
+
+
+
 ## User stories (see question 20 )
 ## A workflow diagram of the user journey/s (also see question 16)
 Guest:  
@@ -290,11 +314,12 @@ Our application is a catering service platform which enables consumers to source
 ```
 4. Describe the network infrastructure the App may be based on.
 ```
-Heroku
-**** What is a heroku dyno is an instance of a server.........
 
-Catering Combined uses the cloud platform Heroku for its infrastructure. Heroku has enabled us to handle tasks such as application deployment and hosting. As Heroku handles much of this for us, we are able to direct a majority of our focus toward application development - this is particularly true as application are able to be instantly deployed from the terminal ("git push" commands). Heroku performs the building tasks for the application and makes numerous add-on resources available.
+Catering Combined uses the cloud platform Heroku for its infrastructure. Heroku has enabled us to handle tasks such as application deployment and hosting. 
+When our app is deployed to Heroku, using Heroku run commands. Heroku packages the app’s code and dependencies into containers (lightweight, isolated environments that provide compute, memory, an OS, and an ephemeral filesystem). Containers are typically run on a shared host, yet are completely isolated from each other.  
 
+The Heroku Platform uses the container model to run and scale all Heroku apps. The containers used at Heroku are called “dynos.” Dynos are isolated, virtualized Linux containers that are designed to execute code based on a user-specified command. A Heroku dyno is an instance of a server, that has all your app's source code, dependencies and environment variables pre-loaded into it, and can run any process that comprises your app.  
+As Heroku handles much of this for us, we are able to direct a majority of our focus toward application development - this is particularly true as application are able to be instantly deployed from the terminal ("git push" commands). Heroku performs the building tasks for the application and makes numerous add-on resources available. 
 
 ```
 5. Identify and describe the software to be used in your App.
@@ -318,8 +343,6 @@ PostgreSQL 11 is now the default version for all new provisioned Heroku Postgres
 ```
 7. Identify and describe the production database setup (i.e. postgres instance).
 ```
-local structure for database
-heroku run rails ..to send instructions to heroku run db:migrate etc instance
 
 The database for our application was PostgreSQL. PSQL was used in favour of the stock SQLite due it being a more efficient alternative. PSQL is also able to be used in conjunction with Heroku without issue.
 
@@ -328,9 +351,6 @@ Creation of the PSQL database is relatively simple. First the user specifies whi
 ```
 8. Describe the architecture of your App.
 ```
-
-*** Describing MVC. If i type in Heroku get request what happens
-
 This application was been created using the Ruby on Rails framework. This framework uses an MVC (model view controller) architecture which, as suggested, separates the application into different components: the model (logic), controllers (intermediary between the model and the view) and the views (user interface).
 
 Within this application, there are several models. These are:
@@ -420,7 +440,7 @@ Design two - Catering idea ERD
 ```
 Active Record is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. An association is a connection between two Active Record models. The types of associations used in our model where:
 - belongs_to
-- has_oneadded
+- has_one
 - has_many
 
 
@@ -469,15 +489,10 @@ Place
 14. Provide your database schema design.
 ```
 The schema for our application is as above.
-[Don't know what else to put here; it always says what it is in the question above?]
-
-
 
 ```
 15. Provide User stories for your App.
 ```
-*** User can login and do this.... templates click on button to achieve this
-
 As a guest, visitors can:
 - Visit the site
 - Browse listings (either all or by cuisine type)
@@ -503,7 +518,6 @@ As a provider (caterer), visitors can:
 The Wire frames are located at https://www.figma.com/file/aIJ1hn7A456uyNmlZVCCDccz/Rails-Project?node-id=0%3A1 and images are below.  
 
 
-
 <img width="910" alt="wireframe" src="https://user-images.githubusercontent.com/47741682/57575652-f28e4200-7491-11e9-8a2f-c06894d3fe36.png">
 
 ```
@@ -518,7 +532,6 @@ Trello was used to list tasks that needed to be done, doing and completed. These
  We used slack to communicate issues  
 
  <img width="1018" alt="interaction_with_owen" src="https://user-images.githubusercontent.com/47741682/57575671-35501a00-7492-11e9-939a-7911dcbe1eca.png">
-
 
 
 
@@ -547,7 +560,7 @@ Not implemented.
 ```
 19. Provide an overview and description of your Source control process.
 ```
-Source control proved to relatively difficult for us due to persistant merge conflicts and similar issues with GitHub. Owen largely worked within the master after becoming frustrated working in his own individual branch and repeatedly encountering these kinds of issues. Rob, conversely, worked within his own assigned branch and pushed his work up to master. The approach used by Rob is the more ideal method of source/version control (ie. submit a pull request, review the work and merge with master branch). An additional approach would be to delete each working branch after it has been pushed to Github.
+Source control proved to relatively difficult for us due to persistent merge conflicts and similar issues with GitHub. Owen largely worked within the master after becoming frustrated working in his own individual branch and repeatedly encountering these kinds of issues. Rob, conversely, worked within his own assigned branch and pushed his work up to master. The approach used by Rob is the more ideal method of source/version control (ie. submit a pull request, review the work and merge with master branch). An additional approach would be to delete each working branch after it has been pushed to Github.
 
 
 ```
@@ -559,8 +572,6 @@ Our testing comprised of user stories and manual testing. We also had third part
 ```
 21. Discuss and analyse requirements related to information system security.
 ```
-authorize and authtication
-general - has in passwords, protecting user data.
 
 Information security is defined as `protecting information (data) and information systems from unauthorized access, use, disclosure, disruption, modification, or destruction.` The threats against web applications include user account hijacking, bypass of access control, reading or modifying sensitive data, or presenting fraudulent content.
 
@@ -581,15 +592,18 @@ Protection of the device which contains the source of the code is another consid
 
 Rails has developed an extensive file on Securing Rails Applications https://guides.rubyonrails.org/security.html#intranet-and-admin-security.  Adhering to these suggestions would increase the security of our app. 
 
-*** I NEED TO ELABORATE ON THIS BUT AM NOT SURE HOW, WILL COME BACK TO IT
-
 We were also advised by our instructors not to push security keys and/or other passcodes to GitHub and that these should be included in the git-ignore for our application. This is due to the prevalence of bots and/or malicious use whereby these keys are discovered by a third-party and used without the owner's consent. These passcodes can be stored securely within Heroku (config vars, .env).
 
 ```
 22. Discuss methods you will use to protect information and data.
 ```
+All credit card information is stored in the Stripe database, so no need to protect this information.  
+User accounts are protected using by email and password combination.  
+The database is stored in Heroku servers thus user and provider information is protected with Heroku security systems.  
+All keys that are stored in the .env file have variables names that are used in the development and production environment. The .env file has been placed in the gitignore file. This means this data stays on local machines.  
+Stripe and Google Cloud Keys have are stored in credentials.yml which encrypts the keys. Since this file is encrypted, it is safe to push this to a remote git repository or a server.  
+the master.key is a file containing the encryption key. Without this file or if it is modified, Rails will not be able to read credentials stored in credentials.yml.enc. The maser.key has been placed in the gitignore file. 
 
-Stuff about Stripe??
 
 ```
 23. Research what your legal obligations are in relation to handling user data.
@@ -629,19 +643,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-ERD provided represents a normalised database model
-Model implementation represents a normalised database model
-Database design appropriately addresses the requirements of a complex scenario
-Implemented controllers demonstrate correct use of commands to query the database infrastructure
-Queries implemented provide correct data for the given scenario
-Code comments demonstrate how the queries implemented correctly represent the database structure
-Documentation describes relational database model and database infrastructure
-This criterion is linked to a Learning Outcome Implementation of data operations demonstrate an understanding of the relational database model used
-Relationships are correctly defined as ActiveRecord associations to reflect understanding of the desired database structure
-Identify entities which must be tracked by the application
-This criterion is linked to a Learning Outcome Identify relationships / associations between entities
-Design a schema appropriate for relational databases
-This criterion is linked to a Learning Outcome Identify and use appropriate model methods
-Minimising database calls needed to perform an action
-Sanitise and validates input to maintain data integrity

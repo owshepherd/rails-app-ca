@@ -8,14 +8,15 @@
   <p class="lead">
     <%= link_to 'Click here', new_provider_registration_path, class: "btn btn-primary btn-lg" %>
   </p>
-</div>
-</div>
-</div>
-<hr>
-<h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Newest Listings</h3>
-<hr>
+  </div>
+  </div>
+  </div>
+  <hr>
+  <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Newest Listings</h3>
+  <hr>
 
-<% @listings = Listing.order("created_at desc").limit(3) %>
+  <% @listings = Listing.order("created_at desc").limit(3) %>
+
 
 
 <div class="container">
@@ -33,27 +34,31 @@
                   
                   <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.provider.cuisine.cuisine_type %></p>
                   <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= listing.provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= listing.provider.minimum_persons %>+</p>
+
                     
-                    <div class="card-review-pane" data-score=<%= @average_review %></div>
-                    <p>&#9733; <% @average_review = listing.reviews.average(:rating) %>
-                      <% if @average_review.blank? %>
-                        0.0
-                      <% else %>
-                        <%= @average_review.round(1) %>
-                      <% end %>
-                      (<%= listing.reviews.count %>)
-                    </p>
+                    <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.cuisine.cuisine_type %></p>
+                    <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= listing.provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= listing.provider.minimum_persons %>+</p>
+                      
+                      <div class="card-review-pane" data-score=<%= @average_review %></div>
+                      <p>&#9733; <% @average_review = listing.reviews.average(:rating) %>
+                        <% if @average_review.blank? %>
+                          0.0
+                        <% else %>
+                          <%= @average_review.round(1) %>
+                        <% end %>
+                        (<%= listing.reviews.count %>)
+                      </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+      
+      <% end %>
+    </div>
+  </div>
     
     <% end %>
-  </div>
-  </div>
-  
-  <% end %>
-  
+    
   </div>
   <!-- /.row -->
   
@@ -75,4 +80,51 @@
 <% else %>
 <% end %>
 
+<<<<<<< HEAD
 <%= render "shared/footer" %>
+=======
+
+<!--
+  <div class="container">
+  <div class="row">
+    <% @listings.each_with_index do |listing, index| %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <%= link_to listing_path(listing.id) do %>
+            <div class="card-img-wrap"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= listing.name %>
+                </h4>
+                <h5>$24.99</h5>
+                  <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.provider.cuisine.cuisine_type %></p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              <small class="text-muted">
+              <p><%= link_to "Show Listing", listing_path(listing.id) %>        
+                <%if !current_provider.nil? && (listing.provider == current_provider) %> 
+                  <%= link_to "-Edit Listing Name", edit_listing_path(listing.id) %>
+
+                  <% end %>
+
+                  <% if user_signed_in? && current_user.admin? %>  
+                  <%= link_to 'Destroy', listing_path(listing.id),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </p>
+              </small>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+>>>>>>> 848421c6881fc1dbd44cc8637ce9d282828a6350
