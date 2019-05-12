@@ -18,18 +18,23 @@
   <% @listings = Listing.order("created_at desc").limit(3) %>
 
 
-  <div class="container">
-    <div class="row">
-      <% @listings.each_with_index do |listing, index| %>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="listing-card">
-            <div class="card h-100">
-              <%= link_to listing_path(listing.id) do %>
-                <div class="card-img-wrap"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
-                  <div class="card-body">
-                    <h4 class="card-title">
-                      <%= listing.name %>
-                    </h4>
+
+<div class="container">
+  <div class="row">
+    <% @listings.each_with_index do |listing, index| %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="listing-card">
+          <div class="card h-100">
+            <%= link_to listing_path(listing.id) do %>
+              <div class="card-img-wrap"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <%= listing.name %>
+                  </h4>
+                  
+                  <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.provider.cuisine.cuisine_type %></p>
+                  <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= listing.provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= listing.provider.minimum_persons %>+</p>
+
                     
                     <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.cuisine.cuisine_type %></p>
                     <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= listing.provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= listing.provider.minimum_persons %>+</p>
@@ -89,7 +94,7 @@
                   <%= listing.name %>
                 </h4>
                 <h5>$24.99</h5>
-                  <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.cuisine.cuisine_type %></p>
+                  <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.provider.cuisine.cuisine_type %></p>
               </div>
             </div>
             <div class="card-footer">

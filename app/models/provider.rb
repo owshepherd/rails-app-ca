@@ -5,8 +5,7 @@ class Provider < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one :listing
-  has_one :cuisine
   has_many :bookings
-  
+  belongs_to :cuisine
 
 end
