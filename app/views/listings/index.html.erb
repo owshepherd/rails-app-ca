@@ -2,10 +2,16 @@
 
 <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Listings</h3>
 
-
+<% if @listings.empty? %>
+<p style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">There are currently no listings for this cuisine type. Try again.</p>
+  <% end %>
 <div class="container">
 <div class="row">
+
+
+
 <% @listings.each_with_index do |listing, index| %>
+  
 <div class="col-lg-4 col-md-6 mb-4">
 <div class="listing-card">
   <div class="card h-100">

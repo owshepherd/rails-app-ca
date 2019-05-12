@@ -1,27 +1,46 @@
 <%= render "shared/nav" %>
 <h2>Log in Provider</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+
+<%= render "shared/nav" %>
+
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-2">
+      <h3>Provider Login</h3>
+      <%= form_for(:provider) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email address *" %>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password *" %>
+        </div>
+        <div class="form-group" style="color:white;">
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Login", class: "btnSubmit" %>
+        </div>
+        <div class="form-group">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "ForgetPwd" %><br />
+          <% end %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+      <div class="col-md-6 login-form-2" style="background: url(https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80); background-size: cover;">
+      <img src="">
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+        </div>
   </div>
-<% end %>
+</div>   
+
 
 <%= render "providers/shared/links" %>
