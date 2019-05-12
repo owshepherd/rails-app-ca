@@ -125,6 +125,11 @@
   padding-top: 4px;
   margin:0px;
 }
+.button-colour input[type=submit] {
+  background: none;
+  border: none;
+  color: white;
+}
 .show-card .card-review-pane p {
   color: black;
   background: lightgrey;

@@ -74,43 +74,6 @@
   </div>
 </div>
 
-<!---
-
-<h2><%= @listing.name %></h2>
-
-<p>Contact: <%= @listing.provider.name %></p>
-<p>email: <%= @listing.provider.email %></p>
-<p>Minimum Persons: <%= @listing.provider.minimum_persons %></p>
-<p>Cost Per head: $<%= @listing.provider.cost_per_head %></p>
-<p>Provider id: <%= @listing.provider.id %></p>
-<p>Listing id: <%= @listing.provider.listing_id %></p>
-
---->
-
-<!--
-
-<%= link_to '<< Back', listings_path %>
-
--->
-
-<!-- <% if user_signed_in? %> 
-<p><strong><%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @provider }) %></strong></p>
-<% end %> -->
-
-<!--
-
-<%if !current_provider.nil? && (@listing.provider == current_provider) %> 
-  <%= link_to "-Edit Listing", edit_listing_path(@listing.id) %>
-<% end %>
-
-<% if user_signed_in? && current_user.admin? %>  
-  <%= link_to 'Edit Listing', edit_listing_path(@listing) %> 
-  <%= link_to 'Destroy', listings_path(@listing.id),
-  method: :delete,
-  data: { confirm: 'Are you sure?' } %>
-<% end %>
-
--->
 
 <div class="review-card-container">
 <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">
@@ -165,42 +128,7 @@
 </div>
 <% end %>
 
-<!--
 
-<div class="UserReviewWrapper">
-  <% if @listing.reviews.any? %>
-    <h2>User Reviews</h2>
-
-    <% @listing.reviews.each do |review| %>
-    <div class="UserReview">
-    
-    <p><strong>Username:</strong>
-      <%= review.username %></p>
-  
-    <p><strong>Comment:</strong>
-      <%= review.content %></p>
-
-    <p><strong>Rating:</strong>
-      <%= review.rating %></p>
-    
-    <p><strong>Id:</strong>
-      <%= review.id %></p>
-
-      <% if user_signed_in? && (review.user_id == current_user.id) %> 
-        <p><%= link_to 'Edit Review', edit_listing_review_path(@listing, review) %></p>
-      <% end %>
-    
-      <% if user_signed_in? && current_user.admin? %> 
-        <p><%= link_to 'Destroy Review', listing_review_path(@listing, review),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
-        </p>
-      <% end %>
-    </div>
-    <% end %>
-  <% end %>
-</div>
--->
 
 <% if user_signed_in? %> 
   <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Add a Review</h5>

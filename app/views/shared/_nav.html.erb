@@ -24,6 +24,13 @@
       <%= link_to 'My Bookings', bookings_path, class: "nav-link" %>
       <% end %>
       </li>
+      
+<% if user_signed_in? %>         
+<li class="nav-item"><%= link_to "User Profile", user_path(current_user.id) %></li> 
+<% end %>
+
+
+
       </ul>
       <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
