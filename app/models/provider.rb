@@ -6,6 +6,6 @@ class Provider < ApplicationRecord
   
   belongs_to :listing
   has_many :bookings
-  # belongs_to :cuisine
+  belongs_to :cuisine
 
 end

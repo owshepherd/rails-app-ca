@@ -46,7 +46,7 @@
   </div>
 
 <div>
-  <%= select_tag "cuisine_id", options_from_collection_for_select(@cuisine, 'id', 'cuisine_type', @listing.cuisine_id) %>
+  <%= f.select :cuisine_id, options_from_collection_for_select(@cuisine, 'id', 'cuisine_type', @listing.provider.cuisine_id) %>
 </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
