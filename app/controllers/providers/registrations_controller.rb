@@ -27,7 +27,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   #PUT /resource
   def update
-    current_provider.listing.update_attributes(cuisine_id: params[:cuisine_id])
+    current_provider.update_attributes(cuisine_id: params[:provider][:cuisine_id])
     super
   end
 
@@ -79,9 +79,10 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
+    puts "!!!!!!!"
     super(resource)
     @provider = current_provider
-    @listing = Listing.create!(name: params[:provider][:name], provider: @provider, cuisine_id: params[:provider][:cuisine_id])
+    @listing = Listing.create!(name: params[:provider][:name], provider: @provider)
     listing_path(@listing.id)
   end
 

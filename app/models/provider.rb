@@ -4,7 +4,7 @@ class Provider < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  belongs_to :listing
+  has_one :listing
   has_many :bookings
   belongs_to :cuisine
 

@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  has_one :provider
+  belongs_to :provider
   has_many :reviews, dependent: :destroy
   # belongs_to :cuisine
   validates :name, presence: true
