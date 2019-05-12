@@ -19,11 +19,20 @@
             <%= link_to cuisine.cuisine_type, listings_path(cuisine: cuisine.cuisine_type), class: "dropdown-item" %>
           <% end %>
       </div>      
-      <li class="nav-item">
+
       <% if user_signed_in? || provider_signed_in? %>  
+      <li class="nav-item">
       <%= link_to 'My Bookings', bookings_path, class: "nav-link" %>
-      </li><li class="nav-item">
-      <%= link_to "User Profile", user_path(current_user.id), class: "nav-link" %> 
+      </li>
+      <% end %>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+      <%= link_to "My Profile", user_path(current_user.id), class: "nav-link" %> 
+      </li>
+      <% elsif provider_signed_in? %>
+      <li class="nav-item">
+            <%= link_to "My Profile", provider_path(current_provider.id), class: "nav-link" %> 
+      </li>
       <% end %>
 
 
