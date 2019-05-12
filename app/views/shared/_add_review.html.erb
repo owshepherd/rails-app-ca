@@ -3,7 +3,8 @@
 
 
 <div class="reviewAddWrapper">
-  
+<div class="card">
+  <div class="card-body">
   <%= form_for([@listing, @review]) do |form| %>
 
     <div class="field reviewfield">
@@ -34,9 +35,11 @@
 
     </div>
   
-    <div class="submitreview">
+    <div class="btn btn-primary">
     <p><%= form.submit %></p>
     <% end %>
     </div>
   
+</div>
+</div>
 </div>
