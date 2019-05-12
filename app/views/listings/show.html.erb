@@ -30,9 +30,7 @@
           <% end %>
 
           <%if !current_provider.nil? && ( @listing.provider == current_provider) %> 
-            <%= link_to edit_listing_path(@listing.id), class:"btn btn-primary" do %>
-              Edit Listing
-            <% end %>
+        <%= link_to 'Edit Account Information', edit_provider_registration_path, class: "btn btn-primary" %>
           <% end %>
           
           <% if user_signed_in? && current_user.admin? %>             

@@ -66,52 +66,6 @@
   </div>
   <!-- /.container -->
 
-
-
-
-<!--
-  <div class="container">
-  <div class="row">
-    <% @listings.each_with_index do |listing, index| %>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <%= link_to listing_path(listing.id) do %>
-            <div class="card-img-wrap"><img class="card-img-top" src="https://www.thebetterindia.com/wp-content/uploads/2017/03/wedding-buffet-food.jpg" alt="Image">
-              <div class="card-body">
-                <h4 class="card-title">
-                  <%= listing.name %>
-                </h4>
-                <h5>$24.99</h5>
-                  <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.provider.cuisine.cuisine_type %></p>
-              </div>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              <small class="text-muted">
-              <p><%= link_to "Show Listing", listing_path(listing.id) %>        
-                <%if !current_provider.nil? && (listing.provider == current_provider) %> 
-                  <%= link_to "-Edit Listing Name", edit_listing_path(listing.id) %>
-
-                  <% end %>
-
-                  <% if user_signed_in? && current_user.admin? %>  
-                  <%= link_to 'Destroy', listing_path(listing.id),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
-                  <% end %>
-                </p>
-              </small>
-            </div>
-          </div>
-        <% end %>
-        </div>
-      <% end %>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
 <% if user_signed_in? %>         
 <li><%= link_to "User Bookings", bookings_path %></li> 
 <li><%= link_to "User Profile", user_path(current_user.id) %></li> 
@@ -120,3 +74,5 @@
 <li><%= link_to "Provider Bookings", bookings_path %></li>
 <% else %>
 <% end %>
+
+<%= render "shared/footer" %>
