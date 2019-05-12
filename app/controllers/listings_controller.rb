@@ -7,9 +7,9 @@ class ListingsController < ApplicationController
     else
       # @cuisine_id = Cuisine.find_by(cuisine: params[:cuisine]).id
       # @listings = Listing.where(:cuisine_id => @cuisine_id).order("created_at DESC")
-      
-      @listings = Cuisine.find_by(cuisine_type: params[:cuisine]).listings
-      
+      @cuisine = Cuisine.find_by(cuisine_type: params[:cuisine])
+      @providers = Provider.where(cuisine_id: @cuisine.id)
+      @listings = Listing.where(provider: @providers)
     end
   end
 
