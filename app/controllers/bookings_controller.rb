@@ -7,11 +7,12 @@ class BookingsController < ApplicationController
     
     if user_signed_in?  
       @bookings = current_user.bookings
+      
      
     else 
       @bookings = Booking.all
       @provider = Provider.find(current_provider.id)
-      # tests if curernt provider has bookings
+      # tests if current provider has bookings
       array = []
       @array = array
       @bookings.each_with_index do |booking, index|
