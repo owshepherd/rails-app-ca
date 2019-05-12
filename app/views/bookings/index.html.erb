@@ -59,30 +59,66 @@
 
 
 <% if provider_signed_in? %>   
-  <p>Hi <%= current_provider.username %>. 
+  <p>Hi <%= current_provider.username.capitalize %>. 
   
     <% if @array.empty?%>
     <p>You have no bookings;</p>
     <% else %>
     <p>Your bookings are below;</p>
-    <ul>
+
       <% @bookings.each_with_index do |booking, index| %>
       
         <% if booking.provider_id == current_provider.id %>
-        <li>
-        - Your id: <%= booking.provider_id %>
-        - Location: <%= booking.location %>
-        - Persons: <%= booking.persons %>
-        - User id: <%= booking.user_id %>
-        - User name: <%= User.find(booking.user_id).firstname %>
+        <div class="bookings-wrapper"> 
+        <div class="booking-container">
+          <div>
+           <p>Your id:</p>
+          </div>
+          <div>
+         <%= booking.provider_id %>
+          </div>
+        </div>
+        <div class="booking-container">
+         <div>
+         <p>Event Location: </p>
+         </div>
+         <div>
+        <%= booking.location %>
+          </div>
+        </div>
+        <div class="booking-container">
+         <div>
+         <p>Number of Persons:</p>
+         </div>
+
+         <div>
+         <%= booking.persons %>
+          </div>
+        </div>
+        <div class="booking-container">
+         <div>
+         <p>User id:</p>
+         </div>
+         <div>
+         <%= booking.user_id %>
+          </div>
+        </div>
+        <div class="booking-container">
+         <div>
+         <p>User name:</p>
+         </div>
+         <div>
+         <%= User.find(booking.user_id).firstname %>
+         <%= User.find(booking.user_id).lastname %>
+          </div>
+        </div>
+
+         <div class="booking-container">
         <%if booking.place %> 
-        - <%= link_to "Map Location", place_path(booking.place.id)  %>
+        <%= link_to "Google Map - Location", place_path(booking.place.id)  %>
         <% end%>
-        </li>
+      </div>
         <% end %>
-      <% end %>
-    </ul>
-      
-      
+      <% end %>  
   <% end %>
 <% end %>
