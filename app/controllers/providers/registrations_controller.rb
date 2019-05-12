@@ -3,7 +3,7 @@
 class Providers::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  after_action :add_cuisine_id_to_provider, only: :create
+  #  after_action :add_cuisine_id_to_provider, only: :create
   after_action :send_update_email, only: :update
 
   #GET /resource/sign_up
@@ -15,18 +15,22 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   #POST /resource
   def create
     @cuisine = Cuisine.all
+    puts "!!!!"
+    puts params.inspect
+    puts "!!!!"
     super
   end
 
   #GET /resource/edit
   def edit
     @cuisine = Cuisine.all
+    @listing = current_provider.listing
     super
   end
 
   #PUT /resource
   def update
-    @cuisine = Cuisine.all
+    current_provider.listing.update_attributes(cuisine_id: params[:cuisine_id])
     super
   end
 
@@ -80,7 +84,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     super(resource)
     @provider = current_provider
-    @listing = Listing.create!(name: params[:provider][:name], provider: @provider, cuisine_id: params[:provider][:cuisine_id])
+    @listing = Listing.create!(name: params[:provider][:name], provider: @provider, cuisine_id: params[:cuisine_id])
     listing_path(@listing.id)
   end
 

@@ -38,7 +38,7 @@
 
 
 <div class="form-group">
-  <%= f.select :cuisine_id, options_from_collection_for_select(@cuisine, 'id', 'cuisine_type'), class: "form-control" %>
+  <%= select_tag 'cuisine_id', options_from_collection_for_select(@cuisine, 'id', 'cuisine_type'), class: "form-control" %>
 </div>
 
 <div class="form-group">
@@ -128,5 +128,7 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
+-->
 
 <%= render "providers/shared/links" %> -->
