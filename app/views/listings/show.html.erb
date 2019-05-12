@@ -6,7 +6,7 @@
     <div class="show-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><%= @listing.name %></h4>
+          <h4 class="card-title"><%= @listing.provider.name %></h4>
           <p class="card-text"><%= @listing.provider.city %> <%= @listing.provider.state %>  •  <%= @listing.cuisine.cuisine_type %></p>
           <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= @information = Listing.find(@listing.id).provider.cost_per_head %> per person for <i class="fas fa-user-friends"></i> <%= Listing.find(@listing.id).provider.minimum_persons %>
           <% if @information == 1 %>
@@ -29,15 +29,15 @@
             <%= link_to "Create a Booking", new_booking_path(:listing_info => { :provider_id => @listing.provider }), class: "btn btn-primary" %>
           <% end %>
 
-          <%if !current_provider.nil? && (@listing.provider == current_provider) %> 
+          <%if !current_provider.nil? && ( @listing.provider == current_provider) %> 
             <%= link_to edit_listing_path(@listing.id), class:"btn btn-primary" do %>
-              <i class="fa fa-pencil"></i>
+              Edit Listing
             <% end %>
           <% end %>
           
           <% if user_signed_in? && current_user.admin? %>             
             <%= link_to edit_listing_path(@listing.id), class:"btn btn-primary" do %>
-              <i class="fa fa-pencil"></i>
+              Edit
             <% end %> 
 
             <%= link_to listings_path(@listing.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" do %>
