@@ -8,14 +8,15 @@
   <p class="lead">
     <%= link_to 'Click here', new_provider_registration_path, class: "btn btn-primary btn-lg" %>
   </p>
-</div>
-</div>
-</div>
-<hr>
-<h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Newest Listings</h3>
-<hr>
+  </div>
+  </div>
+  </div>
+  <hr>
+  <h3 style="margin-top:0.5rem; margin-left:20px; margin-right:20px;">Newest Listings</h3>
+  <hr>
 
-<% @listings = Listing.order("created_at desc").limit(3) %>
+  <% @listings = Listing.order("created_at desc").limit(3) %>
+
 
 
 <div class="container">
@@ -33,27 +34,31 @@
                   
                   <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.provider.cuisine.cuisine_type %></p>
                   <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= listing.provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= listing.provider.minimum_persons %>+</p>
+
                     
-                    <div class="card-review-pane" data-score=<%= @average_review %></div>
-                    <p>&#9733; <% @average_review = listing.reviews.average(:rating) %>
-                      <% if @average_review.blank? %>
-                        0.0
-                      <% else %>
-                        <%= @average_review.round(1) %>
-                      <% end %>
-                      (<%= listing.reviews.count %>)
-                    </p>
+                    <p class="card-text"><%= listing.provider.city %> <%= listing.provider.state %> • <%= listing.cuisine.cuisine_type %></p>
+                    <p class="card-text"><i class="fas fa-dollar-sign"></i> $<%= listing.provider.cost_per_head %> &nbsp; <i class="fas fa-user-friends"></i> <%= listing.provider.minimum_persons %>+</p>
+                      
+                      <div class="card-review-pane" data-score=<%= @average_review %></div>
+                      <p>&#9733; <% @average_review = listing.reviews.average(:rating) %>
+                        <% if @average_review.blank? %>
+                          0.0
+                        <% else %>
+                          <%= @average_review.round(1) %>
+                        <% end %>
+                        (<%= listing.reviews.count %>)
+                      </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+      
+      <% end %>
+    </div>
+  </div>
     
     <% end %>
-  </div>
-  </div>
-  
-  <% end %>
-  
+    
   </div>
   <!-- /.row -->
   
@@ -66,7 +71,14 @@
   </div>
   <!-- /.container -->
 
+<% if user_signed_in? %>         
+<li><%= link_to "User Bookings", bookings_path %></li> 
+<li><%= link_to "User Profile", user_path(current_user.id) %></li> 
 
+<% elsif provider_signed_in? %>
+<li><%= link_to "Provider Bookings", bookings_path %></li>
+<% else %>
+<% end %>
 
 
 <!--
@@ -112,11 +124,3 @@
 </div>
 -->
 
-<% if user_signed_in? %>         
-<li><%= link_to "User Bookings", bookings_path %></li> 
-<li><%= link_to "User Profile", user_path(current_user.id) %></li> 
-
-<% elsif provider_signed_in? %>
-<li><%= link_to "Provider Bookings", bookings_path %></li>
-<% else %>
-<% end %>
