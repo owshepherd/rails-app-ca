@@ -35,15 +35,7 @@
             </div>
         </div>
 
-      <div class="booking-container">
-        <div>
-          <p>Caterer Details: </p>
-        </div>
-        <div>
-        <% provider = booking.provider_id %>
-        <% @provider = Provider.find(provider).listing_id %>
-        <%= @listing = Listing.find(@provider).name %>
-        </div>
+      
 </div>
 
 <hr>
